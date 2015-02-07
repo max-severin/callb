@@ -1,0 +1,17 @@
+{if isset($call_b_settings.status) && $call_b_settings.status && isset($call_b_settings.mail) && $call_b_settings.mail}
+	
+	<style type="text/css">
+		{include file="../css/callb.css" inline}
+	</style>
+
+	<script type="text/javascript">
+		{include file="../js/callb.js"}
+	</script>
+
+{else}
+
+	<style>
+		{$call_b_settings.id_html} { display: none; }
+	</style>
+	
+{/if}
