@@ -1,0 +1,47 @@
+<h1>Обратный звонок</h1>
+<div class="fields form">
+    <form action="?module=plugins&id=callb&action=save" method="post" id="plugins-settings-form">
+        {$wa->csrf()}
+
+        <div class="field">
+            <div class="name">
+                Статус плагина
+            </div>
+            <div class="value">
+                <select name="shop_callb[status]">
+                    <option {if isset($settings.status) &&  $settings.status == 0} selected="selected"{/if} value="0">Выключен</option>
+                    <option {if isset($settings.status) && $settings.status == 1} selected="selected"{/if} value="1">Включен</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="name">
+                E-mail
+            </div>
+            <div class="value">
+                <input type="text" name="shop_callb[mail]" value="{if isset($settings.mail)}{$settings.mail}{/if}"/>
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="name">
+                Идентификатор или класс кнопки на странице
+            </div>
+            <div class="value">
+                <input type="text" name="shop_callb[id_html]" value="{if isset($settings.id_html)}{$settings.id_html}{/if}" placeholder="#CallBackId или .CallBackClass" />
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="value submit">
+                <input type="submit" class="button green" value="Сохранить">
+                <span id="plugins-settings-form-status" style="display:none">
+                    <i style="vertical-align:middle" class="icon16 yes"></i> [`Saved`]
+                </span>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="clear-both"></div>
