@@ -20,4 +20,10 @@ class shopCallbPlugin extends shopPlugin {
 
     }
 
+    // public function settingCustomControl() {           
+
+    //     //       
+
+    // }
+
 }
