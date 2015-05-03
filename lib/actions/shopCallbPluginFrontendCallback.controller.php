@@ -14,19 +14,37 @@ class shopCallbPluginFrontendCallbackController extends waJsonController
         $name = waRequest::post('name', '', 'str');
         $phone = waRequest::post('phone', '', 'str');
 
-        if ( $settings['status'] && $settings['mail'] && $name && $phone ) {
+        if ( isset($settings['status']) && $settings['status'] === 'on' && !empty($name) && !empty($phone) ) {
 
+            if (!$settings['email_of_sender']) { $settings['email_of_sender'] = wa('shop')->getConfig()->getGeneralSettings("email"); }
+            if (!$settings['email_of_recipient']) { $settings['email_of_recipient'] = wa('shop')->getConfig()->getGeneralSettings("email"); }
+            
             $subject = 'Обратный звонок';
             $body = "<h1>Добрый день!</h1>";
             $body .= "<p>Пользователь <b>" . $name ."</b> заказал звонок на телефон <b>" . $phone . "</b></p>";
 
             $mail_message = new waMailMessage($subject, $body);
-            $mail_message->setFrom($settings['mail'], 'плагин Обратный звонок');
-            $mail_message->setTo($settings['mail'], 'Администратор');
+            $mail_message->setFrom($settings['email_of_sender'], 'плагин Обратный звонок');
+            $mail_message->setTo($settings['email_of_recipient'], 'Администратор');
 
             $mail_message->send();
 
+            $model = new shopCallbPluginRequestModel();
+            $data = array(
+                'contact_id' => wa()->getUser()->getId(),
+                'create_datetime' => date('Y-m-d H:i:s'),
+                'name' => $name,  
+                'phone' => $phone,          
+                'status' => 'new',
+            );
+
+            $model->insert($data);
+
             $this->response = true;
+
+        } else {
+
+            $this->response = false;
 
         }
 
