@@ -82,22 +82,25 @@ return array(
     ),
     'style_form_background' => array(
         'title'        => 'Цвет фона формы (HEX)',
-        // 'description'  => '',
+        'class'        => 's-color',
+        'placeholder'  => 'ffffff',
         'value'        => 'ffffff',
-        'control_type' => waHtmlControl::INPUT,
+        'control_type' => waHtmlControl::CUSTOM.' '.'shopCallbPlugin::settingColorControl',
     ),
 
     'style_header_background' => array(
         'title'        => 'Цвет фона заголовка (HEX)',
-        // 'description'  => '',
+        'class'        => 's-color',
+        'placeholder'  => '21a6de',
         'value'        => '21a6de',
-        'control_type' => waHtmlControl::INPUT,
+        'control_type' => waHtmlControl::CUSTOM.' '.'shopCallbPlugin::settingColorControl',
     ),
     'style_header_text_color' => array(
         'title'        => 'Цвет текста заголовка (HEX)',
-        // 'description'  => '',
+        'class'        => 's-color',
+        'placeholder'  => 'ffffff',
         'value'        => 'ffffff',
-        'control_type' => waHtmlControl::INPUT,
+        'control_type' => waHtmlControl::CUSTOM.' '.'shopCallbPlugin::settingColorControl',
     ),
 
     'style_submit_width' => array(
@@ -126,21 +129,24 @@ return array(
     ),
     'style_submit_background' => array(
         'title'        => 'Цвет фона кнопки «Отправить» (HEX)',
-        // 'description'  => '',
+        'class'        => 's-color',
+        'placeholder'  => '21a6de',
         'value'        => '21a6de',
-        'control_type' => waHtmlControl::INPUT,
+        'control_type' => waHtmlControl::CUSTOM.' '.'shopCallbPlugin::settingColorControl',
     ),
     'style_submit_hover_background' => array(
         'title'        => 'Цвет фона кнопки «Отправить» при наведении курсора (HEX)',
-        // 'description'  => '',
+        'class'        => 's-color',
+        'placeholder'  => '1690f4',
         'value'        => '1690f4',
-        'control_type' => waHtmlControl::INPUT,
+        'control_type' => waHtmlControl::CUSTOM.' '.'shopCallbPlugin::settingColorControl',
     ),
     'style_submit_text_color' => array(
         'title'        => 'Цвет текста кнопки «Отправить» (HEX)',
-        // 'description'  => '',
+        'class'        => 's-color',
+        'placeholder'  => 'ffffff',
         'value'        => 'ffffff',
-        'control_type' => waHtmlControl::INPUT,
+        'control_type' => waHtmlControl::CUSTOM.' '.'shopCallbPlugin::settingColorControl',
     ),
 
 );

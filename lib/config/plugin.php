@@ -9,7 +9,7 @@ return array(
     'version' => '1.0.0',
     'img' => 'img/callb.png',
     // 'vendor' => MYID,
-    // 'shop_settings' => true,
+    'shop_settings' => true,
     'frontend' => true,
     'handlers' => array(
         'frontend_head' => 'frontendHeader'
