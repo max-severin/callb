@@ -12,7 +12,7 @@ class shopCallbPlugin extends shopPlugin {
         $settings = $app_settings_model->get(array('shop', 'callb'));
 
         $view = wa()->getView(); 
-        $view->assign('call_b_settings', $settings);
+        $view->assign('callb_settings', $settings);
     	$view->assign('callback_url', wa()->getRouteUrl('shop/frontend/callback/'));
         $html = $view->fetch($this->path.'/templates/Frontend.html');
 
