@@ -6,6 +6,16 @@
 
 class shopCallbPlugin extends shopPlugin {	
 
+    public function backendMenu() {
+
+        $html = '<li ' . (waRequest::get('plugin') == $this->id ? 'class="selected"' : 'class="no-tab"') . '>
+                    <a href="?plugin=callb">Обратный звонок</a>
+                </li>';
+
+        return array('core_li' => $html);
+
+    }
+
     public function frontendHeader() {           
 
         $app_settings_model = new waAppSettingsModel();

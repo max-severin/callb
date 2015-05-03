@@ -4,8 +4,8 @@
  * @author Max Severin <makc.severin@gmail.com>
  */
 
-class shopCallbPluginFrontendCallbackController extends waJsonController
-{
+class shopCallbPluginFrontendCallbackController extends waJsonController {
+
     public function execute() {
 
         $app_settings_model = new waAppSettingsModel();
@@ -48,5 +48,6 @@ class shopCallbPluginFrontendCallbackController extends waJsonController
 
         }
 
-    }   
+    }  
+     
 }

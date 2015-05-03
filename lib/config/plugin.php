@@ -12,6 +12,7 @@ return array(
     'shop_settings' => true,
     'frontend' => true,
     'handlers' => array(
-        'frontend_head' => 'frontendHeader'
+        'backend_menu'  => 'backendMenu',
+        'frontend_head' => 'frontendHeader',
     ),
 );
