@@ -30,7 +30,6 @@ return array(
         'value'        => '',
         'control_type' => waHtmlControl::INPUT,
     ),
-
     'text_header_title' => array(
         'title'        => 'Текст заголовка',
         'placeholder'  => 'Обратный звонок',
@@ -55,7 +54,6 @@ return array(
         'value'        => 'Отправить',
         'control_type' => waHtmlControl::INPUT,
     ),
-
     'style_form_width' => array(
         'title'        => 'Ширина окна формы (px)',
         'description'  => 'Диапазон значений 320-600',
@@ -87,7 +85,6 @@ return array(
         'value'        => 'ffffff',
         'control_type' => waHtmlControl::CUSTOM.' '.'shopCallbPlugin::settingColorControl',
     ),
-
     'style_header_background' => array(
         'title'        => 'Цвет фона заголовка (HEX)',
         'class'        => 's-color',
@@ -102,7 +99,6 @@ return array(
         'value'        => 'ffffff',
         'control_type' => waHtmlControl::CUSTOM.' '.'shopCallbPlugin::settingColorControl',
     ),
-
     'style_submit_width' => array(
         'title'        => 'Ширина кнопки «Отправить» (px)',
         'description'  => 'Диапазон значений 100-600',
@@ -134,13 +130,6 @@ return array(
         'value'        => '21a6de',
         'control_type' => waHtmlControl::CUSTOM.' '.'shopCallbPlugin::settingColorControl',
     ),
-    'style_submit_hover_background' => array(
-        'title'        => 'Цвет фона кнопки «Отправить» при наведении курсора (HEX)',
-        'class'        => 's-color',
-        'placeholder'  => '1690f4',
-        'value'        => '1690f4',
-        'control_type' => waHtmlControl::CUSTOM.' '.'shopCallbPlugin::settingColorControl',
-    ),
     'style_submit_text_color' => array(
         'title'        => 'Цвет текста кнопки «Отправить» (HEX)',
         'class'        => 's-color',
@@ -148,5 +137,4 @@ return array(
         'value'        => 'ffffff',
         'control_type' => waHtmlControl::CUSTOM.' '.'shopCallbPlugin::settingColorControl',
     ),
-
 );

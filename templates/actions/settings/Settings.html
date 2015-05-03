@@ -3,6 +3,10 @@
 <script type="text/javascript" src="{$wa_url}wa-content/js/farbtastic/farbtastic.js"></script>
 <link rel="stylesheet" href="{$wa_url}wa-content/js/farbtastic/farbtastic.css" type="text/css" />
 
+<style type="text/css">
+    {include file="../../../css/callb.css" inline}
+</style>
+
 <style>
     #plugins-settings-form {
         padding: 0 30px 30px 0;
@@ -11,6 +15,17 @@
         display: none;
         margin: -110px 0 0 245px;
         position: absolute;
+    }
+    .call-b-form {
+        border-color: rgba(244, 244, 244, 1);
+        border-style: solid;
+        border-width: 10px 50px;
+        box-shadow: 1px -1px 5px rgba(0, 0, 0, 0.3);
+        float: right;
+        left: 0;
+        margin: 0;
+        position: relative;
+        top: 0;
     }
 </style>
 
@@ -28,6 +43,7 @@
                 color_replacer.find('i').css('background', color);
                 color_input.val(color.substr(1));
                 color_input.css('color', color);
+                color_input.trigger('change');
             });
 
             farbtastic.setColor('#'+color_input.val());
@@ -39,6 +55,27 @@
 
         }
 
+        var textBlockHtmlChange = function(el_changed, el_changing) {
+            el_changed.on('change', function(){
+                el_changing.html(el_changed.val());
+            });
+        }
+        var textPlaceholderChange = function(el_changed, el_changing) {
+            el_changed.on('change', function(){
+                el_changing.attr('placeholder', el_changed.val());
+            });
+        }
+        var textInputValueChange = function(el_changed, el_changing) {
+            el_changed.on('change', function(){
+                el_changing.val(el_changed.val());
+            });
+        }
+        var styleChange = function(el_changed, el_changing, css_style_name, stype_postfix, stype_prefix) {
+            el_changed.on('change', function(){
+                el_changing.css(css_style_name, stype_prefix + el_changed.val() + stype_postfix);
+            });
+        }
+
         var setColorPicker = (function(){
 
             var color_elements = [
@@ -46,13 +83,53 @@
                 '#callb_shop_callb_style_header_background',
                 '#callb_shop_callb_style_header_text_color',
                 '#callb_shop_callb_style_submit_background',
-                '#callb_shop_callb_style_submit_hover_background',
                 '#callb_shop_callb_style_submit_text_color'
             ];
 
             for (var i = 0; i < color_elements.length; i++) {
                 setColorPickerElement( $(color_elements[i]) );
             }
+
+        })(); 
+
+        var initCallbForm = (function(){
+
+            var form = $('<div/>');
+
+            form.addClass('call-b-form').css({
+                'background': '#{$callb_settings.style_form_background}',
+                'height': '{$callb_settings.style_form_height}px',
+                'width': '{$callb_settings.style_form_width}px'
+            }).prepend(
+                '<div class="call-b-header" style="background: #{$callb_settings.style_header_background}; color: #{$callb_settings.style_header_text_color};">{$callb_settings.text_header_title}</div>' +
+                '<div class="call-b-input"><input type="text" name="name" placeholder="{$callb_settings.text_name_placeholder}" value="" /></div>' +
+                '<div class="call-b-input"><input type="text" name="phone" placeholder="{$callb_settings.text_phone_placeholder}" value="" /></div>' +
+                '<div class="call-b-input"><input id="call-b-submit" type="submit" value="{$callb_settings.text_submit_button}" disabled="disabled" style="background: #{$callb_settings.style_submit_background}; color: #{$callb_settings.style_submit_text_color}; height: {$callb_settings.style_submit_height}px; width: {$callb_settings.style_submit_width}px" /></div>'
+                );
+
+            $('#s-plugins-content').prepend(form);
+
+        })(); 
+
+        var changeHandlers = (function(){
+
+            textBlockHtmlChange( $('#callb_shop_callb_text_header_title'), $('.call-b-header') );
+            textPlaceholderChange( $('#callb_shop_callb_text_name_placeholder'), $('.call-b-input input[name="name"]') );
+            textPlaceholderChange( $('#callb_shop_callb_text_phone_placeholder'), $('.call-b-input input[name="phone"]') );
+            textInputValueChange( $('#callb_shop_callb_text_submit_button'), $('#call-b-submit') );
+
+            styleChange($('#callb_shop_callb_style_form_width'), $('.call-b-form'), 'width', 'px', '');
+            styleChange($('#callb_shop_callb_style_form_height'), $('.call-b-form'), 'height', 'px', '');
+
+            styleChange($('#callb_shop_callb_style_form_background'), $('.call-b-form'), 'background', '', '#');
+            styleChange($('#callb_shop_callb_style_header_background'), $('.call-b-header'), 'background', '', '#');
+            styleChange($('#callb_shop_callb_style_header_text_color'), $('.call-b-header'), 'color', '', '#');
+
+            styleChange($('#callb_shop_callb_style_submit_width'), $('#call-b-submit'), 'width', 'px', '');
+            styleChange($('#callb_shop_callb_style_submit_height'), $('#call-b-submit'), 'height', 'px', '');
+
+            styleChange($('#callb_shop_callb_style_submit_background'), $('#call-b-submit'), 'background', '', '#');
+            styleChange($('#callb_shop_callb_style_submit_text_color'), $('#call-b-submit'), 'color', '', '#');
 
         })(); 
 
