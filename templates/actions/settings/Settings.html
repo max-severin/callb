@@ -28,15 +28,13 @@
 </style>
 
 <script type="text/javascript">
-    {include file="../../../js/callb.js"}
+    {include file="../../../js/callb.backend.js"}
 </script>
 
 <script type="text/javascript">
-(function ($) {
-
-    callb.initModuleBackend();        
-
-})(jQuery);
+    (function ($) {
+        callbBackend.initModule();
+    })(jQuery);
 </script>
 
 {include file="../../../../../templates/actions/plugins/PluginsSettings.html"}

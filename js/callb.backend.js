@@ -1,22 +1,21 @@
 /**
- * callb.js
- * Module callb
+ * callb.backend.js
+ * Module callbBackend
  */
 
-/*global $, callb */
+/*global $, callbBackend */
 
-var callb = (function () {
+var callbBackend = (function () { "use strict";
 	//---------------- BEGIN MODULE SCOPE VARIABLES ---------------
 	var
 		farbtastic_url = "{$wa_url}wa-content/js/farbtastic/farbtastic.js?{$wa->version(true)}",
-		addCallbFormBackend, initColorPicker, setColorPickerElement, setColorPicker, onFormSubmitBackend, 
+		addCallbForm, initColorPicker, setColorPickerElement, setColorPicker, onFormSubmit, 
 		textBlockHtmlChange, textPlaceholderChange, textInputValueChange, styleChange, changeHandlers,
-		onIdinhtmlClick, removeCallbForm, onFormSubmitFrontend,
-		initModuleBackend, initModuleFrontend;
+		initModule;
 	//----------------- END MODULE SCOPE VARIABLES ----------------
 
 	//--------------------- BEGIN DOM METHODS ---------------------
-	addCallbFormBackend = function ( $content ) {
+	addCallbForm = function ( $content ) {
         var form = $('<div/>');
 
         form.addClass('call-b-form').css({
@@ -75,14 +74,10 @@ var callb = (function () {
 
         }
     };
-
-    removeCallbForm = function () {
-    	$('.call-b-bg, .call-b-form').remove();
-    };
 	//--------------------- END DOM METHODS -----------------------
 
    	//------------------- BEGIN EVENT HANDLERS --------------------
-	onFormSubmitBackend = function (event) {
+	onFormSubmit = function (event) {
 		event.stopImmediatePropagation();
 
 		var f = $(this);
@@ -151,78 +146,13 @@ var callb = (function () {
         styleChange($('#callb_shop_callb_style_submit_background'), $('#call-b-submit'), 'background', '', '#');
         styleChange($('#callb_shop_callb_style_submit_text_color'), $('#call-b-submit'), 'color', '', '#');
     };
-
-    onIdinhtmlClick = function (event) {
-		event.preventDefault();
-
-		removeCallbForm();
-
-		var bg = $('<div/>');
-		var form = $('<div/>');
-
-		bg.addClass('call-b-bg').css('height', ($(document).height())+'px');
-		form.addClass('call-b-form').css({
-                'background': '#{$callb_settings.style_form_background}',
-                'height': '{$callb_settings.style_form_height}px',
-                'width': '{$callb_settings.style_form_width}px'
-        }).prepend(
-			'<div class="call-b-header" style="background: #{$callb_settings.style_header_background}; color: #{$callb_settings.style_header_text_color};">{$callb_settings.text_header_title}</div>' +
-            '<div class="call-b-input"><input type="text" name="name" placeholder="{$callb_settings.text_name_placeholder}" value="" /></div>' +
-            '<div class="call-b-input"><input type="text" name="phone" placeholder="{$callb_settings.text_phone_placeholder}" value="" /></div>' +
-            '<div class="call-b-input"><input id="call-b-submit" type="submit" value="{$callb_settings.text_submit_button}" style="background: #{$callb_settings.style_submit_background}; color: #{$callb_settings.style_submit_text_color}; height: {$callb_settings.style_submit_height}px; width: {$callb_settings.style_submit_width}px" /></div>'
-		);
-
-		$('body').prepend(form).prepend(bg);
-	};
-
-	onFormSubmitFrontend = function (event) {
-		var n = $('.call-b-input').find('input[name="name"]').val();
-		var p = $('.call-b-input').find('input[name="phone"]').val();
-		var err = $('<div/>');
-
-		$('.call-b-error').remove();
-		$('.call-b-input').find('input[name="name"], input[name="phone"]').removeClass('call-b-inp-err');
-
-		if ( n.length > 0 && p.length > 0 ) {
-			$.ajax({
-				type: "POST",
-				url: "{$callback_url}",
-				data: "name="+n+"&phone="+p,
-				success: function(result){
-					var msg = $.parseJSON(result);
-					if (msg.data === true) {
-						$('.call-b-input').remove();
-						$('.call-b-form').append(
-							'<p class="call-b-ok">Спасибо ' + n + ',</p>' +
-							'<p class="call-b-ok">Ваше сообщение отправлено!</p>' +
-							'<div class="call-b-input"><input id="call-b-close" type="button" value="Закрыть" style="height: {$callb_settings.style_submit_height}px; width: {$callb_settings.style_submit_width}px;" /></div>'
-							);
-					}
-				}
-			}, 'json');
-		} else {
-			if ( !(n.length > 0) ) {
-				$('.call-b-input').find('input[name="name"]').focus();
-			} else if ( !(p.length > 0) ) {
-				$('.call-b-input').find('input[name="phone"]').focus();
-			}
-			if ( !(n.length > 0) ) {
-				$('.call-b-input').find('input[name="name"]').addClass('call-b-inp-err');
-			}
-			if ( !(p.length > 0) ) {
-				$('.call-b-input').find('input[name="phone"]').addClass('call-b-inp-err');
-			}
-			err.addClass('call-b-error').text('Заполните "Имя" и "Телефон"');
-			$('.call-b-form').append( err );
-		}
-	};
    	//------------------- END EVENT HANDLERS ----------------------
 
 	//------------------- BEGIN PUBLIC METHODS --------------------
-	initModuleBackend = function () {
-		$('#plugins-settings-form').on('submit', onFormSubmitBackend);
+	initModule = function () {
+		$('#plugins-settings-form').on('submit', onFormSubmit);
 
-		addCallbFormBackend( $('#s-plugins-content') );
+		addCallbForm( $('#s-plugins-content') );
 
 		var color_elements = [
             '#callb_shop_callb_style_form_background',
@@ -236,17 +166,8 @@ var callb = (function () {
         changeHandlers();
 	};
 
-	initModuleFrontend = function () {		
-		$(document).on('click', '{$callb_settings.id_in_html}', onIdinhtmlClick);
-
-		$(document).on('click', '.call-b-bg, #call-b-close', removeCallbForm);
-
-		$(document).on('click', '#call-b-submit', onFormSubmitFrontend);
-	};
-
 	return {
-		initModuleBackend: initModuleBackend,
-		initModuleFrontend: initModuleFrontend
+		initModule: initModule
 	};
 	//------------------- END PUBLIC METHODS ----------------------
 }());
