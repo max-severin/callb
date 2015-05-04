@@ -15,6 +15,7 @@ class shopCallbPluginSettingsAction extends shopPluginsSettingsAction {
 
         $view = wa()->getView(); 
         $view->assign('callb_settings', $settings);
+    	$view->assign('callback_url', wa()->getRouteUrl('shop/frontend/callback/'));
 
         parent::execute();
 
