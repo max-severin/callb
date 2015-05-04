@@ -78,27 +78,38 @@ var callbBackend = (function () { "use strict";
 
    	//------------------- BEGIN EVENT HANDLERS --------------------
 	onFormSubmit = function (event) {
+        event.preventDefault();
 		event.stopImmediatePropagation();
 
 		var f = $(this);
 
         $.post( f.attr('action'), f.serialize(), function(response) {
             if ( response.status == 'ok' ) {
-                $('#wa-design-button').removeClass('red').addClass('green');
-                $("#wa-editor-status-fail").hide()
-                $("#wa-editor-status-ok span").html(response.data.message);
-                $("#wa-editor-status-ok").fadeIn('slow', function() {
+                $.plugins.message('success', response.data.message);
+
+                f.find('.submit .button').removeClass('red').addClass('green');
+                $("#plugins-settings-form-status").hide()
+                $("#plugins-settings-form-status span").html(response.data.message);
+                $("#plugins-settings-form-status").fadeIn('slow', function() {
                     $(this).fadeOut(1000);
                 });
-                $("#wa-app #mainmenu .tabs").find('li a[href="?plugin=callb"]').closest('li').remove();
+
+                var callbTab = $("#wa-app #mainmenu .tabs").find('li a[href="?plugin=callb"]').closest('li');
+
                 if ( $("#plugins-settings-form select[name='shop_callb[status]']").val() === 'on' ) {
-                    $("#wa-app #mainmenu .tabs li:last").before('<li class="no-tab"><a href="?plugin=callb">Обратный звонок</a></li>');
+                    if (callbTab.length === 0) {
+                        $("#wa-app #mainmenu .tabs li:last").before('<li class="no-tab"><a href="?plugin=callb">Обратный звонок</a></li>');
+                    }
+                } else {
+                    callbTab.remove();
                 }
             } else {
-                $('#wa-design-button').removeClass('green').addClass('red');
-                $("#wa-editor-status-ok").hide();
-                $("#wa-editor-status-fail span").html(response.errors.join(', '));
-                $("#wa-editor-status-fail").fadeIn('slow');
+                $.plugins.message('error', response.errors || []);
+
+                f.find('.submit .button').removeClass('green').addClass('red');
+                $("#plugins-settings-form-status").hide();
+                $("#plugins-settings-form-status span").html(response.errors.join(', '));
+                $("#plugins-settings-form-status").fadeIn('slow');
             }
         }, "json");
     };
