@@ -9,6 +9,16 @@ return array(
             'on'  => 'Включен',
         ),
     ),
+    'show_deleted' => array(
+        'title'        => 'Отображение удаленных запросов',
+        'description'  => 'При включении этого параметра<br> в истории запросов пользователей будут отображаться удаленные запросы.',
+        'value'        => 'off',
+        'control_type' => waHtmlControl::SELECT,
+        'options'      => array(
+            'off' => 'Нет',
+            'on'  => 'Да',
+        ),
+    ),
     'email_of_sender' => array(
         'title'        => 'E-mail отправителя',
         'description'  => 'Этот электронный адрес будет указан в качестве обратного адреса у сообщений.',

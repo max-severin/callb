@@ -54,8 +54,8 @@ var callbFrontend = (function () { "use strict";
 				type: "POST",
 				url: "{$callback_url}",
 				data: "name="+n+"&phone="+p,
-				success: function(result){
-					var msg = $.parseJSON(result);
+				success: function(response){
+					var msg = $.parseJSON(response);
 					if (msg.data === true) {
 						$('.call-b-input').remove();
 						$('.call-b-form').append(

@@ -1,11 +1,11 @@
 /**
- * callb.backend.js
- * Module callbBackend
+ * callb.backend.settings.js
+ * Module callbBackendSettings
  */
 
-/*global $, callbBackend */
+/*global $, callbBackendSettings */
 
-var callbBackend = (function () { "use strict";
+var callbBackendSettings = (function () { "use strict";
 	//---------------- BEGIN MODULE SCOPE VARIABLES ---------------
 	var
 		farbtastic_url = "{$wa_url}wa-content/js/farbtastic/farbtastic.js?{$wa->version(true)}",

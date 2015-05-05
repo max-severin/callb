@@ -1,0 +1,54 @@
+/**
+ * callb.backend.requests.js
+ * Module callbBackendRequests
+ */
+
+/*global $, callbBackendRequests */
+
+var callbBackendRequests = (function () { "use strict";
+	//---------------- BEGIN MODULE SCOPE VARIABLES ---------------
+	var
+		onDeleteHandler, initModule;
+	//----------------- END MODULE SCOPE VARIABLES ----------------
+
+   	//------------------- BEGIN EVENT HANDLERS --------------------
+    onDeleteHandler = function (event) {
+        if(confirm('Удалить?')) {
+
+            event.preventDefault();
+
+            var t = $(this);
+
+            var id = t.attr('callb-request-id');
+
+            if (id) {
+                $.get('?plugin=callb&action=requestdelete&id='+id, function (response) {
+                    if (response.data === true) {
+                        var showDeleted = '{$callb_settings.show_deleted}';
+
+                        if (showDeleted === 'on') {
+                            $(".callb-request-delete[callb-request-id='"+id+"']").closest("tr").addClass('gray');
+                        } else {
+                            $(".callb-request-delete[callb-request-id='"+id+"']").closest("tr").hide(600, function() {
+                                $(this).show("normal");
+                                $(this).remove();
+                            });
+                        }                        
+                    }
+                }, "json");
+            }
+
+        }
+    };
+   	//------------------- END EVENT HANDLERS ----------------------
+
+	//------------------- BEGIN PUBLIC METHODS --------------------
+	initModule = function () {
+		$('.callb-request-delete').on('click', onDeleteHandler);
+	};
+
+	return {
+		initModule: initModule
+	};
+	//------------------- END PUBLIC METHODS ----------------------
+}());
