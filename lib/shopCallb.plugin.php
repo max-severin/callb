@@ -29,7 +29,7 @@ class shopCallbPlugin extends shopPlugin {
     
     /**
      * Handler for frontend_head event: add callbFrontend module in frontend head section
-     * @return array
+     * @return string
      */
     public function frontendHeader() {
         $app_settings_model = new waAppSettingsModel();
