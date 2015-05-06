@@ -31,25 +31,25 @@
         </tr>
         {foreach $callb_requests as $r}
         <tr class="callb-request {if $r.status === 'del'}gray{/if}">        
-        	<td class="min-width">{$r.id}</td>        
-	        <td class="short nowrap align-left" title="Пользователь">
-	        	{if $r.contact_id}
-	        		<a href="?action=customers#/id/{$r.contact_id}">{$r.contact_name}</a>
-	        		{if $r.contact_email}<span>{$r.contact_email}</span>{/if}
-        		{/if}
-	        </td>
-	        <td class="short nowrap align-left" title="Имя"><span>{$r.name}</span></td>
-	        <td class="short nowrap align-left" title="Телефон"><span>{$r.phone}</span></td>
-	        <td class="short nowrap align-left" title="Дата заявки">{$r.create_datetime|wa_datetime:"humandate"}</td>
-	        <td class="short nowrap align-center" title="Статус">
-	        	<span>{$r.human_status}</span>
-	        </td>
-	        <td class="short nowrap align-right">
-	        	<a href="#" class="callb-request-delete" callb-request-id="{$r.id}">
-	        		<i class="icon16 delete"></i>удалить
-	        	</a>
-	        </td>
-    	</tr>
+            <td class="min-width">{$r.id}</td>        
+            <td class="short nowrap align-left" title="Пользователь">
+                {if $r.contact_id}
+                    <a href="?action=customers#/id/{$r.contact_id}">{$r.contact_name}</a>
+                    {if $r.contact_email}<span>{$r.contact_email}</span>{/if}
+                {/if}
+            </td>
+            <td class="short nowrap align-left" title="Имя"><span>{$r.name}</span></td>
+            <td class="short nowrap align-left" title="Телефон"><span>{$r.phone}</span></td>
+            <td class="short nowrap align-left" title="Дата заявки">{$r.create_datetime|wa_datetime:"humandate"}</td>
+            <td class="short nowrap align-center" title="Статус">
+                <span>{$r.human_status}</span>
+            </td>
+            <td class="short nowrap align-right">
+                <a href="#" class="callb-request-delete" callb-request-id="{$r.id}">
+                    <i class="icon16 delete"></i>удалить
+                </a>
+            </td>
+        </tr>
         {/foreach}
     </table>
 </div>
