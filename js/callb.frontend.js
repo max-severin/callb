@@ -17,7 +17,7 @@ var callbFrontend = (function () { "use strict";
     };
 	//--------------------- END DOM METHODS -----------------------
 
-   	//------------------- BEGIN EVENT HANDLERS --------------------
+	//------------------- BEGIN EVENT HANDLERS --------------------
     onIdinhtmlClick = function (event) {
 		event.preventDefault();
 
@@ -28,9 +28,9 @@ var callbFrontend = (function () { "use strict";
 
 		bg.addClass('call-b-bg').css('height', ($(document).height())+'px');
 		form.addClass('call-b-form').css({
-                'background': '#{$callb_settings.style_form_background}',
-                'height': '{$callb_settings.style_form_height}px',
-                'width': '{$callb_settings.style_form_width}px'
+            'background': '#{$callb_settings.style_form_background}',
+            'height': '{$callb_settings.style_form_height}px',
+            'width': '{$callb_settings.style_form_width}px'
         }).prepend(
 			'<div class="call-b-header" style="background: #{$callb_settings.style_header_background}; color: #{$callb_settings.style_header_text_color};">{$callb_settings.text_header_title}</div>' +
             '<div class="call-b-input"><input type="text" name="name" placeholder="{$callb_settings.text_name_placeholder}" value="" /></div>' +
@@ -62,7 +62,7 @@ var callbFrontend = (function () { "use strict";
 							'<p class="call-b-ok">Спасибо ' + n + ',</p>' +
 							'<p class="call-b-ok">Ваше сообщение отправлено!</p>' +
 							'<div class="call-b-input"><input id="call-b-close" type="button" value="Закрыть" style="height: {$callb_settings.style_submit_height}px; width: {$callb_settings.style_submit_width}px;" /></div>'
-							);
+						);
 					}
 				}
 			}, 'json');
@@ -82,7 +82,7 @@ var callbFrontend = (function () { "use strict";
 			$('.call-b-form').append( err );
 		}
 	};
-   	//------------------- END EVENT HANDLERS ----------------------
+	//------------------- END EVENT HANDLERS ----------------------
 
 	//------------------- BEGIN PUBLIC METHODS --------------------
 	initModule = function () {		
