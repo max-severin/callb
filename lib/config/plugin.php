@@ -3,7 +3,6 @@
 /*
  * @author Max Severin <makc.severin@gmail.com>
  */
-
 return array(
     'name' => 'Обратный звонок',
     'version' => '1.0.0',
