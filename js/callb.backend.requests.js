@@ -6,10 +6,10 @@
 /*global $, callbBackendRequests */
 
 var callbBackendRequests = (function () { "use strict";
-	/*---------------- BEGIN MODULE SCOPE VARIABLES ---------------*/
+	// BEGIN MODULE SCOPE VARIABLES
 	var
 		onDeleteHandler, initModule;
-	/*----------------- END MODULE SCOPE VARIABLES ----------------*/
+	// END MODULE SCOPE VARIABLES
 
    	/*------------------- BEGIN EVENT HANDLERS --------------------*/
     onDeleteHandler = function (event) {
