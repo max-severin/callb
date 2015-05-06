@@ -15,7 +15,7 @@ var callbBackendSettings = (function () { "use strict";
     //----------------- END MODULE SCOPE VARIABLES ----------------
 
     //--------------------- BEGIN DOM METHODS ---------------------
-	addCallbForm = function ( $content ) {
+    addCallbForm = function ( $content ) {
         var form = $('<div/>');
 
         form.addClass('call-b-form').css({
@@ -175,7 +175,7 @@ var callbBackendSettings = (function () { "use strict";
         initColorPicker( color_elements, setColorPicker );
 
         changeHandlers();
-	};
+    };
 
     return {
         initModule: initModule
