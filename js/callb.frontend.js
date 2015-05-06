@@ -12,13 +12,13 @@ var callbFrontend = (function () { "use strict";
 	//----------------- END MODULE SCOPE VARIABLES ----------------
 
 	//--------------------- BEGIN DOM METHODS ---------------------
-    removeCallbForm = function () {
-    	$('.call-b-bg, .call-b-form').remove();
-    };
+	removeCallbForm = function () {
+		$('.call-b-bg, .call-b-form').remove();
+	};
 	//--------------------- END DOM METHODS -----------------------
 
 	//------------------- BEGIN EVENT HANDLERS --------------------
-    onIdinhtmlClick = function (event) {
+	onIdinhtmlClick = function (event) {
 		event.preventDefault();
 
 		removeCallbForm();
