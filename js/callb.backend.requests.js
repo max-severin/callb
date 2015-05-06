@@ -6,12 +6,12 @@
 /*global $, callbBackendRequests */
 
 var callbBackendRequests = (function () { "use strict";
-	//---------------- BEGIN MODULE SCOPE VARIABLES ---------------
+	/*---------------- BEGIN MODULE SCOPE VARIABLES ---------------*/
 	var
 		onDeleteHandler, initModule;
-	//----------------- END MODULE SCOPE VARIABLES ----------------
+	/*----------------- END MODULE SCOPE VARIABLES ----------------*/
 
-   	//------------------- BEGIN EVENT HANDLERS --------------------
+   	/*------------------- BEGIN EVENT HANDLERS --------------------*/
     onDeleteHandler = function (event) {
         if(confirm('Удалить?')) {
 
@@ -40,9 +40,9 @@ var callbBackendRequests = (function () { "use strict";
 
         }
     };
-   	//------------------- END EVENT HANDLERS ----------------------
+   	/*------------------- END EVENT HANDLERS ----------------------*/
 
-	//------------------- BEGIN PUBLIC METHODS --------------------
+	/*------------------- BEGIN PUBLIC METHODS --------------------*/
 	initModule = function () {
 		$('.callb-request-delete').on('click', onDeleteHandler);
 	};
@@ -50,5 +50,5 @@ var callbBackendRequests = (function () { "use strict";
 	return {
 		initModule: initModule
 	};
-	//------------------- END PUBLIC METHODS ----------------------
+	/*------------------- END PUBLIC METHODS ----------------------*/
 }());

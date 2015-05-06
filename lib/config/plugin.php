@@ -8,7 +8,7 @@ return array(
     'name' => 'Обратный звонок',
     'version' => '1.0.0',
     'img' => 'img/callb.png',
-    // 'vendor' => MYID,
+    'vendor' => 1020720,
     'shop_settings' => true,
     'frontend' => true,
     'handlers' => array(

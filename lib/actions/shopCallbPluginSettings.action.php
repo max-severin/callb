@@ -13,6 +13,10 @@ class shopCallbPluginSettingsAction extends shopPluginsSettingsAction {
     	$app_settings_model = new waAppSettingsModel();
         $settings = $app_settings_model->get(array('shop', 'callb'));
 
+        foreach ($settings as $id => $setting) {
+        	$settings[$id] = addslashes($setting);
+        }
+
         $view = wa()->getView(); 
         $view->assign('callb_settings', $settings);
     	$view->assign('callback_url', wa()->getRouteUrl('shop/frontend/callback/'));
