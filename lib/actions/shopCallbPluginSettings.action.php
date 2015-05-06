@@ -1,13 +1,12 @@
 <?php
 
 /*
+ * Class shopCallbPluginSettingsAction
  * @author Max Severin <makc.severin@gmail.com>
  */
-
 class shopCallbPluginSettingsAction extends shopPluginsSettingsAction {
 
     public function execute() {
-
     	$_GET['id'] = 'callb';
 
     	$app_settings_model = new waAppSettingsModel();
@@ -22,7 +21,6 @@ class shopCallbPluginSettingsAction extends shopPluginsSettingsAction {
     	$view->assign('callback_url', wa()->getRouteUrl('shop/frontend/callback/'));
 
         parent::execute();
-
     }
 
 }

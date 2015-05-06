@@ -7,10 +7,9 @@
 
 class shopCallbPluginBackendActions extends waViewActions {
 
-	protected $callb_request_limit = 10;
+    protected $callb_request_limit = 10;
 
     public function defaultAction() {
-
     	$app_settings_model = new waAppSettingsModel();
         $settings = $app_settings_model->get(array('shop', 'callb'));
 
@@ -35,7 +34,6 @@ class shopCallbPluginBackendActions extends waViewActions {
         $this->getResponse()->setTitle('Обратный звонок');
 
         $this->setLayout(new shopCallbPluginBackendLayout());
-
     }
 
 }

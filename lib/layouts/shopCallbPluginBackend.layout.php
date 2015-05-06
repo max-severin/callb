@@ -7,10 +7,8 @@
 class shopCallbPluginBackendLayout extends shopBackendLayout {
 
     public function execute() {
-
         parent::execute();
         $this->assign('page', 'callb');
-
     }
 
 }

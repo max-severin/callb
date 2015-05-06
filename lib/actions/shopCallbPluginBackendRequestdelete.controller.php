@@ -7,8 +7,7 @@
 
 class shopCallbPluginBackendRequestdeleteController extends waJsonController {
 
-    public function execute() {           
-
+    public function execute() {
         $id = waRequest::get('id', 0, 'int');  
         
         $model = new shopCallbPluginRequestModel();
@@ -22,8 +21,7 @@ class shopCallbPluginBackendRequestdeleteController extends waJsonController {
 
             $this->response = false;
 
-        }
-            
+        }            
     }
     
 }
