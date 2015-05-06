@@ -4,7 +4,6 @@
  * Class shopCallbPluginBackendActions
  * @author Max Severin <makc.severin@gmail.com>
  */
-
 class shopCallbPluginBackendActions extends waViewActions {
 
     protected $callb_request_limit = 10;

@@ -4,7 +4,6 @@
  * Class shopCallbPluginFrontendCallbackController
  * @author Max Severin <makc.severin@gmail.com>
  */
-
 class shopCallbPluginFrontendCallbackController extends waJsonController {
 
     public function execute() {
