@@ -1,13 +1,18 @@
 <?php
 
 /*
+ * Class shopCallbPlugin
+ * Plugin allows users in the frontend to make requests for a call back,
+ * backend users can customize the callback form and view the requests
  * @author Max Severin <makc.severin@gmail.com>
  */
-
-class shopCallbPlugin extends shopPlugin {	
-
+class shopCallbPlugin extends shopPlugin {
+    
+    /**
+     * Handler for backend_menu event: add callback button in backend menu tabs
+     * @return array
+     */
     public function backendMenu() {
-
         $app_settings_model = new waAppSettingsModel();
         $settings = $app_settings_model->get(array('shop', 'callb'));
 
@@ -20,25 +25,26 @@ class shopCallbPlugin extends shopPlugin {
         }
 
         return array('core_li' => $html);
-
     }
-
-    public function frontendHeader() {           
-
+    
+    /**
+     * Handler for frontend_head event: add callbFrontend module in frontend head section
+     * @return array
+     */
+    public function frontendHeader() {
         $app_settings_model = new waAppSettingsModel();
         $settings = $app_settings_model->get(array('shop', 'callb'));
 
-        $view = wa()->getView(); 
+        $view = wa()->getView();
         $view->assign('callb_settings', $settings);
     	$view->assign('callback_url', wa()->getRouteUrl('shop/frontend/callback/'));
         $html = $view->fetch($this->path.'/templates/Frontend.html');
 
-        return $html;        
-
+        return $html;
     }
 
     /**
-     * 
+     * Generates the HTML code for the user control with ID settingNumberControl for number parametrs
      * @param string $name
      * @param array $params
      * @return string
@@ -59,13 +65,12 @@ class shopCallbPlugin extends shopPlugin {
     }
 
     /**
-     * 
+     * Generates the HTML code for the user control with ID settingColorControl for color parametrs
      * @param string $name
      * @param array $params
      * @return string
      */
     static public function settingColorControl($name, $params = array()) {
-
         $control = '';
 
         $control_name = htmlentities($name, ENT_QUOTES, 'utf-8');
@@ -74,24 +79,22 @@ class shopCallbPlugin extends shopPlugin {
         $control .= self::addCustomParams(array('class', 'placeholder', 'value',), $params);
         $control .= ">";
         if (isset($params['value']) && !empty($params['value'])) {
-	        $control .= "<span id=\"s-color-replacer\" class=\"s-color-replacer\">";
-			$control .= "<i class=\"icon16 color\" style=\"background: #{$params['value']};\"></i>";
-			$control .= "</span>";
-		}
+            $control .= "<span id=\"s-color-replacer\" class=\"s-color-replacer\">";
+            $control .= "<i class=\"icon16 color\" style=\"background: #{$params['value']};\"></i>";
+            $control .= "</span>";
+        }
         $control .= "<div class=\"s-colorpicker\"></div>";
 
         return $control;
-
     }
 
     /**
-     *
+     * Generates the HTML parts of code for the params in user controls added by plugin
      * @param array $list
      * @param array $params
      * @return string
      */
     private static function addCustomParams($list, $params = array()) {
-
         $params_string = '';
 
         foreach ($list as $param => $target) {
@@ -119,7 +122,6 @@ class shopCallbPlugin extends shopPlugin {
         }
 
         return $params_string;
-
     }
 
 }
