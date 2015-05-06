@@ -6,15 +6,15 @@
 /*global $, callbBackendSettings */
 
 var callbBackendSettings = (function () { "use strict";
-	//---------------- BEGIN MODULE SCOPE VARIABLES ---------------
-	var
-		farbtastic_url = "{$wa_url}wa-content/js/farbtastic/farbtastic.js?{$wa->version(true)}",
-		addCallbForm, initColorPicker, setColorPickerElement, setColorPicker, onFormSubmit, 
-		textBlockHtmlChange, textPlaceholderChange, textInputValueChange, styleChange, changeHandlers,
-		initModule;
-	//----------------- END MODULE SCOPE VARIABLES ----------------
+    //---------------- BEGIN MODULE SCOPE VARIABLES ---------------
+    var
+        farbtastic_url = "{$wa_url}wa-content/js/farbtastic/farbtastic.js?{$wa->version(true)}",
+        addCallbForm, initColorPicker, setColorPickerElement, setColorPicker, onFormSubmit, 
+        textBlockHtmlChange, textPlaceholderChange, textInputValueChange, styleChange, changeHandlers,
+        initModule;
+    //----------------- END MODULE SCOPE VARIABLES ----------------
 
-	//--------------------- BEGIN DOM METHODS ---------------------
+    //--------------------- BEGIN DOM METHODS ---------------------
 	addCallbForm = function ( $content ) {
         var form = $('<div/>');
 
@@ -74,14 +74,14 @@ var callbBackendSettings = (function () { "use strict";
 
         }
     };
-	//--------------------- END DOM METHODS -----------------------
+    //--------------------- END DOM METHODS -----------------------
 
-   	//------------------- BEGIN EVENT HANDLERS --------------------
-	onFormSubmit = function (event) {
+    //------------------- BEGIN EVENT HANDLERS --------------------
+    onFormSubmit = function (event) {
         event.preventDefault();
-		event.stopImmediatePropagation();
+        event.stopImmediatePropagation();
 
-		var f = $(this);
+        var f = $(this);
 
         $.post( f.attr('action'), f.serialize(), function(response) {
             if ( response.status == 'ok' ) {
@@ -157,15 +157,15 @@ var callbBackendSettings = (function () { "use strict";
         styleChange($('#callb_shop_callb_style_submit_background'), $('#call-b-submit'), 'background', '', '#');
         styleChange($('#callb_shop_callb_style_submit_text_color'), $('#call-b-submit'), 'color', '', '#');
     };
-   	//------------------- END EVENT HANDLERS ----------------------
+    //------------------- END EVENT HANDLERS ----------------------
 
-	//------------------- BEGIN PUBLIC METHODS --------------------
-	initModule = function () {
-		$('#plugins-settings-form').on('submit', onFormSubmit);
+    //------------------- BEGIN PUBLIC METHODS --------------------
+    initModule = function () {
+        $('#plugins-settings-form').on('submit', onFormSubmit);
 
-		addCallbForm( $('#s-plugins-content') );
+        addCallbForm( $('#s-plugins-content') );
 
-		var color_elements = [
+        var color_elements = [
             '#callb_shop_callb_style_form_background',
             '#callb_shop_callb_style_header_background',
             '#callb_shop_callb_style_header_text_color',
@@ -177,8 +177,8 @@ var callbBackendSettings = (function () { "use strict";
         changeHandlers();
 	};
 
-	return {
-		initModule: initModule
-	};
-	//------------------- END PUBLIC METHODS ----------------------
+    return {
+        initModule: initModule
+    };
+    //------------------- END PUBLIC METHODS ----------------------
 }());
