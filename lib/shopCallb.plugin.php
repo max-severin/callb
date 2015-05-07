@@ -13,12 +13,9 @@ class shopCallbPlugin extends shopPlugin {
      * @return array
      */
     public function backendMenu() {
-        $app_settings_model = new waAppSettingsModel();
-        $settings = $app_settings_model->get(array('shop', 'callb'));
-
         $html = '';
 
-        if ($settings['status'] === 'on' ) {
+        if ($this->getSettings('status') === 'on') {
             $html = '<li ' . (waRequest::get('plugin') == $this->id ? 'class="selected"' : 'class="no-tab"') . '>
                         <a href="?plugin=callb">Обратный звонок</a>
                     </li>';
