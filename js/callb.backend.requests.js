@@ -22,7 +22,7 @@ var callbBackendRequests = (function () { "use strict";
             var id = t.attr('callb-request-id');
 
             if (id) {
-                $.get('?plugin=callb&action=requestdelete&id='+id, function (response) {
+                $.post('?plugin=callb&action=requestdelete&id='+id, function (response) {
                     if (response.data === true) {
                         var showDeleted = '{$callb_settings.show_deleted}';
 
