@@ -50,7 +50,7 @@ var callbFrontend = (function () { "use strict";
 		$('.call-b-input').find('input[name="name"], input[name="phone"]').removeClass('call-b-inp-err');
 
 		if ( n.length > 0 && p.length > 0 ) {
-			$.post("{$callback_url}", "name="+n+"&phone="+p, function (response) {
+			$.post("{$callback_url}", { "name": n, "phone": p }, function (response) {
 				if (response.data === true) {
 					$('.call-b-input').remove();
 					$('.call-b-form').append(
