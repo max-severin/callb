@@ -10,26 +10,43 @@ var callbBackendSettings = (function () { "use strict";
     var
         farbtastic_url = "{$wa_url}wa-content/js/farbtastic/farbtastic.js?{$wa->version(true)}",
         addCallbForm, initColorPicker, setColorPickerElement, setColorPicker, onFormSubmit, 
-        textBlockHtmlChange, textPlaceholderChange, textInputValueChange, styleChange, changeHandlers,
+        textBlockHtmlChange, textPlaceholderChange, textInputValueChange, styleChange, changeHandlers, onStatusChange,
         initModule;
     //----------------- END MODULE SCOPE VARIABLES ----------------
 
     //--------------------- BEGIN DOM METHODS ---------------------
-    addCallbForm = function ( $content ) {
+    addCallbForm = function ( $content, statusChanged = false ) {
+        var callbStatus = "{if isset($callb_settings.status)}{$callb_settings.status}{/if}";
+        var styleFormBackground = '#' + $('#callb_shop_callb_style_form_background').val();
+        var styleFormHeight = $('#callb_shop_callb_style_form_height').val() + 'px';
+        var styleFormWidth = $('#callb_shop_callb_style_form_width').val() + 'px';
+        var styleHeaderBackground = 'background: #' + $('#callb_shop_callb_style_header_background').val() + ';';
+        var styleHeaderTextColor = 'color: #' + $('#callb_shop_callb_style_header_text_color').val() + ';';
+        var textHeaderTitle = $('#callb_shop_callb_text_header_title').val();
+        var textNamePlaceholder = $('#callb_shop_callb_text_name_placeholder').val();
+        var textPhonePlaceholder = $('#callb_shop_callb_text_phone_placeholder').val();
+        var textSubmitButton = $('#callb_shop_callb_text_submit_button').val();
+        var styleSubmitBackground = 'background: #' + $('#callb_shop_callb_style_submit_background').val() + ';';
+        var styleSubmitTextColor = 'color: #' + $('#callb_shop_callb_style_submit_text_color').val() + ';';
+        var styleSubmitHeight = 'height: ' + $('#callb_shop_callb_style_submit_height').val() + 'px';
+        var styleSubmitWidth = 'width: ' + $('#callb_shop_callb_style_submit_width').val() + 'px';
+
         var form = $('<div/>');
 
-        form.addClass('call-b-form').css({
-            'background': '#{$callb_settings.style_form_background}',
-            'height': '{$callb_settings.style_form_height}px',
-            'width': '{$callb_settings.style_form_width}px'
-        }).prepend(
-            '<div class="call-b-header" style="background: #{$callb_settings.style_header_background}; color: #{$callb_settings.style_header_text_color};">{$callb_settings.text_header_title}</div>' +
-            '<div class="call-b-input"><input type="text" name="name" placeholder="{$callb_settings.text_name_placeholder}" value="" /></div>' +
-            '<div class="call-b-input"><input type="text" name="phone" placeholder="{$callb_settings.text_phone_placeholder}" value="" /></div>' +
-            '<div class="call-b-input"><input id="call-b-submit" type="submit" value="{$callb_settings.text_submit_button}" disabled="disabled" style="background: #{$callb_settings.style_submit_background}; color: #{$callb_settings.style_submit_text_color}; height: {$callb_settings.style_submit_height}px; width: {$callb_settings.style_submit_width}px;" /></div>'
-        );
+        if (callbStatus === 'on' || statusChanged === true) {
+            form.addClass('call-b-form').css({
+                'background': styleFormBackground,
+                'height': styleFormHeight,
+                'width': styleFormWidth
+            }).prepend(
+                '<div class="call-b-header" style="' + styleHeaderBackground + styleHeaderTextColor + '">' + textHeaderTitle + '</div>' +
+                '<div class="call-b-input"><input type="text" name="name" placeholder="' + textNamePlaceholder + '" value="" /></div>' +
+                '<div class="call-b-input"><input type="text" name="phone" placeholder="' + textPhonePlaceholder + '" value="" /></div>' +
+                '<div class="call-b-input"><input id="call-b-submit" type="submit" value="' + textSubmitButton + '" disabled="disabled" style="' + styleSubmitBackground + styleSubmitTextColor + styleSubmitHeight + styleSubmitWidth + '" /></div>'
+            );
 
-        $content.prepend(form);
+            $content.prepend(form);
+        }
     };
 
     initColorPicker = function(elements, init) {
@@ -116,52 +133,64 @@ var callbBackendSettings = (function () { "use strict";
 
     textBlockHtmlChange = function(el_changed, el_changing) {
         el_changed.on('change', function(){
-            el_changing.html(el_changed.val());
+            $(document).find(el_changing).html(el_changed.val());
         });
     };
 
     textPlaceholderChange = function(el_changed, el_changing) {
         el_changed.on('change', function(){
-            el_changing.attr('placeholder', el_changed.val());
+            $(document).find(el_changing).attr('placeholder', el_changed.val());
         });
     };
 
     textInputValueChange = function(el_changed, el_changing) {
         el_changed.on('change', function(){
-            el_changing.val(el_changed.val());
+            $(document).find(el_changing).val(el_changed.val());
         });
     };
 
     styleChange = function(el_changed, el_changing, css_style_name, stype_postfix, stype_prefix) {
         el_changed.on('change', function(){
-            el_changing.css(css_style_name, stype_prefix + el_changed.val() + stype_postfix);
+            $(document).find(el_changing).css(css_style_name, stype_prefix + el_changed.val() + stype_postfix);
         });
     };
 
     changeHandlers = function () {
-        textBlockHtmlChange( $('#callb_shop_callb_text_header_title'), $('.call-b-header') );
-        textPlaceholderChange( $('#callb_shop_callb_text_name_placeholder'), $('.call-b-input input[name="name"]') );
-        textPlaceholderChange( $('#callb_shop_callb_text_phone_placeholder'), $('.call-b-input input[name="phone"]') );
-        textInputValueChange( $('#callb_shop_callb_text_submit_button'), $('#call-b-submit') );
+        textBlockHtmlChange( $('#callb_shop_callb_text_header_title'), '.call-b-header' );
+        textPlaceholderChange( $('#callb_shop_callb_text_name_placeholder'), '.call-b-input input[name="name"]' );
+        textPlaceholderChange( $('#callb_shop_callb_text_phone_placeholder'), '.call-b-input input[name="phone"]' );
+        textInputValueChange( $('#callb_shop_callb_text_submit_button'), '#call-b-submit' );
 
-        styleChange($('#callb_shop_callb_style_form_width'), $('.call-b-form'), 'width', 'px', '');
-        styleChange($('#callb_shop_callb_style_form_height'), $('.call-b-form'), 'height', 'px', '');
+        styleChange($('#callb_shop_callb_style_form_width'), '.call-b-form', 'width', 'px', '');
+        styleChange($('#callb_shop_callb_style_form_height'), '.call-b-form', 'height', 'px', '');
 
-        styleChange($('#callb_shop_callb_style_form_background'), $('.call-b-form'), 'background', '', '#');
-        styleChange($('#callb_shop_callb_style_header_background'), $('.call-b-header'), 'background', '', '#');
-        styleChange($('#callb_shop_callb_style_header_text_color'), $('.call-b-header'), 'color', '', '#');
+        styleChange($('#callb_shop_callb_style_form_background'), '.call-b-form', 'background', '', '#');
+        styleChange($('#callb_shop_callb_style_header_background'), '.call-b-header', 'background', '', '#');
+        styleChange($('#callb_shop_callb_style_header_text_color'), '.call-b-header', 'color', '', '#');
 
-        styleChange($('#callb_shop_callb_style_submit_width'), $('#call-b-submit'), 'width', 'px', '');
-        styleChange($('#callb_shop_callb_style_submit_height'), $('#call-b-submit'), 'height', 'px', '');
+        styleChange($('#callb_shop_callb_style_submit_width'), '#call-b-submit', 'width', 'px', '');
+        styleChange($('#callb_shop_callb_style_submit_height'), '#call-b-submit', 'height', 'px', '');
 
-        styleChange($('#callb_shop_callb_style_submit_background'), $('#call-b-submit'), 'background', '', '#');
-        styleChange($('#callb_shop_callb_style_submit_text_color'), $('#call-b-submit'), 'color', '', '#');
+        styleChange($('#callb_shop_callb_style_submit_background'), '#call-b-submit', 'background', '', '#');
+        styleChange($('#callb_shop_callb_style_submit_text_color'), '#call-b-submit', 'color', '', '#');
+    };
+
+    onStatusChange = function () {
+        var t = $(this);
+
+        if (t.val() === 'on') {
+            addCallbForm( $('#s-plugins-content'), true );
+        } else {
+            $('.call-b-form').remove();
+        }
     };
     //------------------- END EVENT HANDLERS ----------------------
 
     //------------------- BEGIN PUBLIC METHODS --------------------
     initModule = function () {
         $('#plugins-settings-form').on('submit', onFormSubmit);
+
+        $('#callb_shop_callb_status').on('change', onStatusChange);
 
         addCallbForm( $('#s-plugins-content') );
 
