@@ -50,22 +50,16 @@ var callbFrontend = (function () { "use strict";
 		$('.call-b-input').find('input[name="name"], input[name="phone"]').removeClass('call-b-inp-err');
 
 		if ( n.length > 0 && p.length > 0 ) {
-			$.ajax({
-				type: "POST",
-				url: "{$callback_url}",
-				data: "name="+n+"&phone="+p,
-				success: function(response){
-					var msg = $.parseJSON(response);
-					if (msg.data === true) {
-						$('.call-b-input').remove();
-						$('.call-b-form').append(
-							'<p class="call-b-ok">Спасибо ' + n + ',</p>' +
-							'<p class="call-b-ok">Ваше сообщение отправлено!</p>' +
-							'<div class="call-b-input"><input id="call-b-close" type="button" value="Закрыть" style="height: {$callb_settings.style_submit_height}px; width: {$callb_settings.style_submit_width}px;" /></div>'
-						);
-					}
+			$.post("{$callback_url}", "name="+n+"&phone="+p, function (response) {
+				if (response.data === true) {
+					$('.call-b-input').remove();
+					$('.call-b-form').append(
+						'<p class="call-b-ok">Спасибо ' + n + ',</p>' +
+						'<p class="call-b-ok">Ваше сообщение отправлено!</p>' +
+						'<div class="call-b-input"><input id="call-b-close" type="button" value="Закрыть" style="height: {$callb_settings.style_submit_height}px; width: {$callb_settings.style_submit_width}px;" /></div>'
+					);
 				}
-			}, 'json');
+			}, "json");
 		} else {
 			if ( !(n.length > 0) ) {
 				$('.call-b-input').find('input[name="name"]').focus();
