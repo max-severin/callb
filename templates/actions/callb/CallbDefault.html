@@ -46,9 +46,11 @@
                     <span>{$r.human_status}</span>
                 </td>
                 <td class="short nowrap align-right">
+                    {if $r.status !== 'del'}
                     <a href="#" class="callb-request-delete" callb-request-id="{$r.id}">
                         <i class="icon16 delete"></i>удалить
                     </a>
+                    {/if}
                 </td>
             </tr>
             {/foreach}

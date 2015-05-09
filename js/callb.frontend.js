@@ -55,7 +55,7 @@ var callbFrontend = (function () { "use strict";
 					$('.call-b-input').remove();
 					$('.call-b-form').append(
 						'<p class="call-b-ok">Спасибо ' + n + ',</p>' +
-						'<p class="call-b-ok">Ваше сообщение отправлено!</p>' +
+						'<p class="call-b-ok">ваше сообщение отправлено!</p>' +
 						'<div class="call-b-input"><input id="call-b-close" type="button" value="Закрыть" style="height: {$callb_settings.style_submit_height}px; width: {$callb_settings.style_submit_width}px;" /></div>'
 					);
 				}
