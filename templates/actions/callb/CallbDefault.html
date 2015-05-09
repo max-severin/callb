@@ -43,7 +43,7 @@
                 <td class="short nowrap align-left" title="Телефон"><span>{$r.phone}</span></td>
                 <td class="short nowrap align-left" title="Дата заявки">{$r.create_datetime|wa_datetime:"humandatetime"}</td>
                 <td class="short nowrap align-center" title="Статус">
-                    <span>{$r.human_status}</span>
+                    <span class="human-status">{$r.human_status}</span>
                 </td>
                 <td class="short nowrap align-right">
                     {if $r.status !== 'del'}

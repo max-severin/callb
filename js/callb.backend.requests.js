@@ -27,7 +27,8 @@ var callbBackendRequests = (function () { "use strict";
                         var showDeleted = '{$callb_settings.show_deleted}';
 
                         if (showDeleted === 'on') {
-                            $(".callb-request-delete[callb-request-id='"+id+"']").closest("tr").addClass('gray');
+                            $(".callb-request-delete[callb-request-id='"+id+"']").closest("tr").addClass('gray').find('.human-status').text('выполнен');
+                            t.remove();
                         } else {
                             $(".callb-request-delete[callb-request-id='"+id+"']").closest("tr").hide(600, function() {
                                 $(this).show("normal");
