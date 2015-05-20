@@ -9,7 +9,7 @@ var callbBackendSettings = (function () { "use strict";
     //---------------- BEGIN MODULE SCOPE VARIABLES ---------------
     var
         farbtastic_url = "{$wa_url}wa-content/js/farbtastic/farbtastic.js?{$wa->version(true)}",
-        addCallbForm, initColorPicker, setColorPickerElement, setColorPicker, onFormSubmit, 
+        addCallbForm, initColorPicker, setColorPickerElement, setColorPicker, onFormSubmit, changeColorPickerInputValue,
         textBlockHtmlChange, textPlaceholderChange, textInputValueChange, styleChange, changeHandlers, onStatusChange,
         initModule;
     //----------------- END MODULE SCOPE VARIABLES ----------------
@@ -72,7 +72,6 @@ var callbBackendSettings = (function () { "use strict";
         var farbtastic = $.farbtastic(color_picker, function(color) {
             color_replacer.find('i').css('background', color);
             color_input.val(color.substr(1));
-            color_input.css('color', color);
             color_input.trigger('change');
         });
 
@@ -184,6 +183,10 @@ var callbBackendSettings = (function () { "use strict";
             $('.call-b-form').remove();
         }
     };
+    changeColorPickerInputValue = function (input, $color) {
+        var color = 0xFFFFFF & parseInt(('' + input.value + 'FFFFFF').replace(/[^0-9A-F]+/gi, '').substr(0, 6), 16);
+        $color.css('background', (0xF000000 | color).toString(16).toUpperCase().replace(/^F/, '#'));
+    }
     //------------------- END EVENT HANDLERS ----------------------
 
     //------------------- BEGIN PUBLIC METHODS --------------------
@@ -202,6 +205,18 @@ var callbBackendSettings = (function () { "use strict";
             '#callb_shop_callb_style_submit_text_color'
         ];
         initColorPicker( color_elements, setColorPicker );
+
+        var timer = {};
+        $('.s-color').unbind('keydown').bind('keydown', function () {
+            if (timer[this.name]) {
+                clearTimeout(timer[this.name]);
+            }
+            var input = this;
+            timer[this.name] = setTimeout(function () {
+                var $color = $(input).parent().find('.icon16.color');
+                changeColorPickerInputValue(input, $color);
+            }, 300);
+        });
 
         changeHandlers();
     };

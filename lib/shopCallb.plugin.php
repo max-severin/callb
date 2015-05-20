@@ -76,7 +76,7 @@ class shopCallbPlugin extends shopPlugin {
         $control .= self::addCustomParams(array('class', 'placeholder', 'value',), $params);
         $control .= ">";
         if (isset($params['value']) && !empty($params['value'])) {
-            $control .= "<span id=\"s-color-replacer\" class=\"s-color-replacer\">";
+            $control .= "<span class=\"s-color-replacer\">";
             $control .= "<i class=\"icon16 color\" style=\"background: #{$params['value']};\"></i>";
             $control .= "</span>";
         }
