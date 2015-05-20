@@ -20,7 +20,7 @@ class shopCallbPluginFrontendCallbackController extends waJsonController {
             
             $subject = 'Обратный звонок';
             $body = "<h1>Добрый день!</h1>";
-            $body .= "<p>Пользователь <b>" . $name ."</b> заказал звонок на телефон <b>" . $phone . "</b></p>";
+            $body .= "<p>Пользователь <b>" . htmlspecialchars($name) ."</b> заказал звонок на телефон <b>" . htmlspecialchars($phone) . "</b></p>";
 
             $mail_message = new waMailMessage($subject, $body);
             $mail_message->setFrom($settings['email_of_sender'], 'плагин Обратный звонок');

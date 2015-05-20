@@ -9,12 +9,21 @@ var callbBackendSettings = (function () { "use strict";
     //---------------- BEGIN MODULE SCOPE VARIABLES ---------------
     var
         farbtastic_url = "{$wa_url}wa-content/js/farbtastic/farbtastic.js?{$wa->version(true)}",
+        htmlTagsEncode, htmlTagsDecode,
         addCallbForm, initColorPicker, setColorPickerElement, setColorPicker, onFormSubmit, changeColorPickerInputValue,
         textBlockHtmlChange, textPlaceholderChange, textInputValueChange, styleChange, changeHandlers, onStatusChange,
         initModule;
     //----------------- END MODULE SCOPE VARIABLES ----------------
 
     //--------------------- BEGIN DOM METHODS ---------------------
+    htmlTagsEncode = function (val) {
+        return $("<div/>").text(val).html()
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    } 
+    htmlTagsDecode = function (val) {
+        return $("<div/>").html(val).text();
+    }
     addCallbForm = function ( $content, statusChanged = false ) {
         var callbStatus = "{if isset($callb_settings.status)}{$callb_settings.status}{/if}";
         var styleFormBackground = '#' + $('#callb_shop_callb_style_form_background').val();
@@ -22,10 +31,10 @@ var callbBackendSettings = (function () { "use strict";
         var styleFormWidth = $('#callb_shop_callb_style_form_width').val() + 'px';
         var styleHeaderBackground = 'background: #' + $('#callb_shop_callb_style_header_background').val() + ';';
         var styleHeaderTextColor = 'color: #' + $('#callb_shop_callb_style_header_text_color').val() + ';';
-        var textHeaderTitle = $('#callb_shop_callb_text_header_title').val();
-        var textNamePlaceholder = $('#callb_shop_callb_text_name_placeholder').val();
-        var textPhonePlaceholder = $('#callb_shop_callb_text_phone_placeholder').val();
-        var textSubmitButton = $('#callb_shop_callb_text_submit_button').val();
+        var textHeaderTitle = htmlTagsEncode( $('#callb_shop_callb_text_header_title').val() );
+        var textNamePlaceholder = htmlTagsEncode( $('#callb_shop_callb_text_name_placeholder').val() );
+        var textPhonePlaceholder = htmlTagsEncode( $('#callb_shop_callb_text_phone_placeholder').val() );
+        var textSubmitButton = htmlTagsEncode( $('#callb_shop_callb_text_submit_button').val() );
         var styleSubmitBackground = 'background: #' + $('#callb_shop_callb_style_submit_background').val() + ';';
         var styleSubmitTextColor = 'color: #' + $('#callb_shop_callb_style_submit_text_color').val() + ';';
         var styleSubmitHeight = 'height: ' + $('#callb_shop_callb_style_submit_height').val() + 'px';
@@ -132,7 +141,7 @@ var callbBackendSettings = (function () { "use strict";
 
     textBlockHtmlChange = function(el_changed, el_changing) {
         el_changed.on('change', function(){
-            $(document).find(el_changing).html(el_changed.val());
+            $(document).find(el_changing).html( htmlTagsEncode(el_changed.val()) );
         });
     };
 

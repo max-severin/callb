@@ -28,9 +28,15 @@ class shopCallbPlugin extends shopPlugin {
      * Handler for frontend_head event: add callbFrontend module in frontend head section
      * @return string
      */
-    public function frontendHeader() {
+    public function frontendHeader() {        
+        $settings = $this->getSettings();
+
+        foreach ($settings as $id => $setting) {
+            $settings[$id] = addslashes(htmlspecialchars($setting));
+        }
+
         $view = wa()->getView();
-        $view->assign('callb_settings', $this->getSettings());
+        $view->assign('callb_settings', $settings);
     	$view->assign('callback_url', wa()->getRouteUrl('shop/frontend/callback/'));
         $html = $view->fetch($this->path.'/templates/Frontend.html');
 
