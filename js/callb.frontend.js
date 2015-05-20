@@ -14,6 +14,7 @@ var callbFrontend = (function () { "use strict";
 	//--------------------- BEGIN DOM METHODS ---------------------
 	removeCallbForm = function () {
 		$('.call-b-bg, .call-b-form').remove();
+		$("body").css({ "overflow": "auto" });
 	};
 	//--------------------- END DOM METHODS -----------------------
 
@@ -25,12 +26,16 @@ var callbFrontend = (function () { "use strict";
 
 		var bg = $('<div/>');
 		var form = $('<div/>');
+		var formTop = $(document).scrollTop() + $(window).height()/2 - '{$callb_settings.style_form_height}'/2;
+
+		$("body").css({ "overflow": "hidden" });
 
 		bg.addClass('call-b-bg').css('height', ($(document).height())+'px');
 		form.addClass('call-b-form').css({
 			'background': '#{$callb_settings.style_form_background}',
 			'height': '{$callb_settings.style_form_height}px',
-			'width': '{$callb_settings.style_form_width}px'
+			'width': '{$callb_settings.style_form_width}px',
+			'top' : formTop+'px'
 		}).prepend(
 			'<div class="call-b-header" style="background: #{$callb_settings.style_header_background}; color: #{$callb_settings.style_header_text_color};">{$callb_settings.text_header_title}</div>' +
 			'<div class="call-b-input"><input type="text" name="name" placeholder="{$callb_settings.text_name_placeholder}" value="" /></div>' +
