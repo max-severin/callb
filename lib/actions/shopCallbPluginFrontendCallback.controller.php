@@ -26,20 +26,26 @@ class shopCallbPluginFrontendCallbackController extends waJsonController {
             $mail_message->setFrom($settings['email_of_sender'], 'плагин Обратный звонок');
             $mail_message->setTo($settings['email_of_recipient'], 'Администратор');
 
-            $mail_message->send();
+            if ($mail_message->send()) {
 
-            $model = new shopCallbPluginRequestModel();
-            $data = array(
-                'contact_id' => wa()->getUser()->getId(),
-                'create_datetime' => date('Y-m-d H:i:s'),
-                'name' => $name,  
-                'phone' => $phone,          
-                'status' => 'new',
-            );
+                $model = new shopCallbPluginRequestModel();
+                $data = array(
+                    'contact_id' => wa()->getUser()->getId(),
+                    'create_datetime' => date('Y-m-d H:i:s'),
+                    'name' => $name,  
+                    'phone' => $phone,          
+                    'status' => 'new',
+                );
 
-            $model->insert($data);
+                $model->insert($data);
 
-            $this->response = true;
+                $this->response = true;
+
+            } else {
+
+                $this->response = false;
+                
+            }
 
         } else {
 
