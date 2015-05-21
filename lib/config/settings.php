@@ -28,14 +28,14 @@ return array(
         'description'  => 'Этот электронный адрес будет указан в качестве обратного адреса у сообщений.<br />Если адрес не задан, будет использован основной email магазина.',
         'placeholder'  => 'noreply@email',
         'value'        => '',
-        'control_type' => waHtmlControl::INPUT,
+        'control_type' => waHtmlControl::CUSTOM.' '.'shopCallbPlugin::settingEmailControl',
     ),
     'email_of_recipient' => array(
         'title'        => 'E-mail получателя',
         'description'  => 'Адрес, на который будут отправляться сообщения.<br />Если адрес не задан, будет использован основной email магазина.',
         'placeholder'  => 'your@email',
         'value'        => '',
-        'control_type' => waHtmlControl::INPUT,
+        'control_type' => waHtmlControl::CUSTOM.' '.'shopCallbPlugin::settingEmailControl',
     ),
     'id_in_html' => array(
         'title'        => 'Селектор кнопки вызова формы',
