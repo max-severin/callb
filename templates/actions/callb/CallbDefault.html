@@ -2,30 +2,30 @@
     <div id="s-callb-request-list-table-container">
         <table class="zebra single-lined" id="callb-request-list">
             <tr class="header">
-                <th class="min-width">ID</th>
+                <th class="min-width">[`ID`]</th>
                 <th>
-                    <span title="Пользователь">
-                        Пользователь
+                    <span title="[`Customer`]">
+                        [`Customer`]
                     </span>
                 </th>
                 <th>
-                    <span title="Имя">
-                        Имя
+                    <span title="[`Name`]">
+                        [`Name`]
                     </span>
                 </th>
                 <th>
-                    <span title="Телефон">
-                        Телефон
+                    <span title="[`Phone`]">
+                        [`Phone`]
                     </span>
                 </th>
                 <th>
-                    <span title="Дата заявки">
-                        Дата заявки
+                    <span title="[`Request date`]">
+                        [`Request date`]
                     </span>
                 </th>
                 <th class="min-width">
-                    <span title="Статус">
-                        Статус
+                    <span title="[`Request status`]">
+                        [`Request status`]
                     </span>
                 </th>
                 <th></th>
@@ -33,22 +33,22 @@
             {foreach $callb_requests as $r}
             <tr class="callb-request {if $r.status === 'del'}gray{/if}">        
                 <td class="min-width">{$r.id}</td>        
-                <td class="short nowrap align-left" title="Пользователь">
+                <td class="short nowrap align-left" title="[`Customer`]">
                     {if $r.contact_id}
                         <a href="?action=customers#/id/{$r.contact_id}">{$r.contact_name}</a>
                         {if $r.contact_email}<span>{$r.contact_email}</span>{/if}
                     {/if}
                 </td>
-                <td class="short nowrap align-left" title="Имя"><span>{$r.name}</span></td>
-                <td class="short nowrap align-left" title="Телефон"><span>{$r.phone}</span></td>
-                <td class="short nowrap align-left" title="Дата заявки">{$r.create_datetime|wa_datetime:"humandatetime"}</td>
-                <td class="short nowrap align-center" title="Статус">
+                <td class="short nowrap align-left" title="[`Name`]"><span>{$r.name}</span></td>
+                <td class="short nowrap align-left" title="[`Phone`]"><span>{$r.phone}</span></td>
+                <td class="short nowrap align-left" title="[`Request date`]">{$r.create_datetime|wa_datetime:"humandatetime"}</td>
+                <td class="short nowrap align-center" title="[`Request status`]">
                     <span class="human-status">{$r.human_status}</span>
                 </td>
                 <td class="short nowrap align-right">
                     {if $r.status !== 'del'}
                     <a href="#" class="callb-request-delete" callb-request-id="{$r.id}">
-                        <i class="icon16 delete"></i>удалить
+                        <i class="icon16 delete"></i>[`delete`]
                     </a>
                     {/if}
                 </td>
@@ -71,6 +71,6 @@
 
 {else}
     <div class="block double-padded align-center gray">
-        <strong>Заявки отсутствуют.</strong>
+        <strong>[`No requests.`]</strong>
     </div>
 {/if}

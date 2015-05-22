@@ -166,3 +166,45 @@ msgstr "выполнен"
 msgid "no status"
 msgstr "без статуса"
 
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:5
+msgid "ID"
+msgstr "ID"
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:7
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:8
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:36
+msgid "Customer"
+msgstr "Пользователь"
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:12
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:13
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:42
+msgid "Name"
+msgstr "Имя"
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:17
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:18
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:43
+msgid "Phone"
+msgstr "Телефон"
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:22
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:23
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:44
+msgid "Request date"
+msgstr "Дата заявки"
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:51
+msgid "delete"
+msgstr "удалить"
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:74
+msgid "No requests."
+msgstr "Заявки отсутствуют."
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:27
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:28
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:45
+msgid "Request status"
+msgstr "Статус заявки"
+
