@@ -14,8 +14,82 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: .\n"
 
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:5
+msgid "ID"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:7
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:8
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:36
+#: /wa-apps/shop/plugins/callb/lib/actions/shopCallbPluginFrontendCallback.controller.php:23
+msgid "Customer"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:12
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:13
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:42
+msgid "Name"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:17
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:18
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:43
+msgid "Phone"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:22
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:23
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:44
+msgid "Request date"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:27
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:28
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:45
+msgid "Request status"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:51
+msgid "delete"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:74
+msgid "No requests."
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/js/callb.frontend.js:62
+msgid "Thanks"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/js/callb.frontend.js:63
+msgid "your message has been sent!"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/js/callb.frontend.js:64
+#: /wa-apps/shop/plugins/callb/js/callb.frontend.js:70
+msgid "Close"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/js/callb.frontend.js:69
+msgid "Error occurred when sending message"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/js/callb.frontend.js:86
+msgid "Complete «Name» and «Phone»"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/js/callb.backend.settings.js:126
 #: /wa-apps/shop/plugins/callb/lib/config/plugin.php:7
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:49
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:50
+#: /wa-apps/shop/plugins/callb/lib/shopCallb.plugin.php:20
+#: /wa-apps/shop/plugins/callb/lib/actions/shopCallbPluginFrontendCallback.controller.php:21
+#: /wa-apps/shop/plugins/callb/lib/actions/shopCallbPluginBackend.actions.php:35
 msgid "Callback"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/js/callb.backend.requests.js:16
+msgid "Delete?"
 msgstr ""
 
 #: /wa-apps/shop/plugins/callb/lib/config/settings.php:8
@@ -129,14 +203,6 @@ msgstr ""
 msgid "Header text color (HEX)"
 msgstr ""
 
-#: /wa-apps/shop/plugins/callb/lib/config/settings.php:143
-msgid "«Send» button background color (HEX)"
-msgstr ""
-
-#: /wa-apps/shop/plugins/callb/lib/config/settings.php:150
-msgid "«Send» button text color (HEX)"
-msgstr ""
-
 #: /wa-apps/shop/plugins/callb/lib/config/settings.php:117
 msgid "«Send» button width (px)"
 msgstr ""
@@ -153,58 +219,12 @@ msgstr ""
 msgid "Value range 24-160"
 msgstr ""
 
-#: /wa-apps/shop/plugins/callb/lib/model/shopCallbPluginRequest.model.php:39
-msgid "new"
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:141
+msgid "«Send» button background color (HEX)"
 msgstr ""
 
-#: /wa-apps/shop/plugins/callb/lib/model/shopCallbPluginRequest.model.php:42
-msgid "done"
-msgstr ""
-
-#: /wa-apps/shop/plugins/callb/lib/model/shopCallbPluginRequest.model.php:46
-msgid "no status"
-msgstr ""
-
-#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:5
-msgid "ID"
-msgstr ""
-
-#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:7
-#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:8
-#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:36
-msgid "Customer"
-msgstr ""
-
-#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:12
-#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:13
-#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:42
-msgid "Name"
-msgstr ""
-
-#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:17
-#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:18
-#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:43
-msgid "Phone"
-msgstr ""
-
-#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:22
-#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:23
-#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:44
-msgid "Request date"
-msgstr ""
-
-#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:51
-msgid "delete"
-msgstr ""
-
-#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:74
-msgid "No requests."
-msgstr ""
-
-#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:27
-#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:28
-#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:45
-msgid "Request status"
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:148
+msgid "«Send» button text color (HEX)"
 msgstr ""
 
 #: /wa-apps/shop/plugins/callb/lib/actions/shopCallbPluginFrontendCallback.controller.php:22
@@ -223,28 +243,15 @@ msgstr ""
 msgid "Administrator"
 msgstr ""
 
-#: /wa-apps/shop/plugins/callb/js/callb.frontend.js:88
-msgid "Complete «Name» and «Phone»"
+#: /wa-apps/shop/plugins/callb/lib/model/shopCallbPluginRequest.model.php:39
+msgid "new"
 msgstr ""
 
-#: /wa-apps/shop/plugins/callb/js/callb.frontend.js:69
-msgid "Error occurred when sending message"
+#: /wa-apps/shop/plugins/callb/lib/model/shopCallbPluginRequest.model.php:42
+msgid "done"
 msgstr ""
 
-#: /wa-apps/shop/plugins/callb/js/callb.frontend.js:64
-#: /wa-apps/shop/plugins/callb/js/callb.frontend.js:70
-msgid "Close"
+#: /wa-apps/shop/plugins/callb/lib/model/shopCallbPluginRequest.model.php:46
+msgid "no status"
 msgstr ""
 
-#: /wa-apps/shop/plugins/callb/js/callb.frontend.js:62
-msgid "Thanks"
-msgstr ""
-
-#: /wa-apps/shop/plugins/callb/js/callb.frontend.js:63
-msgid "your message has been sent!"
-msgstr ""
-
-
-#: /wa-apps/shop/plugins/callb/js/callb.backend.requests.js:16
-msgid "Delete?"
-msgstr ""
