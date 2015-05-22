@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: shop/plugins/callb\n"
 "POT-Creation-Date: 2015-05-22 03:03+0300\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Makc <makc.severin@gmail.com>\n"
+"Last-Translator: Max Severin <makc.severin@gmail.com>\n"
 "Language-Team: shop/plugins/callb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -207,4 +207,20 @@ msgstr "Заявки отсутствуют."
 #: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:45
 msgid "Request status"
 msgstr "Статус заявки"
+
+#: /wa-apps/shop/plugins/callb/lib/actions/shopCallbPluginFrontendCallback.controller.php:22
+msgid "Good day!"
+msgstr "Добрый день!"
+
+#: /wa-apps/shop/plugins/callb/lib/actions/shopCallbPluginFrontendCallback.controller.php:23
+msgid "ordered a callback"
+msgstr "заказал звонок на телефон"
+
+#: /wa-apps/shop/plugins/callb/lib/actions/shopCallbPluginFrontendCallback.controller.php:26
+msgid "Callback plugin"
+msgstr "плагин Обратный звонок"
+
+#: /wa-apps/shop/plugins/callb/lib/actions/shopCallbPluginFrontendCallback.controller.php:27
+msgid "Administrator"
+msgstr "Администратор"
 

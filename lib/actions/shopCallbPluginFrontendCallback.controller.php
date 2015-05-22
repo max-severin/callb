@@ -18,13 +18,13 @@ class shopCallbPluginFrontendCallbackController extends waJsonController {
             if (!$settings['email_of_sender']) { $settings['email_of_sender'] = wa('shop')->getConfig()->getGeneralSettings("email"); }
             if (!$settings['email_of_recipient']) { $settings['email_of_recipient'] = wa('shop')->getConfig()->getGeneralSettings("email"); }
             
-            $subject = 'Обратный звонок';
-            $body = "<h1>Добрый день!</h1>";
-            $body .= "<p>Пользователь <b>" . htmlspecialchars($name) ."</b> заказал звонок на телефон <b>" . htmlspecialchars($phone) . "</b></p>";
+            $subject = _wp('Callback');
+            $body = "<h1>" . _wp('Good day!') . "</h1>";
+            $body .= "<p>" . _wp('Customer') . " <b>" . htmlspecialchars($name) ."</b> " . _wp('ordered a callback') . " <b>" . htmlspecialchars($phone) . "</b></p>";
 
             $mail_message = new waMailMessage($subject, $body);
-            $mail_message->setFrom($settings['email_of_sender'], 'плагин Обратный звонок');
-            $mail_message->setTo($settings['email_of_recipient'], 'Администратор');
+            $mail_message->setFrom($settings['email_of_sender'], _wp('Callback plugin'));
+            $mail_message->setTo($settings['email_of_recipient'], _wp('Administrator'));
 
             if ($mail_message->send()) {
 

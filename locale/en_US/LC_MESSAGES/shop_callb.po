@@ -207,3 +207,19 @@ msgstr ""
 #: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:45
 msgid "Request status"
 msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/actions/shopCallbPluginFrontendCallback.controller.php:22
+msgid "Good day!"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/actions/shopCallbPluginFrontendCallback.controller.php:23
+msgid "ordered a callback"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/actions/shopCallbPluginFrontendCallback.controller.php:26
+msgid "Callback plugin"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/actions/shopCallbPluginFrontendCallback.controller.php:27
+msgid "Administrator"
+msgstr ""
