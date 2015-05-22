@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: shop/plugins/callb\n"
 "POT-Creation-Date: 2015-05-22 03:03+0300\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Makc <makc.severin@gmail.com>\n"
+"Last-Translator: Max Severin <makc.severin@gmail.com>\n"
 "Language-Team: shop/plugins/callb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -201,7 +201,6 @@ msgstr ""
 msgid "No requests."
 msgstr ""
 
-
 #: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:27
 #: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:28
 #: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:45
@@ -223,3 +222,25 @@ msgstr ""
 #: /wa-apps/shop/plugins/callb/lib/actions/shopCallbPluginFrontendCallback.controller.php:27
 msgid "Administrator"
 msgstr ""
+
+#: /wa-apps/shop/plugins/callb/js/callb.frontend.js:88
+msgid "Complete «Name» and «Phone»"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/js/callb.frontend.js:69
+msgid "Error occurred when sending message"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/js/callb.frontend.js:64
+#: /wa-apps/shop/plugins/callb/js/callb.frontend.js:70
+msgid "Close"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/js/callb.frontend.js:62
+msgid "Thanks"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/js/callb.frontend.js:63
+msgid "your message has been sent!"
+msgstr ""
+

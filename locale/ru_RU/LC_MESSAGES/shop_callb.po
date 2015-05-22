@@ -224,3 +224,24 @@ msgstr "плагин Обратный звонок"
 msgid "Administrator"
 msgstr "Администратор"
 
+#: /wa-apps/shop/plugins/callb/js/callb.frontend.js:88
+msgid "Complete «Name» and «Phone»"
+msgstr "Заполните «Имя» и «Телефон»"
+
+#: /wa-apps/shop/plugins/callb/js/callb.frontend.js:69
+msgid "Error occurred when sending message"
+msgstr "Произошла ошибка при отправке сообщения"
+
+#: /wa-apps/shop/plugins/callb/js/callb.frontend.js:64
+#: /wa-apps/shop/plugins/callb/js/callb.frontend.js:70
+msgid "Close"
+msgstr "Закрыть"
+
+#: /wa-apps/shop/plugins/callb/js/callb.frontend.js:62
+msgid "Thanks"
+msgstr "Спасибо"
+
+#: /wa-apps/shop/plugins/callb/js/callb.frontend.js:63
+msgid "your message has been sent!"
+msgstr "ваше сообщение отправлено!"
+

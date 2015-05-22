@@ -59,15 +59,15 @@ var callbFrontend = (function () { "use strict";
 				if (response.data === true) {
 					$('.call-b-input').remove();
 					$('.call-b-form').append(
-						'<p class="call-b-ok">Спасибо ' + n + ',</p>' +
-						'<p class="call-b-ok">ваше сообщение отправлено!</p>' +
-						'<div class="call-b-input"><input id="call-b-close" type="button" value="Закрыть" style="height: {$callb_settings.style_submit_height}px; width: {$callb_settings.style_submit_width}px;" /></div>'
+						'<p class="call-b-ok">{_wp("Thanks")}, ' + n + ',</p>' +
+						'<p class="call-b-ok">{_wp("your message has been sent!")}</p>' +
+						'<div class="call-b-input"><input id="call-b-close" type="button" value=\"{_wp("Close")}\" style="height: {$callb_settings.style_submit_height}px; width: {$callb_settings.style_submit_width}px;" /></div>'
 					);
 				} else {
 					$('.call-b-input').remove();
 					$('.call-b-form').append(
-						'<p class="call-b-ok margins">Произошла ошибка при отправке сообщения</p>' +
-						'<div class="call-b-input"><input class="call-b-close-error" id="call-b-close" type="button" value="Закрыть" style="height: {$callb_settings.style_submit_height}px; width: {$callb_settings.style_submit_width}px;" /></div>'
+						'<p class="call-b-ok margins">{_wp("Error occurred when sending message")}</p>' +
+						'<div class="call-b-input"><input class="call-b-close-error" id="call-b-close" type="button" value=\"{_wp("Close")}\" style="height: {$callb_settings.style_submit_height}px; width: {$callb_settings.style_submit_width}px;" /></div>'
 					);
 				}
 			}, "json");
@@ -83,7 +83,7 @@ var callbFrontend = (function () { "use strict";
 			if ( !(p.length > 0) ) {
 				$('.call-b-input').find('input[name="phone"]').addClass('call-b-inp-err');
 			}
-			err.addClass('call-b-error').text('Заполните "Имя" и "Телефон"');
+			err.addClass('call-b-error').text("{_wp('Complete «Name» and «Phone»')}");
 			$('.call-b-form').append( err );
 		}
 	};
