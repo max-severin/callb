@@ -244,3 +244,7 @@ msgstr ""
 msgid "your message has been sent!"
 msgstr ""
 
+
+#: /wa-apps/shop/plugins/callb/js/callb.backend.requests.js:16
+msgid "Delete?"
+msgstr ""

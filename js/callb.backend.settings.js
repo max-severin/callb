@@ -123,7 +123,7 @@ var callbBackendSettings = (function () { "use strict";
 
                 if ( $("#plugins-settings-form select[name='shop_callb[status]']").val() === 'on' ) {
                     if (callbTab.length === 0) {
-                        $("#wa-app #mainmenu .tabs li:last").before('<li class="no-tab"><a href="?plugin=callb">Обратный звонок</a></li>');
+                        $("#wa-app #mainmenu .tabs li:last").before('<li class="no-tab"><a href="?plugin=callb">{_wp("Callback")}</a></li>');
                     }
                 } else {
                     callbTab.remove();

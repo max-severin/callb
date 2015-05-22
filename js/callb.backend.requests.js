@@ -13,7 +13,7 @@ var callbBackendRequests = (function () { "use strict";
 
     //------------------- BEGIN EVENT HANDLERS --------------------
     onDeleteHandler = function (event) {
-        if(confirm('Удалить?')) {
+        if(confirm("{_wp('Delete?')}")) {
 
             event.preventDefault();
 
