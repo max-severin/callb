@@ -154,3 +154,15 @@ msgstr "Высота кнопки «Отправить» (px)"
 msgid "Value range 24-160"
 msgstr "Диапазон значений 24-160"
 
+#: /wa-apps/shop/plugins/callb/lib/model/shopCallbPluginRequest.model.php:39
+msgid "new"
+msgstr "новый"
+
+#: /wa-apps/shop/plugins/callb/lib/model/shopCallbPluginRequest.model.php:42
+msgid "done"
+msgstr "выполнен"
+
+#: /wa-apps/shop/plugins/callb/lib/model/shopCallbPluginRequest.model.php:46
+msgid "no status"
+msgstr "без статуса"
+

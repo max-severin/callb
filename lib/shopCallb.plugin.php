@@ -17,7 +17,7 @@ class shopCallbPlugin extends shopPlugin {
 
         if ($this->getSettings('status') === 'on') {
             $html = '<li ' . (waRequest::get('plugin') == $this->id ? 'class="selected"' : 'class="no-tab"') . '>
-                        <a href="?plugin=callb">Обратный звонок</a>
+                        <a href="?plugin=callb">' . /*_wp*/('Callback') . '</a>
                     </li>';
         }
 

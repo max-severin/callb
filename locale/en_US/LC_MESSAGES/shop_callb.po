@@ -152,3 +152,15 @@ msgstr ""
 #: /wa-apps/shop/plugins/callb/lib/config/settings.php:130
 msgid "Value range 24-160"
 msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/model/shopCallbPluginRequest.model.php:39
+msgid "new"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/model/shopCallbPluginRequest.model.php:42
+msgid "done"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/model/shopCallbPluginRequest.model.php:46
+msgid "no status"
+msgstr ""

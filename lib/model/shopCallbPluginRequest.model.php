@@ -36,14 +36,14 @@ class shopCallbPluginRequestModel extends waModel {
 
 			switch ($request['status']) {
 				case 'new':
-					$callb_requests[$id]['human_status'] = 'новый';
+					$callb_requests[$id]['human_status'] = /*_wp*/('new');
 					break;
 				case 'del':
-					$callb_requests[$id]['human_status'] = 'выполнен';
+					$callb_requests[$id]['human_status'] = /*_wp*/('done');
 					break;
 				
 				default:
-					$callb_requests[$id]['human_status'] = 'без статуса';
+					$callb_requests[$id]['human_status'] = /*_wp*/('no status');
 					break;
 			}
 
