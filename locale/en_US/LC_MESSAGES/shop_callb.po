@@ -15,5 +15,140 @@ msgstr ""
 "X-Poedit-SearchPath-1: .\n"
 
 #: /wa-apps/shop/plugins/callb/lib/config/plugin.php:7
-msgid "Call back"
+msgid "Callback"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:8
+msgid "Status"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:12
+msgid "Off"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:13
+msgid "On"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:17
+msgid "Display deleted requests"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:18
+msgid "When you enable this setting,<br />deleted requests will be displayed in the history of user requests."
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:22
+msgid "No"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:23
+msgid "Yes"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:27
+msgid "Sender e-mail"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:28
+msgid "This email address will be listed as the return address of the message.<br />If the address is not specified, it will use the general email of the shop."
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:34
+msgid "Recipient e-mail"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:35
+msgid "The address to which to send messages.<br />If the address is not specified, it will use the general email of the shop."
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:41
+msgid "Selector of the button of callback form"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:42
+msgid "Specify the ID or class of the html element,<br />when clicking on which will open a form of callback.<br />Must be like «<b>#call-back-button</b>» or «<b>.call-back-button</b>»."
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:48
+msgid "Header text"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:54
+msgid "«Name» field placeholder"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:55
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:56
+msgid "Your Name"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:60
+msgid "«Phone» field placeholder"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:61
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:62
+msgid "Your Phone"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:66
+msgid "«Send» button text"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:68
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:69
+msgid "Send"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:72
+msgid "Form width (px)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:73
+msgid "Value range 320-600"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:84
+msgid "Form height (px)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:85
+msgid "Value range 240-400"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:96
+msgid "Form background color (HEX)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:103
+msgid "Header background color (HEX)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:110
+msgid "Header text color (HEX)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:143
+msgid "«Send» button background color (HEX)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:150
+msgid "«Send» button text color (HEX)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:117
+msgid "«Send» button width (px)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:118
+msgid "Value range 100-600"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:129
+msgid "«Send» button height (px)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:130
+msgid "Value range 24-160"
 msgstr ""

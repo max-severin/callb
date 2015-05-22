@@ -4,7 +4,7 @@
  * @author Max Severin <makc.severin@gmail.com>
  */
 return array(
-    'name' => /*_wp*/('Call back'),
+    'name' => /*_wp*/('Callback'),
     'version' => '1.0.0',
     'img' => 'img/callb.png',
     'vendor' => 1020720,
