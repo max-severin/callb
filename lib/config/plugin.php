@@ -4,7 +4,7 @@
  * @author Max Severin <makc.severin@gmail.com>
  */
 return array(
-    'name' => 'Обратный звонок',
+    'name' => /*_wp*/('Call back'),
     'version' => '1.0.0',
     'img' => 'img/callb.png',
     'vendor' => 1020720,
