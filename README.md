@@ -1,32 +1,32 @@
 # callb
 
-## Описание
-Плагин обратного звонка для Webasyst Shop-Script
+## Description
+Callback plugin for Webasyst Shop-Script
 
-## Возможности
-Покупатели магазина могут оставлять заявки на обратный звонок, указав свое имя и телефон.
+## Features
+Shop customers can request a callback by entering name and phone number.
 
-Заявка отправляется на почту администратора, указанную в настройках плагина. Если электронный адрес не задан в настройках, будет использован основной email магазина.
+Then request sends to the administrator email, which specified in the plugin settings. If the email address is not specified in settings, will be used the general shop email.
 
-У администратора есть возможность просматривать данные заявки в отдельной вкладке в админ панеле, а также редактировать внешний вид формы: размер, текст, цвет. Все проведенные изменения динамически отображаются в предпросмотре формы в live режиме.
+Administrator can view the requests in a separate tab in the admin panel and edit the form's appearance: size, text, color. All changes are dynamically displayed in the form preview in live mode.
 
-В настройках плагина:
-- Необходимо указать селектор кнопки вызова формы (идентификатор или класс html-элемента шаблона), при клике на котором будет открываться окно с формой обратного звонка.  
-Должно быть вида «**#call-back-button**» или «**.call-back-button**».
-- Можно указать электронный адрес отправителя (будет указан в качестве обратного адреса у сообщений) и получателя (на который будут отправляться сообщения).
+In the plugin settings:
+- You must specify a selector of the button of callback form (ID or class of the html element of template), when clicking on which will open a form of callback.  
+Must be like «**#call-back-button**» or «**.call-back-button**».
+- You can specify the sender email address (will be listed as the return address of the message) and the recipient email (to which to send messages).
 
-## Установка
-### Автоматическая
+## Installing
+### Automatic
 ...
 
-### Ручная
-1. Загрузите папку с плагином из репозитория в каталог на вашем веб-сервере: /PATH_TO_WEBASYST/wa-apps/shop/plugins
+### Manual
+1. Get the code into your web server's folder /PATH_TO_WEBASYST/wa-apps/shop/plugins
 
-2. Добавьте следующую строку в файл /PATH_TO_WEBASYST/wa-config/apps/shop/plugins.php (этот файл содержит список подключенных плагинов приложения «Магазин»):
+2. Add the following line into the /PATH_TO_WEBASYST/wa-config/apps/shop/plugins.php file (this file lists all installed shop plugins):
 
 		'callb' => true,
 
-3. Настройте плагин во вкладке «Плагины» приложения «Магазин».
+3. Done. Configure the plugin in the plugins tab of shop backend.
 
-## Особенности
-Для корректной работы плагина в шаблоне текущей темы дизайна должен быть подключен хук **frontend_head**
+## Specificity
+For the correct operation of the plugin in the current design theme needs to be connected **frontend_head** hook
