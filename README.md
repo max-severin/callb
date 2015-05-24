@@ -16,7 +16,7 @@ Must be like «**#call-back-button**» or «**.call-back-button**».
 - You can specify the sender email address (will be listed as the return address of the message) and the recipient email (to which to send messages).
 
 ## Installing
-### Automatic
+### Auto
 ...
 
 ### Manual
