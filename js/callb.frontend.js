@@ -56,10 +56,10 @@ var callbFrontend = (function () { "use strict";
 
 		if ( n.length > 0 && p.length > 0 ) {
 			$.post("{$callback_url}", { "name": n, "phone": p }, function (response) {
-				if (response.data === true) {
+				if (response.data.status === true) {
 					$('.call-b-input').remove();
 					$('.call-b-form').append(
-						'<p class="call-b-ok">{_wp("Thanks")}, ' + n + ',</p>' +
+						'<p class="call-b-ok">{_wp("Thanks")}, ' + response.data.name + ',</p>' +
 						'<p class="call-b-ok">{_wp("your message has been sent!")}</p>' +
 						'<div class="call-b-input"><input id="call-b-close" type="button" value=\"{_wp("Close")}\" style="height: {$callb_settings.style_submit_height}px; width: {$callb_settings.style_submit_width}px;" /></div>'
 					);

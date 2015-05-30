@@ -10,8 +10,8 @@ class shopCallbPluginFrontendCallbackController extends waJsonController {
         $app_settings_model = new waAppSettingsModel();
         $settings = $app_settings_model->get(array('shop', 'callb'));
 
-        $name = waRequest::post('name', '', 'str');
-        $phone = waRequest::post('phone', '', 'str');
+        $name = htmlspecialchars( waRequest::post('name', '', 'str') );
+        $phone = htmlspecialchars( waRequest::post('phone', '', 'str') );
 
         if ( isset($settings['status']) && $settings['status'] === 'on' && !empty($name) && !empty($phone) ) {
 
@@ -20,26 +20,29 @@ class shopCallbPluginFrontendCallbackController extends waJsonController {
             
             $subject = _wp('Callback');
             $body = "<h1>" . _wp('Good day!') . "</h1>";
-            $body .= "<p>" . _wp('Customer') . " <b>" . htmlspecialchars($name) ."</b> " . _wp('ordered a callback') . " <b>" . htmlspecialchars($phone) . "</b></p>";
+            $body .= "<p>" . _wp('Customer') . " <b>" . $name ."</b> " . _wp('ordered a callback') . " <b>" . $phone . "</b></p>";
 
             $mail_message = new waMailMessage($subject, $body);
             $mail_message->setFrom($settings['email_of_sender'], _wp('Callback plugin'));
             $mail_message->setTo($settings['email_of_recipient'], _wp('Administrator'));
 
-            if ($mail_message->send()) {
+            if (1) {
 
                 $model = new shopCallbPluginRequestModel();
                 $data = array(
                     'contact_id' => wa()->getUser()->getId(),
                     'create_datetime' => date('Y-m-d H:i:s'),
-                    'name' => $name,  
-                    'phone' => $phone,          
+                    'name' => $name,
+                    'phone' => $phone,
                     'status' => 'new',
                 );
 
                 $model->insert($data);
 
-                $this->response = true;
+                $this->response = array(
+                    'status' =>true,
+                    'name' => $name,
+                );
 
             } else {
 
