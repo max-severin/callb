@@ -26,7 +26,7 @@ class shopCallbPluginFrontendCallbackController extends waJsonController {
             $mail_message->setFrom($settings['email_of_sender'], _wp('Callback plugin'));
             $mail_message->setTo($settings['email_of_recipient'], _wp('Administrator'));
 
-            if (1) {
+            if ($mail_message->send()) {
 
                 $model = new shopCallbPluginRequestModel();
                 $data = array(
@@ -40,7 +40,7 @@ class shopCallbPluginFrontendCallbackController extends waJsonController {
                 $model->insert($data);
 
                 $this->response = array(
-                    'status' =>true,
+                    'status' => true,
                     'name' => $name,
                 );
 
@@ -52,7 +52,9 @@ class shopCallbPluginFrontendCallbackController extends waJsonController {
 
         } else {
 
-            $this->response = false;
+            $this->response =  = array(
+                'status' => false,
+            );
 
         }
     }  
