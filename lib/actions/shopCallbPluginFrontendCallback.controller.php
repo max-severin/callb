@@ -46,13 +46,15 @@ class shopCallbPluginFrontendCallbackController extends waJsonController {
 
             } else {
 
-                $this->response = false;
+                $this->response = array(
+                    'status' => false,
+                );
                 
             }
 
         } else {
 
-            $this->response =  = array(
+            $this->response = array(
                 'status' => false,
             );
 

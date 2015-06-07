@@ -248,6 +248,7 @@ msgstr "Администратор"
 msgid "new"
 msgstr "новый"
 
+#: /wa-apps/shop/plugins/callb/js/callb.backend.requests.js:30
 #: /wa-apps/shop/plugins/callb/lib/model/shopCallbPluginRequest.model.php:42
 msgid "done"
 msgstr "выполнен"
