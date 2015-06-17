@@ -49,8 +49,8 @@ class shopCallbPluginRequestModel extends waModel {
 
 			$contact = new waContact($request['contact_id']);
 
-			$callb_requests[$id]['contact_name'] = $contact->getName();
-			$callb_requests[$id]['contact_email'] = $contact->get('email', 'default');
+			$callb_requests[$id]['contact_name'] = htmlspecialchars( $contact->getName() );
+			$callb_requests[$id]['contact_email'] = htmlspecialchars( $contact->get('email', 'default') );
 
 			$callb_requests[$id]['name'] = addslashes(htmlspecialchars( $request['name'] ));
 			$callb_requests[$id]['phone'] = addslashes(htmlspecialchars( $request['phone'] ));

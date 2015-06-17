@@ -13,7 +13,7 @@ class shopCallbPluginSettingsAction extends shopPluginsSettingsAction {
         $settings = $app_settings_model->get(array('shop', 'callb'));
 
         foreach ($settings as $id => $setting) {
-        	$settings[$id] = addslashes(htmlspecialchars($setting));
+            $settings[$id] = addslashes(htmlspecialchars($setting));
         }
 
         $view = wa()->getView(); 
