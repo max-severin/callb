@@ -24,7 +24,7 @@ Administrator can view the requests in a separate tab in the admin panel and edi
 3. Done. Configure the plugin in the plugins settings tab of shop backend.
 
 ## Settings
-After plugin install, you need to select or create a hyperlink or other html-element in the theme template, when clicking on which will open a window with the form callback, and then set to element attribute identifier (id) or class (class). This element examples:  
+After plugin install, you need to select or create a hyperlink or other html-element in the theme template, when clicking on which will open a form of callback, and then set to element attribute identifier (id) or class (class). This element examples:  
 *&lt;a id="call-back-button"&gt;Callback&lt;/a&gt;*  
 Or:  
 *&lt;a class="call-back-button"&gt;Callback&lt;/a&gt;*
