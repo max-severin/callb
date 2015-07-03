@@ -12,7 +12,8 @@ Administrator can view the requests in a separate tab in the admin panel and edi
 
 ## Installing
 ### Auto
-...
+Install plugin from webasyst store: [Callback-en](https://www.webasyst.com/store/plugin/shop/callb/) or [Callback-ru](https://www.webasyst.ru/store/plugin/shop/callb/).  
+Or you can install plugin from Installer app in backend.
 
 ### Manual
 1. Get the code into your web server's folder /PATH_TO_WEBASYST/wa-apps/shop/plugins
