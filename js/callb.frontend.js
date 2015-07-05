@@ -44,6 +44,10 @@ var callbFrontend = (function () { "use strict";
 		);
 
 		$('body').prepend(form).prepend(bg);
+
+		{if isset($callb_settings.phone_masked_input) && strlen($callb_settings.phone_masked_input) > 0}
+		$('.call-b-form input[name="phone"]').mask('{$callb_settings.phone_masked_input}');
+		{/if}
 	};
 
 	onFormSubmit = function (event) {

@@ -256,3 +256,11 @@ msgstr ""
 msgid "no status"
 msgstr ""
 
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:48
+msgid "Masked input for phone"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:49
+msgid "If fill this setting will added the mask for the field with the phone number.<br />Tip about masks characters:<br /><b>a</b> - All alphabetic values (A-Z, a-z)<br /><b>9</b> - All numeric values (0-9)<br /><b>*</b> - Any alphanumeric values (A-Z, a-z, 0-9).<br />Leave the field empty, if you do not need mask input."
+msgstr ""
+

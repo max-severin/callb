@@ -44,6 +44,13 @@ return array(
         'value'        => '#call-back-button',
         'control_type' => waHtmlControl::INPUT,
     ),
+    'phone_masked_input' => array(
+        'title'        => _wp('Masked input for phone'),
+        'description'  => _wp('If fill this setting will added the mask for the field with the phone number.<br />Tip about masks characters:<br /><b>a</b> - All alphabetic values (A-Z, a-z)<br /><b>9</b> - All numeric values (0-9)<br /><b>*</b> - Any alphanumeric values (A-Z, a-z, 0-9).<br />Leave the field empty, if you do not need mask input.'),
+        'placeholder'  => '+7 (999) 999-99-99',
+        'value'        => '',
+        'control_type' => waHtmlControl::INPUT,
+    ),
     'text_header_title' => array(
         'title'        => _wp('Header text'),
         'placeholder'  => _wp('Callback'),

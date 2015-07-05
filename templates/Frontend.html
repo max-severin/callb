@@ -4,6 +4,10 @@
 		{include file="../css/callb.css" inline}
 	</style>
 
+	{if isset($callb_settings.phone_masked_input) && strlen($callb_settings.phone_masked_input) > 0}
+	<script type="text/javascript" src="{$wa_url}wa-apps/shop/plugins/callb/js/jquery.maskedinput.min.js"></script>
+	{/if}
+
 	<script type="text/javascript">
 		{include file="../js/callb.frontend.js"}
 	</script>
