@@ -20,7 +20,7 @@ class shopCallbPluginFrontendCallbackController extends waJsonController {
             
             $subject = _wp('Callback');
             $body = "<h1>" . _wp('Good day!') . "</h1>";
-            $body .= "<p>" . _wp('Customer') . " <b>" . $name ."</b> " . _wp('ordered a callback') . " <b>" . $phone . "</b></p>";
+            $body .= "<p>" . _wp('Customer') . " <b>" . $name ."</b> " . _wp('ordered a callback') . " <a href='tel:" . $phone . "'><b>" . $phone . "</b></a></p>";
 
             $mail_message = new waMailMessage($subject, $body);
             $mail_message->setFrom($settings['email_of_sender'], _wp('Callback plugin'));
