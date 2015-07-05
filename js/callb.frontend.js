@@ -37,7 +37,7 @@ var callbFrontend = (function () { "use strict";
 			'width': '{$callb_settings.style_form_width}px',
 			'top' : formTop+'px'
 		}).prepend(
-			'<div class="call-b-header" style="background: #{$callb_settings.style_header_background}; color: #{$callb_settings.style_header_text_color};">{$callb_settings.text_header_title}</div>' +
+			'<div class="call-b-header" style="background: #{$callb_settings.style_header_background}; color: #{$callb_settings.style_header_text_color};">{$callb_settings.text_header_title}<span id="call-b-close-x">x</span></div>' +
 			'<div class="call-b-input"><input type="text" name="name" placeholder="{$callb_settings.text_name_placeholder}" value="" /></div>' +
 			'<div class="call-b-input"><input type="text" name="phone" placeholder="{$callb_settings.text_phone_placeholder}" value="" /></div>' +
 			'<div class="call-b-input"><input id="call-b-submit" type="submit" value="{$callb_settings.text_submit_button}" style="background: #{$callb_settings.style_submit_background}; color: #{$callb_settings.style_submit_text_color}; height: {$callb_settings.style_submit_height}px; width: {$callb_settings.style_submit_width}px" /></div>'
@@ -93,7 +93,7 @@ var callbFrontend = (function () { "use strict";
 	initModule = function () {		
 		$(document).on('click', '{$callb_settings.id_in_html}', onIdinhtmlClick);
 
-		$(document).on('click', '.call-b-bg, #call-b-close', removeCallbForm);
+		$(document).on('click', '.call-b-bg, #call-b-close-x, #call-b-close', removeCallbForm);
 
 		$(document).on('click', '#call-b-submit', onFormSubmit);
 	};

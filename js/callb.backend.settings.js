@@ -48,7 +48,7 @@ var callbBackendSettings = (function () { "use strict";
                 'height': styleFormHeight,
                 'width': styleFormWidth
             }).prepend(
-                '<div class="call-b-header" style="' + styleHeaderBackground + styleHeaderTextColor + '">' + textHeaderTitle + '</div>' +
+                '<div class="call-b-header" style="' + styleHeaderBackground + styleHeaderTextColor + '">' + textHeaderTitle + '<span id="call-b-close-x">x</span></div>' +
                 '<div class="call-b-input"><input type="text" name="name" placeholder="' + textNamePlaceholder + '" value="" /></div>' +
                 '<div class="call-b-input"><input type="text" name="phone" placeholder="' + textPhonePlaceholder + '" value="" /></div>' +
                 '<div class="call-b-input"><input id="call-b-submit" type="submit" value="' + textSubmitButton + '" disabled="disabled" style="' + styleSubmitBackground + styleSubmitTextColor + styleSubmitHeight + styleSubmitWidth + '" /></div>'
