@@ -16,8 +16,17 @@ class shopCallbPlugin extends shopPlugin {
         $html = '';
 
         if ($this->getSettings('status') === 'on') {
+
+            $model = new shopCallbPluginRequestModel();
+            $new_request_count = $model->getNewRequestCount();
+
+            $new_request_html = '';
+            if ($new_request_count > 0) {
+                $new_request_html = '<sup class="red" style="display:inline">' . $new_request_count . '</sup>';
+            }
+
             $html = '<li ' . (waRequest::get('plugin') == $this->id ? 'class="selected"' : 'class="no-tab"') . '>
-                        <a href="?plugin=callb">' . _wp('Callback') . '</a>
+                        <a href="?plugin=callb">' . _wp('Callback') . $new_request_html . '</a>
                     </li>';
         }
 

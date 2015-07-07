@@ -25,6 +25,8 @@ var callbBackendRequests = (function () { "use strict";
                 $.post('?plugin=callb&action=requestdelete', { 'id': id }, function (response) {
                     if (response.data === true) {
                         var showDeleted = '{$callb_settings.show_deleted}';
+                        var newRequestCountEl = $("#wa-app #mainmenu .tabs").find('li a[href="?plugin=callb"] sup');
+                        var newRequestCountVal = parseInt(newRequestCountEl.text()) - 1;
 
                         if (showDeleted === 'on') {
                             $(".callb-request-delete[callb-request-id='"+id+"']").closest("tr").addClass('gray').find('.human-status').text("{_wp('done')}");
@@ -34,7 +36,13 @@ var callbBackendRequests = (function () { "use strict";
                                 $(this).show("normal");
                                 $(this).remove();
                             });
-                        }                        
+                        }
+
+                        if (newRequestCountVal === 0) {
+                            newRequestCountEl.remove();
+                        } else {
+                            newRequestCountEl.text(newRequestCountVal);
+                        }
                     }
                 }, "json");
             }

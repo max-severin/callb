@@ -60,4 +60,8 @@ class shopCallbPluginRequestModel extends waModel {
 		return $callb_requests;
 	}
 
+	public function getNewRequestCount() {
+		return $this->countByField('status', 'new');
+	}
+
 }
