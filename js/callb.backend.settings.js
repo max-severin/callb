@@ -20,11 +20,15 @@ var callbBackendSettings = (function () { "use strict";
         return $("<div/>").text(val).html()
             .replace(/"/g, "&quot;")
             .replace(/'/g, "&#039;");
-    } 
+    };
+
     htmlTagsDecode = function (val) {
         return $("<div/>").html(val).text();
-    }
-    addCallbForm = function ( $content, statusChanged = false ) {
+    };
+
+    addCallbForm = function ($content, statusChanged) {
+        statusChanged = (typeof statusChanged !== 'undefined') ? statusChanged : false;
+        
         var callbStatus = "{if isset($callb_settings.status)}{$callb_settings.status}{/if}";
         var styleFormBackground = '#' + $('#callb_shop_callb_style_form_background').val();
         var styleFormHeight = $('#callb_shop_callb_style_form_height').val() + 'px';
@@ -58,7 +62,7 @@ var callbBackendSettings = (function () { "use strict";
         }
     };
 
-    initColorPicker = function(elements, init) {
+    initColorPicker = function (elements, init) {
     	if ($.fn.farbtastic) {
             init(elements);
         } else {
@@ -66,13 +70,13 @@ var callbBackendSettings = (function () { "use strict";
                 dataType: "script",
                 url: farbtastic_url,
                 cache: true
-            }).done(function() {
+            }).done(function () {
                 init(elements);
             });
         }
     };
 
-    setColorPickerElement = function(el) {
+    setColorPickerElement = function (el) {
         var color_wrapper = el.closest('.value');
         var color_picker = color_wrapper.find('.s-colorpicker');
         var color_replacer = color_wrapper.find('.s-color-replacer');
@@ -86,7 +90,7 @@ var callbBackendSettings = (function () { "use strict";
 
         farbtastic.setColor('#'+color_input.val());
 
-        color_replacer.click(function() {
+        color_replacer.click(function () {
             color_picker.slideToggle(200);
             return false;
         });
@@ -108,14 +112,14 @@ var callbBackendSettings = (function () { "use strict";
 
         var f = $(this);
 
-        $.post( f.attr('action'), f.serialize(), function(response) {
+        $.post( f.attr('action'), f.serialize(), function (response) {
             if ( response.status == 'ok' ) {
                 $.plugins.message('success', response.data.message);
 
                 f.find('.submit .button').removeClass('red').addClass('green');
                 $("#plugins-settings-form-status").hide()
                 $("#plugins-settings-form-status span").html(response.data.message);
-                $("#plugins-settings-form-status").fadeIn('slow', function() {
+                $("#plugins-settings-form-status").fadeIn('slow', function () {
                     $(this).fadeOut(1000);
                 });
 
@@ -139,26 +143,26 @@ var callbBackendSettings = (function () { "use strict";
         }, "json");
     };
 
-    textBlockHtmlChange = function(el_changed, el_changing) {
-        el_changed.on('change', function(){
+    textBlockHtmlChange = function (el_changed, el_changing) {
+        el_changed.on('change', function (){
             $(document).find(el_changing).html( htmlTagsEncode(el_changed.val()) );
         });
     };
 
-    textPlaceholderChange = function(el_changed, el_changing) {
-        el_changed.on('change', function(){
+    textPlaceholderChange = function (el_changed, el_changing) {
+        el_changed.on('change', function (){
             $(document).find(el_changing).attr('placeholder', el_changed.val());
         });
     };
 
-    textInputValueChange = function(el_changed, el_changing) {
-        el_changed.on('change', function(){
+    textInputValueChange = function (el_changed, el_changing) {
+        el_changed.on('change', function (){
             $(document).find(el_changing).val(el_changed.val());
         });
     };
 
-    styleChange = function(el_changed, el_changing, css_style_name, stype_postfix, stype_prefix) {
-        el_changed.on('change', function(){
+    styleChange = function (el_changed, el_changing, css_style_name, stype_postfix, stype_prefix) {
+        el_changed.on('change', function (){
             $(document).find(el_changing).css(css_style_name, stype_prefix + el_changed.val() + stype_postfix);
         });
     };
@@ -192,10 +196,11 @@ var callbBackendSettings = (function () { "use strict";
             $('.call-b-form').remove();
         }
     };
+
     changeColorPickerInputValue = function (input, $color) {
         var color = 0xFFFFFF & parseInt(('' + input.value + 'FFFFFF').replace(/[^0-9A-F]+/gi, '').substr(0, 6), 16);
         $color.css('background', (0xF000000 | color).toString(16).toUpperCase().replace(/^F/, '#'));
-    }
+    };
     //------------------- END EVENT HANDLERS ----------------------
 
     //------------------- BEGIN PUBLIC METHODS --------------------

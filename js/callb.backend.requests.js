@@ -30,7 +30,7 @@ var callbBackendRequests = (function () { "use strict";
                             $(".callb-request-delete[callb-request-id='"+id+"']").closest("tr").addClass('gray').find('.human-status').text("{_wp('done')}");
                             t.remove();
                         } else {
-                            $(".callb-request-delete[callb-request-id='"+id+"']").closest("tr").hide(600, function() {
+                            $(".callb-request-delete[callb-request-id='"+id+"']").closest("tr").hide(600, function () {
                                 $(this).show("normal");
                                 $(this).remove();
                             });
