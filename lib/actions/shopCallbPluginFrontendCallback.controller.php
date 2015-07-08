@@ -15,6 +15,18 @@ class shopCallbPluginFrontendCallbackController extends waJsonController {
 
         if ( isset($settings['status']) && $settings['status'] === 'on' && !empty($name) && !empty($phone) ) {
 
+            $model = new shopCallbPluginRequestModel();
+
+            $data = array(
+                'contact_id'      => wa()->getUser()->getId(),
+                'create_datetime' => date('Y-m-d H:i:s'),
+                'name'            => $name,
+                'phone'           => $phone,
+                'status'          => 'new',
+            );
+
+            $model->insert($data);
+
             if (!$settings['email_of_sender']) { $settings['email_of_sender'] = wa('shop')->getConfig()->getGeneralSettings("email"); }
             if (!$settings['email_of_recipient']) { $settings['email_of_recipient'] = wa('shop')->getConfig()->getGeneralSettings("email"); }
             
@@ -27,17 +39,6 @@ class shopCallbPluginFrontendCallbackController extends waJsonController {
             $mail_message->setTo($settings['email_of_recipient'], _wp('Administrator'));
 
             if ($mail_message->send()) {
-
-                $model = new shopCallbPluginRequestModel();
-                $data = array(
-                    'contact_id' => wa()->getUser()->getId(),
-                    'create_datetime' => date('Y-m-d H:i:s'),
-                    'name' => $name,
-                    'phone' => $phone,
-                    'status' => 'new',
-                );
-
-                $model->insert($data);
 
                 $this->response = array(
                     'status' => true,
