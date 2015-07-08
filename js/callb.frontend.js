@@ -25,7 +25,7 @@ var callbFrontend = (function () { "use strict";
 		removeCallbForm();
 
 		var bg = $('<div/>');
-		var form = $('<div/>');
+		var form = $('<form />');
 		var formTop = $(document).scrollTop() + $(window).height()/2 - '{$callb_settings.style_form_height}'/2;
 
 		$("body").css({ "overflow": "hidden" });
@@ -45,12 +45,16 @@ var callbFrontend = (function () { "use strict";
 
 		$('body').prepend(form).prepend(bg);
 
+		$('.call-b-form input[name="name"]').focus();
+
 		{if isset($callb_settings.phone_masked_input) && strlen($callb_settings.phone_masked_input) > 0}
 		$('.call-b-form input[name="phone"]').mask('{$callb_settings.phone_masked_input}');
 		{/if}
 	};
 
 	onFormSubmit = function (event) {
+        event.preventDefault();
+        
 		var n = $('.call-b-input').find('input[name="name"]').val();
 		var p = $('.call-b-input').find('input[name="phone"]').val();
 		var err = $('<div/>');
@@ -105,7 +109,7 @@ var callbFrontend = (function () { "use strict";
 			}
 		});
 
-		$(document).on('click', '#call-b-submit', onFormSubmit);
+		$(document).on('submit', '.call-b-form', onFormSubmit);
 	};
 
 	return {

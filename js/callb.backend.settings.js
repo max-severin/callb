@@ -43,8 +43,8 @@ var callbBackendSettings = (function () { "use strict";
         var styleSubmitTextColor = 'color: #' + $('#callb_shop_callb_style_submit_text_color').val() + ';';
         var styleSubmitHeight = 'height: ' + $('#callb_shop_callb_style_submit_height').val() + 'px';
         var styleSubmitWidth = 'width: ' + $('#callb_shop_callb_style_submit_width').val() + 'px';
-
-        var form = $('<div/>');
+        
+        var form = $('<form />');
 
         if (callbStatus === 'on' || statusChanged === true) {
             form.addClass('call-b-form').css({
