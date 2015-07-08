@@ -53,8 +53,8 @@ var callbFrontend = (function () { "use strict";
 	};
 
 	onFormSubmit = function (event) {
-        event.preventDefault();
-        
+		event.preventDefault();
+
 		var n = $('.call-b-input').find('input[name="name"]').val();
 		var p = $('.call-b-input').find('input[name="phone"]').val();
 		var err = $('<div/>');
