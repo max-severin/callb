@@ -99,6 +99,12 @@ var callbFrontend = (function () { "use strict";
 
 		$(document).on('click', '.call-b-bg, #call-b-close-x, #call-b-close', removeCallbForm);
 
+		$(document).keyup(function(event) {
+			if (event.keyCode == 27) { // close callb form when esc key is pressed
+				removeCallbForm();
+			}
+		});
+
 		$(document).on('click', '#call-b-submit', onFormSubmit);
 	};
 
