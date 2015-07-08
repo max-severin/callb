@@ -34,7 +34,12 @@ var callbBackendRequests = (function () { "use strict";
                         } else {
                             $(".callb-request-delete[callb-request-id='"+id+"']").closest("tr").hide(600, function () {
                                 $(this).show("normal");
+                                
                                 $(this).remove();
+
+                                if ($('.callb-request').length === 0) {
+                                    $('#maincontent').html('<div class="block double-padded align-center gray"><strong>{_wp("No requests.")}</strong></div>');
+                                }
                             });
                         }
 
