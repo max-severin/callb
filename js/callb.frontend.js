@@ -69,13 +69,13 @@ var callbFrontend = (function () { "use strict";
 					$('.call-b-form').append(
 						'<p class="call-b-ok">{_wp("Thanks")}, ' + response.data.name + ',</p>' +
 						'<p class="call-b-ok">{_wp("your message has been sent!")}</p>' +
-						'<div class="call-b-input"><input id="call-b-close" type="button" value=\"{_wp("Close")}\" style="height: {$callb_settings.style_submit_height}px; width: {$callb_settings.style_submit_width}px;" /></div>'
+						'<div class="call-b-input"><input id="call-b-close" type="button" value=\"{_wp("Close")}\" style="background: #{$callb_settings.style_close_ok_background}; height: {$callb_settings.style_submit_height}px; width: {$callb_settings.style_submit_width}px;" /></div>'
 					);
 				} else {
 					$('.call-b-input').remove();
 					$('.call-b-form').append(
 						'<p class="call-b-ok margins">{_wp("Error occurred when sending message")}</p>' +
-						'<div class="call-b-input"><input class="call-b-close-error" id="call-b-close" type="button" value=\"{_wp("Close")}\" style="height: {$callb_settings.style_submit_height}px; width: {$callb_settings.style_submit_width}px;" /></div>'
+						'<div class="call-b-input"><input class="call-b-close-error" id="call-b-close" type="button" value=\"{_wp("Close")}\" style="background: #{$callb_settings.style_close_error_background}; height: {$callb_settings.style_submit_height}px; width: {$callb_settings.style_submit_width}px;" /></div>'
 					);
 				}
 			}, "json");

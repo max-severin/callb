@@ -265,3 +265,11 @@ msgstr "Маска ввода для телефона"
 msgid "If fill this setting will added the mask for the field with the phone number.<br />Tip about masks characters:<br /><b>a</b> - All alphabetic values (A-Z, a-z)<br /><b>9</b> - All numeric values (0-9)<br /><b>*</b> - Any alphanumeric values (A-Z, a-z, 0-9).<br />Leave the field empty, if you do not need mask input."
 msgstr "Если заполнить этот параметр, будет добавлена маска ввода для поля с номером телефона.<br />Подсказка по символам маски ввода:<br /><b>a</b> - все буквенные значения (A-Z, a-z)<br /><b>9</b> - все числовые значения (0-9)<br /><b>*</b> - любые буквенно-цифровые значения (A-Z, a-z, 0-9).<br />Оставьте поле пустым, если вам не нужна маска ввода."
 
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:162
+msgid "«Close» button background color when sending is success (HEX)"
+msgstr "Цвет фона кнопки «Закрыть» при успешной отправке формы (HEX)"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:169
+msgid "«Close» button background color when error occurred (HEX)"
+msgstr "Цвет фона кнопки «Закрыть» при возникновении ошибки при отправке формы (HEX)"
+

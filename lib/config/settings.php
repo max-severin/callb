@@ -158,4 +158,18 @@ return array(
         'value'        => 'ffffff',
         'control_type' => waHtmlControl::CUSTOM.' '.'shopCallbPlugin::settingColorControl',
     ),
+    'style_close_ok_background' => array(
+        'title'        => _wp('«Close» button background color when sending is success (HEX)'),
+        'class'        => 's-color',
+        'placeholder'  => '4d9b58',
+        'value'        => '4d9b58',
+        'control_type' => waHtmlControl::CUSTOM.' '.'shopCallbPlugin::settingColorControl',
+    ),
+    'style_close_error_background' => array(
+        'title'        => _wp('«Close» button background color when error occurred (HEX)'),
+        'class'        => 's-color',
+        'placeholder'  => 'de4d2c',
+        'value'        => 'de4d2c',
+        'control_type' => waHtmlControl::CUSTOM.' '.'shopCallbPlugin::settingColorControl',
+    ),
 );

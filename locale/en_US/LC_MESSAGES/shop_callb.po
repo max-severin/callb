@@ -264,3 +264,11 @@ msgstr ""
 msgid "If fill this setting will added the mask for the field with the phone number.<br />Tip about masks characters:<br /><b>a</b> - All alphabetic values (A-Z, a-z)<br /><b>9</b> - All numeric values (0-9)<br /><b>*</b> - Any alphanumeric values (A-Z, a-z, 0-9).<br />Leave the field empty, if you do not need mask input."
 msgstr ""
 
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:162
+msgid "«Close» button background color when sending is success (HEX)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:169
+msgid "«Close» button background color when error occurred (HEX)"
+msgstr ""
+
