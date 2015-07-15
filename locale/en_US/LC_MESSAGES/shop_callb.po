@@ -293,7 +293,7 @@ msgid "1) To use the plugin in the Shop app switch on hook frontend_head and scr
 msgstr ""
 
 #: /wa-apps/shop/plugins/callb/js/callb.backend.settings.js:71
-msgid "2) To use the plugin in other apps it is necessary to insert in the template of your application to the end of the tag &#060;head&#062; the following code:"
+msgid "2) To use the plugin in other apps it is necessary to switch off hook frontend_head and to insert in the template of your application to the end of the tag &#060;head&#062; the following code:"
 msgstr ""
 
 #: /wa-apps/shop/plugins/callb/js/callb.backend.settings.js:73
