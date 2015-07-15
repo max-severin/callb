@@ -67,8 +67,8 @@ var callbFrontend = (function () { "use strict";
 				if (response.data.status === true) {
 					$('.call-b-input').remove();
 					$('.call-b-form').append(
-						'<p class="call-b-ok">{_wp("Thanks")}, ' + response.data.name + ',</p>' +
-						'<p class="call-b-ok">{_wp("your message has been sent!")}</p>' +
+						'<p class="call-b-ok" style="color: #{$callb_settings.style_thanks_text_color};">{$callb_settings.text_thanks_message} ' + response.data.name + ',</p>' +
+						'<p class="call-b-ok" style="color: #{$callb_settings.style_thanks_text_color};">{$callb_settings.text_more_thanks_message}</p>' +
 						'<div class="call-b-input"><input id="call-b-close" type="button" value=\"{_wp("Close")}\" style="background: #{$callb_settings.style_close_ok_background}; height: {$callb_settings.style_submit_height}px; width: {$callb_settings.style_submit_width}px;" /></div>'
 					);
 				} else {

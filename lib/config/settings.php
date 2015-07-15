@@ -172,4 +172,23 @@ return array(
         'value'        => 'de4d2c',
         'control_type' => waHtmlControl::CUSTOM.' '.'shopCallbPlugin::settingColorControl',
     ),
+    'text_thanks_message' => array(
+        'title'        => _wp('«Thanks message» text (appeal)'),
+        'placeholder'  => _wp('Thanks') . ',',
+        'value'        => _wp('Thanks') . ',',
+        'control_type' => waHtmlControl::INPUT,
+    ),
+    'text_more_thanks_message' => array(
+        'title'        => _wp('«Thanks message» text (text in 2nd line)'),
+        'placeholder'  => _wp('your message has been sent!'),
+        'value'        => _wp('your message has been sent!'),
+        'control_type' => waHtmlControl::INPUT,
+    ),
+    'style_thanks_text_color' => array(
+        'title'        => _wp('«Thanks message» text color'),
+        'class'        => 's-color',
+        'placeholder'  => '717171',
+        'value'        => '717171',
+        'control_type' => waHtmlControl::CUSTOM.' '.'shopCallbPlugin::settingColorControl',
+    ),
 );

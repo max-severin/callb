@@ -273,3 +273,15 @@ msgstr "Цвет фона кнопки «Закрыть» при успешно�
 msgid "«Close» button background color when error occurred (HEX)"
 msgstr "Цвет фона кнопки «Закрыть» при возникновении ошибки при отправке формы (HEX)"
 
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:176
+msgid "«Thanks message» text (appeal)"
+msgstr "Текст сообщения при успешной отправке формы (обращение)"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:182
+msgid "«Thanks message» text (text in 2nd line)"
+msgstr "Текст сообщения при успешной отправке формы (2я строка)"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:188
+msgid "«Thanks message» text color"
+msgstr "Цвет текста сообщения при успешной отправке формы"
+

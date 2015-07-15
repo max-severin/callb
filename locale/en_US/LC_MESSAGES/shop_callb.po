@@ -272,3 +272,15 @@ msgstr ""
 msgid "«Close» button background color when error occurred (HEX)"
 msgstr ""
 
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:176
+msgid "«Thanks message» text (appeal)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:182
+msgid "«Thanks message» text (text in 2nd line)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:188
+msgid "«Thanks message» text color"
+msgstr ""
+

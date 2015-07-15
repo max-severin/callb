@@ -218,7 +218,8 @@ var callbBackendSettings = (function () { "use strict";
             '#callb_shop_callb_style_submit_background',
             '#callb_shop_callb_style_submit_text_color',
             '#callb_shop_callb_style_close_ok_background',
-            '#callb_shop_callb_style_close_error_background'
+            '#callb_shop_callb_style_close_error_background',
+            '#callb_shop_callb_style_thanks_text_color'
         ];
         initColorPicker( color_elements, setColorPicker );
 
