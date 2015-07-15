@@ -10,8 +10,8 @@ var callbBackendSettings = (function () { "use strict";
     var
         farbtastic_url = "{$wa_url}wa-content/js/farbtastic/farbtastic.js?{$wa->version(true)}",
         htmlTagsEncode, htmlTagsDecode,
-        addCallbForm, initColorPicker, setColorPickerElement, setColorPicker, onFormSubmit, changeColorPickerInputValue,
-        textBlockHtmlChange, textPlaceholderChange, textInputValueChange, styleChange, changeHandlers, onStatusChange,
+        addCallbForm, addTipBlock, initColorPicker, setColorPickerElement, setColorPicker, onFormSubmit, changeColorPickerInputValue,
+        textBlockHtmlChange, textPlaceholderChange, textInputValueChange, styleChange, changeHandlers, onStatusChange, tipInfoShow, tipInfoHide,
         initModule;
     //----------------- END MODULE SCOPE VARIABLES ----------------
 
@@ -60,6 +60,23 @@ var callbBackendSettings = (function () { "use strict";
 
             $content.prepend(form);
         }
+    };
+
+    addTipBlock = function ($content) {
+        var tipBlock = $('<div />');
+
+        tipBlock.addClass('tip-block').prepend(
+            '<h3 id="tip-show"><span>{_wp("Tip for setting up")}</span></h3>' + 
+            '<p>{_wp("1) To use the plugin in the Shop app switch on hook frontend_head and scripts are automatically loaded in your template.")}</p>' + 
+            '<p>{_wp("2) To use the plugin in other apps it is necessary to insert in the template of your application to the end of the tag &#060;head&#062; the following code:")}</p>' + 
+            '<p><b>&#123;if $wa->shop&#125;&#123;shopCallbPlugin::display()&#125;&#123;/if&#125;</b></p>' + 
+            '<p>{_wp("3) To bind the form to the html-element in the template, you must either create a new or use an existing one.")}</p>' + 
+            '<p>{_wp("For example, you have the template has the following element:")}<br />' + 
+            '<i>&#060;a href="#" class="call-back-button"&#062;{_wp("Callback")}&#060;a&#062;</i></p>' + 
+            '<p>{_wp("Specify in the parameter of button selector next - <b>.call-back-button</b> - after clicking on this item will open the callback form.")}</p>'
+        );
+
+        $content.after(tipBlock);
     };
 
     initColorPicker = function (elements, init) {
@@ -201,6 +218,14 @@ var callbBackendSettings = (function () { "use strict";
         var color = 0xFFFFFF & parseInt(('' + input.value + 'FFFFFF').replace(/[^0-9A-F]+/gi, '').substr(0, 6), 16);
         $color.css('background', (0xF000000 | color).toString(16).toUpperCase().replace(/^F/, '#'));
     };
+
+    tipInfoShow = function () {
+        $('.tip-block p').show();
+    };
+
+    tipInfoHide = function () {
+        $('.tip-block p').hide();
+    };
     //------------------- END EVENT HANDLERS ----------------------
 
     //------------------- BEGIN PUBLIC METHODS --------------------
@@ -210,6 +235,12 @@ var callbBackendSettings = (function () { "use strict";
         $('#callb_shop_callb_status').on('change', onStatusChange);
 
         addCallbForm( $('#s-plugins-content') );
+
+        addTipBlock( $('#s-plugins-content .form') );
+
+        $(document).on('mouseenter', '.tip-block', tipInfoShow);
+
+        $(document).on('mouseleave', '.tip-block', tipInfoHide);
 
         var color_elements = [
             '#callb_shop_callb_style_form_background',

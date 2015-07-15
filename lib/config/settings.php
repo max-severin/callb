@@ -13,6 +13,16 @@ return array(
             'on'  => _wp('On'),
         ),
     ),
+    'frontend_head_status' => array(
+        'title'        => _wp('Status of frontend_head hook'),
+        'description'  => _wp('Turn on to automatically output plugin via frontend_head hook.'),
+        'value'        => 'on',
+        'control_type' => waHtmlControl::SELECT,
+        'options'      => array(
+            'off' => _wp('Off'),
+            'on'  => _wp('On'),
+        ),
+    ),
     'show_deleted' => array(
         'title'        => _wp('Display deleted requests'),
         'description'  => _wp('When you enable this setting,<br />deleted requests will be displayed in the history of user requests.'),

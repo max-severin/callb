@@ -37,19 +37,55 @@ class shopCallbPlugin extends shopPlugin {
      * Handler for frontend_head event: add callbFrontend module in frontend head section
      * @return string
      */
-    public function frontendHeader() {        
+    public function frontendHeader() {
         $settings = $this->getSettings();
 
-        foreach ($settings as $id => $setting) {
-            $settings[$id] = addslashes(htmlspecialchars($setting));
+        if ( $settings['status'] === 'on' && $settings['frontend_head_status'] === 'on' ) {
+
+            foreach ($settings as $id => $setting) {
+                $settings[$id] = addslashes(htmlspecialchars($setting));
+            }
+
+            $view = wa()->getView();
+            $view->assign('callb_settings', $settings);
+        	$view->assign('callback_url', wa()->getRouteUrl('shop/frontend/callback/'));
+            $html = $view->fetch($this->path.'/templates/Frontend.html');
+
+            return $html;
+
+        } else {
+
+            return;
+
         }
+    }
 
-        $view = wa()->getView();
-        $view->assign('callb_settings', $settings);
-    	$view->assign('callback_url', wa()->getRouteUrl('shop/frontend/callback/'));
-        $html = $view->fetch($this->path.'/templates/Frontend.html');
+    /**
+     * Frontend method that initiates plugin
+     * @return string
+     */
+    static function display() {
+        $app_settings_model = new waAppSettingsModel();
+        $settings = $app_settings_model->get(array('shop', 'callb'));
 
-        return $html;
+        if ( $settings['status'] === 'on' && $settings['frontend_head_status'] === 'off' ) {
+
+            foreach ($settings as $id => $setting) {
+                $settings[$id] = addslashes(htmlspecialchars($setting));
+            }
+
+            $view = wa()->getView();
+            $view->assign('callb_settings', $settings);
+            $view->assign('callback_url', wa()->getRouteUrl('shop/frontend/callback/'));
+            $html = $view->fetch(realpath(dirname(__FILE__)."/../").'/templates/Frontend.html');
+
+            return $html;
+
+        } else {
+
+            return;
+
+        }
     }
 
     /**

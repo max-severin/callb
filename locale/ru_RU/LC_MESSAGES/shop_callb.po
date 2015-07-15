@@ -285,3 +285,35 @@ msgstr "Текст сообщения при успешной отправке �
 msgid "«Thanks message» text color"
 msgstr "Цвет текста сообщения при успешной отправке формы"
 
+#: /wa-apps/shop/plugins/callb/js/callb.backend.settings.js:69
+msgid "Tip for setting up"
+msgstr "Подсказка по настройке"
+
+#: /wa-apps/shop/plugins/callb/js/callb.backend.settings.js:70
+msgid "1) To use the plugin in the Shop app switch on hook frontend_head and scripts are automatically loaded in your template."
+msgstr "1) Для использования плагина в приложении Магазин включите хук frontend_head и скрипты автоматически загрузятся в вашем шаблоне."
+
+#: /wa-apps/shop/plugins/callb/js/callb.backend.settings.js:71
+msgid "2) To use the plugin in other apps it is necessary to insert in the template of your application to the end of the tag &#060;head&#062; the following code:"
+msgstr "2) Для использования плагина в других приложениях необходимо вставить в шаблоне вашего приложения в конец тега &#060;head&#062; следующий код:"
+
+#: /wa-apps/shop/plugins/callb/js/callb.backend.settings.js:73
+msgid "3) To bind the form to the html-element in the template, you must either create a new or use an existing one."
+msgstr "3) Для привязки формы к элементу в шаблоне необходимо либо создать новый элемент, либо использовать уже существующий."
+
+#: /wa-apps/shop/plugins/callb/js/callb.backend.settings.js:74
+msgid "For example, you have the template has the following element:"
+msgstr "К примеру, у вас в шаблоне есть следующий элемент:"
+
+#: /wa-apps/shop/plugins/callb/js/callb.backend.settings.js:76
+msgid "Specify in the parameter of button selector next - <b>.call-back-button</b> - after clicking on this item will open the callback form."
+msgstr "Укажите в параметр селектора кнопки следующее - <b>.call-back-button</b> - после этого при клике на данном элементе будет открываться форма обратного звонка."
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:17
+msgid "Status of frontend_head hook"
+msgstr "Статус хука frontend_head"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:18
+msgid "Turn on to automatically output plugin via frontend_head hook."
+msgstr "Включите для автоматического подключения плагина через хук frontend_head"
+
