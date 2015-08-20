@@ -289,11 +289,11 @@ msgid "Tip for setting up"
 msgstr ""
 
 #: /wa-apps/shop/plugins/callb/js/callb.backend.settings.js:70
-msgid "1) To use the plugin in the Shop app switch on hook frontend_head and scripts are automatically loaded in your template."
+msgid "1) To use the plugin in the Shop app switch on «Status of frontend_head hook» plugin setting and scripts are automatically loaded in your template."
 msgstr ""
 
 #: /wa-apps/shop/plugins/callb/js/callb.backend.settings.js:71
-msgid "2) To use the plugin in other apps it is necessary to switch off hook frontend_head and to insert in the template of your application to the end of the tag &#060;head&#062; the following code:"
+msgid "2) To use the plugin in other apps it is necessary to switch off «Status of frontend_head hook» plugin setting and to insert in the template of your application to the end of the tag &#060;head&#062; the following code:"
 msgstr ""
 
 #: /wa-apps/shop/plugins/callb/js/callb.backend.settings.js:73
@@ -305,7 +305,7 @@ msgid "For example, you have the template has the following element:"
 msgstr ""
 
 #: /wa-apps/shop/plugins/callb/js/callb.backend.settings.js:76
-msgid "Specify in the parameter of button selector next - <b>.call-back-button</b> - after clicking on this item will open the callback form."
+msgid "Specify in the «Selector of the button of callback form» plugin setting the next - <b>#call-back-button</b> - and after clicking on this item will open the callback form."
 msgstr ""
 
 #: /wa-apps/shop/plugins/callb/lib/config/settings.php:17

@@ -67,13 +67,13 @@ var callbBackendSettings = (function () { "use strict";
 
         tipBlock.addClass('tip-block').prepend(
             '<h3 id="tip-show"><span>{_wp("Tip for setting up")}</span></h3>' + 
-            '<p>{_wp("1) To use the plugin in the Shop app switch on hook frontend_head and scripts are automatically loaded in your template.")}</p>' + 
-            '<p>{_wp("2) To use the plugin in other apps it is necessary to switch off hook frontend_head and to insert in the template of your application to the end of the tag &#060;head&#062; the following code:")}</p>' + 
+            '<p>{_wp("1) To use the plugin in the Shop app switch on «Status of frontend_head hook» plugin setting and scripts are automatically loaded in your template.")}</p>' + 
+            '<p>{_wp("2) To use the plugin in other apps it is necessary to switch off «Status of frontend_head hook» plugin setting and to insert in the template of your application to the end of the tag &#060;head&#062; the following code:")}</p>' + 
             '<p><b>&#123;if $wa->shop&#125;&#123;shopCallbPlugin::display()&#125;&#123;/if&#125;</b></p>' + 
             '<p>{_wp("3) To bind the form to the html-element in the template, you must either create a new or use an existing one.")}</p>' + 
             '<p>{_wp("For example, you have the template has the following element:")}<br />' + 
-            '<i>&#060;a href="#" class="call-back-button"&#062;{_wp("Callback")}&#060;a&#062;</i></p>' + 
-            '<p>{_wp("Specify in the parameter of button selector next - <b>.call-back-button</b> - after clicking on this item will open the callback form.")}</p>'
+            '<i>&#060;a href="#" id="call-back-button"&#062;{_wp("Callback")}&#060;a&#062;</i></p>' + 
+            '<p>{_wp("Specify in the «Selector of the button of callback form» plugin setting the next - <b>#call-back-button</b> - and after clicking on this item will open the callback form.")}</p>'
         );
 
         $content.after(tipBlock);
