@@ -8,19 +8,21 @@ class shopCallbPluginRequestModel extends waModel {
 
 	protected $table = 'shop_callb_request';
 
-	public function countAll($show_deleted = 'off') {
-		if ($show_deleted === 'off') {
-			return $this->query("SELECT COUNT(*) FROM ".$this->table." WHERE `status` != 'del'")->fetchField();
+	public function countAll($show_done = 'off') {
+		if ($show_done === 'off') {
+			return $this->query("SELECT COUNT(*) FROM ".$this->table." WHERE `status` != 'done' AND `status` != 'del'")->fetchField();
 		} else {
-			return parent::countAll();
+			return $this->query("SELECT COUNT(*) FROM ".$this->table." WHERE `status` != 'del'")->fetchField();
 		}
 	}
 
-	public function getCallbRequests($offset = 0, $limit = null, $show_deleted = 'off') {
+	public function getCallbRequests($offset = 0, $limit = null, $show_done = 'off') {
 		$sql = '';
 
 		$sql .= "SELECT * FROM `{$this->table}`";
-		if ($show_deleted === 'off'){
+		if ($show_done === 'off'){
+			$sql .= " WHERE `status` != 'done' AND `status` != 'del'";
+		} else {
 			$sql .= " WHERE `status` != 'del'";
 		}
 		$sql .= " ORDER BY `create_datetime` DESC";
@@ -38,8 +40,11 @@ class shopCallbPluginRequestModel extends waModel {
 				case 'new':
 					$callb_requests[$id]['human_status'] = _wp('new');
 					break;
-				case 'del':
+				case 'done':
 					$callb_requests[$id]['human_status'] = _wp('done');
+					break;
+				case 'del':
+					$callb_requests[$id]['human_status'] = _wp('deleted');
 					break;
 				
 				default:

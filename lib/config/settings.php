@@ -23,9 +23,9 @@ return array(
             'on'  => _wp('On'),
         ),
     ),
-    'show_deleted' => array(
-        'title'        => _wp('Display deleted requests'),
-        'description'  => _wp('When you enable this setting,<br />deleted requests will be displayed in the history of user requests.'),
+    'show_done' => array(
+        'title'        => _wp('Display done requests'),
+        'description'  => _wp('When you enable this setting,<br />done requests will be displayed in the history of user requests.'),
         'value'        => 'off',
         'control_type' => waHtmlControl::SELECT,
         'options'      => array(

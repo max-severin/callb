@@ -106,12 +106,12 @@ msgid "On"
 msgstr "Включен"
 
 #: /wa-apps/shop/plugins/callb/lib/config/settings.php:17
-msgid "Display deleted requests"
-msgstr "Отображение удаленных запросов"
+msgid "Display done requests"
+msgstr "Отображение выполненных запросов"
 
 #: /wa-apps/shop/plugins/callb/lib/config/settings.php:18
-msgid "When you enable this setting,<br />deleted requests will be displayed in the history of user requests."
-msgstr "При включении этого параметра<br /> в истории запросов пользователей будут отображаться удаленные запросы."
+msgid "When you enable this setting,<br />done requests will be displayed in the history of user requests."
+msgstr "При включении этого параметра<br /> в истории запросов пользователей будут отображаться выполненные запросы."
 
 #: /wa-apps/shop/plugins/callb/lib/config/settings.php:22
 msgid "No"
@@ -316,4 +316,16 @@ msgstr "Статус хука frontend_head"
 #: /wa-apps/shop/plugins/callb/lib/config/settings.php:18
 msgid "Turn on to automatically output plugin via frontend_head hook."
 msgstr "Включите для автоматического подключения плагина через хук frontend_head"
+
+#: /wa-apps/shop/plugins/callb/js/callb.backend.requests.js:16
+msgid "Done?"
+msgstr "Выполнить?"
+
+#: /wa-apps/shop/plugins/callb/lib/model/shopCallbPluginRequest.model.php:47
+msgid "deleted"
+msgstr "удален"
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:52
+msgid "execute"
+msgstr "выполнить"
 

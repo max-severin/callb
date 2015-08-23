@@ -22,8 +22,8 @@ class shopCallbPluginBackendActions extends waViewActions {
         $offset = ($page - 1) * $limit;
 
         $model = new shopCallbPluginRequestModel();
-        $callb_requests = $model->getCallbRequests($offset, $limit, $settings['show_deleted']);
-        $count = $model->countAll($settings['show_deleted']);
+        $callb_requests = $model->getCallbRequests($offset, $limit, $settings['show_done']);
+        $count = $model->countAll($settings['show_done']);
 
         $pages_count = ceil((float)$count / $limit);
         $this->view->assign('pages_count', $pages_count);
