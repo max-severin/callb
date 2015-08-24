@@ -58,12 +58,13 @@ var callbFrontend = (function () { "use strict";
 		var n = $('.call-b-input').find('input[name="name"]').val();
 		var p = $('.call-b-input').find('input[name="phone"]').val();
 		var err = $('<div/>');
+		var currentUrl = window.location.href;
 
 		$('.call-b-error').remove();
 		$('.call-b-input').find('input[name="name"], input[name="phone"]').removeClass('call-b-inp-err');
 
 		if ( n.length > 0 && p.length > 0 ) {
-			$.post("{$callback_url}", { "name": n, "phone": p }, function (response) {
+			$.post("{$callback_url}", { "name": n, "phone": p, "url": currentUrl }, function (response) {
 				if (response.data.status === true) {
 					$('.call-b-input').remove();
 					$('.call-b-form').append(

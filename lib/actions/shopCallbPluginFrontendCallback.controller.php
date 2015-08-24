@@ -12,6 +12,7 @@ class shopCallbPluginFrontendCallbackController extends waJsonController {
 
         $name = htmlspecialchars( waRequest::post('name', '', 'str') );
         $phone = htmlspecialchars( waRequest::post('phone', '', 'str') );
+        $url = htmlspecialchars( waRequest::post('url', '', 'str') );
 
         if ( isset($settings['status']) && $settings['status'] === 'on' && !empty($name) && !empty($phone) ) {
 
@@ -23,6 +24,7 @@ class shopCallbPluginFrontendCallbackController extends waJsonController {
                 'name'            => $name,
                 'phone'           => $phone,
                 'status'          => 'new',
+                'url'             => $url,
             );
 
             $model->insert($data);

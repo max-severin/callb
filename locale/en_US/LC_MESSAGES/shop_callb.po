@@ -328,3 +328,9 @@ msgstr ""
 msgid "execute"
 msgstr ""
 
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:27
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:28
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:51
+msgid "Request url"
+msgstr ""
+

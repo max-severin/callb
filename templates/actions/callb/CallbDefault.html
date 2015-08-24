@@ -23,6 +23,11 @@
                         [`Request date`]
                     </span>
                 </th>
+                <th>
+                    <span title="[`Request url`]">
+                        [`Request url`]
+                    </span>
+                </th>
                 <th class="min-width">
                     <span title="[`Request status`]">
                         [`Request status`]
@@ -43,6 +48,7 @@
                 <td class="short nowrap align-left" title="[`Name`]"><span>{$r.name}</span></td>
                 <td class="short nowrap align-left" title="[`Phone`]"><span>{$r.phone}</span></td>
                 <td class="short nowrap align-left" title="[`Request date`]">{$r.create_datetime|wa_datetime:"humandatetime"}</td>
+                <td class="short nowrap align-left" title="[`Request url`]">{$r.url}</td>
                 <td class="short nowrap align-center" title="[`Request status`]">
                     <span class="human-status">{$r.human_status}</span>
                 </td>
