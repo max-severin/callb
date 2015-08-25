@@ -334,3 +334,21 @@ msgstr ""
 msgid "Request url"
 msgstr ""
 
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:37
+msgid "Comment"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:38
+msgid "The opportunity to leave a comment."
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:93
+msgid "«Comment» field placeholder"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:94
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:95
+#: /wa-apps/shop/plugins/callb/lib/updates/1.2.0/1440362029.php:35
+msgid "Your comment"
+msgstr ""
+

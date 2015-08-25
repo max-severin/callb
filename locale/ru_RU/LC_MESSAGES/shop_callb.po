@@ -335,3 +335,21 @@ msgstr "выполнить"
 msgid "Request url"
 msgstr "Url заявки"
 
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:37
+msgid "Comment"
+msgstr "Комментарий"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:38
+msgid "The opportunity to leave a comment."
+msgstr "Возможность оставлять комментарий"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:93
+msgid "«Comment» field placeholder"
+msgstr "Текст подсказки для поля «Комментарий»"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:94
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:95
+#: /wa-apps/shop/plugins/callb/lib/updates/1.2.0/1440362029.php:35
+msgid "Your comment"
+msgstr "Ваш комментарий"
+

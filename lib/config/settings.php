@@ -33,6 +33,16 @@ return array(
             'on'  => _wp('Yes'),
         ),
     ),
+    'comment_status' => array(
+        'title'        => _wp('Comment'),
+        'description'  => _wp('The opportunity to leave a comment.'),
+        'value'        => 'off',
+        'control_type' => waHtmlControl::SELECT,
+        'options'      => array(
+            'off' => _wp('Off'),
+            'on'  => _wp('On'),
+        ),
+    ),
     'email_of_sender' => array(
         'title'        => _wp('Sender e-mail'),
         'description'  => _wp('This email address will be listed as the return address of the message.<br />If the address is not specified, it will use the general email of the shop.'),
@@ -77,6 +87,12 @@ return array(
         'title'        => _wp('«Phone» field placeholder'),
         'placeholder'  => _wp('Your Phone'),
         'value'        => _wp('Your Phone'),
+        'control_type' => waHtmlControl::INPUT,
+    ),
+    'text_comment_placeholder' => array(
+        'title'        => _wp('«Comment» field placeholder'),
+        'placeholder'  => _wp('Your comment'),
+        'value'        => _wp('Your comment'),
         'control_type' => waHtmlControl::INPUT,
     ),
     'text_submit_button' => array(

@@ -11,7 +11,7 @@ var callbBackendSettings = (function () { "use strict";
         farbtastic_url = "{$wa_url}wa-content/js/farbtastic/farbtastic.js?{$wa->version(true)}",
         htmlTagsEncode, htmlTagsDecode,
         addCallbForm, addTipBlock, initColorPicker, setColorPickerElement, setColorPicker, onFormSubmit, changeColorPickerInputValue,
-        textBlockHtmlChange, textPlaceholderChange, textInputValueChange, styleChange, changeHandlers, onStatusChange, tipInfoShow, tipInfoHide,
+        textBlockHtmlChange, textPlaceholderChange, textInputValueChange, styleChange, changeHandlers, onStatusChange, onCommentStatusChange, tipInfoShow, tipInfoHide,
         initModule;
     //----------------- END MODULE SCOPE VARIABLES ----------------
 
@@ -38,6 +38,7 @@ var callbBackendSettings = (function () { "use strict";
         var textHeaderTitle = htmlTagsEncode( $('#callb_shop_callb_text_header_title').val() );
         var textNamePlaceholder = htmlTagsEncode( $('#callb_shop_callb_text_name_placeholder').val() );
         var textPhonePlaceholder = htmlTagsEncode( $('#callb_shop_callb_text_phone_placeholder').val() );
+        var textCommentPlaceholder = htmlTagsEncode( $('#callb_shop_callb_text_comment_placeholder').val() );
         var textSubmitButton = htmlTagsEncode( $('#callb_shop_callb_text_submit_button').val() );
         var styleSubmitBackground = 'background: #' + $('#callb_shop_callb_style_submit_background').val() + ';';
         var styleSubmitTextColor = 'color: #' + $('#callb_shop_callb_style_submit_text_color').val() + ';';
@@ -55,6 +56,7 @@ var callbBackendSettings = (function () { "use strict";
                 '<div class="call-b-header" style="' + styleHeaderBackground + styleHeaderTextColor + '">' + textHeaderTitle + '<span id="call-b-close-x">x</span></div>' +
                 '<div class="call-b-input"><input type="text" name="name" placeholder="' + textNamePlaceholder + '" value="" /></div>' +
                 '<div class="call-b-input"><input type="text" name="phone" placeholder="' + textPhonePlaceholder + '" value="" /></div>' +
+                '<div class="call-b-input"><textarea name="comment" placeholder="' + textCommentPlaceholder + '"></textarea></div>' +
                 '<div class="call-b-input"><input id="call-b-submit" type="submit" value="' + textSubmitButton + '" disabled="disabled" style="' + styleSubmitBackground + styleSubmitTextColor + styleSubmitHeight + styleSubmitWidth + '" /></div>'
             );
 
@@ -188,6 +190,7 @@ var callbBackendSettings = (function () { "use strict";
         textBlockHtmlChange( $('#callb_shop_callb_text_header_title'), '.call-b-header' );
         textPlaceholderChange( $('#callb_shop_callb_text_name_placeholder'), '.call-b-input input[name="name"]' );
         textPlaceholderChange( $('#callb_shop_callb_text_phone_placeholder'), '.call-b-input input[name="phone"]' );
+        textPlaceholderChange( $('#callb_shop_callb_text_comment_placeholder'), '.call-b-input textarea[name="comment"]' );
         textInputValueChange( $('#callb_shop_callb_text_submit_button'), '#call-b-submit' );
 
         styleChange($('#callb_shop_callb_style_form_width'), '.call-b-form', 'width', 'px', '');
@@ -214,6 +217,16 @@ var callbBackendSettings = (function () { "use strict";
         }
     };
 
+    onCommentStatusChange = function () {
+        var t = $(this);
+
+        if (t.val() === 'on') {
+            $('textarea[name="comment"]').parent('.call-b-input').show();
+        } else {
+            $('textarea[name="comment"]').parent('.call-b-input').hide();
+        }
+    };
+
     changeColorPickerInputValue = function (input, $color) {
         var color = 0xFFFFFF & parseInt(('' + input.value + 'FFFFFF').replace(/[^0-9A-F]+/gi, '').substr(0, 6), 16);
         $color.css('background', (0xF000000 | color).toString(16).toUpperCase().replace(/^F/, '#'));
@@ -233,6 +246,8 @@ var callbBackendSettings = (function () { "use strict";
         $('#plugins-settings-form').on('submit', onFormSubmit);
 
         $('#callb_shop_callb_status').on('change', onStatusChange);
+
+        $('#callb_shop_callb_comment_status').on('change', onCommentStatusChange);
 
         addCallbForm( $('#s-plugins-content') );
 
@@ -267,6 +282,11 @@ var callbBackendSettings = (function () { "use strict";
         });
 
         changeHandlers();
+
+        var callbCommentStatus = "{if isset($callb_settings.comment_status)}{$callb_settings.comment_status}{/if}";
+        if (callbCommentStatus !== 'on') {
+            $('textarea[name="comment"]').parent('.call-b-input').hide();
+        }
     };
 
     return {
