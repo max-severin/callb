@@ -12,6 +12,7 @@ class shopCallbPluginFrontendCallbackController extends waJsonController {
 
         $name = htmlspecialchars( waRequest::post('name', '', 'str') );
         $phone = htmlspecialchars( waRequest::post('phone', '', 'str') );
+        $comment = htmlspecialchars( waRequest::post('comment', '', 'str') );
         $url = htmlspecialchars( waRequest::post('url', '', 'str') );
 
         if ( isset($settings['status']) && $settings['status'] === 'on' && !empty($name) && !empty($phone) ) {
@@ -25,6 +26,7 @@ class shopCallbPluginFrontendCallbackController extends waJsonController {
                 'phone'           => $phone,
                 'status'          => 'new',
                 'url'             => $url,
+                'comment'         => $comment,
             );
 
             $model->insert($data);
@@ -35,6 +37,7 @@ class shopCallbPluginFrontendCallbackController extends waJsonController {
             $subject = _wp('Callback');
             $body = "<h1>" . _wp('Good day!') . "</h1>";
             $body .= "<p>" . _wp('Customer') . " <b>" . $name ."</b> " . _wp('ordered a callback') . " <a href='tel:" . $phone . "'><b>" . $phone . "</b></a></p>";
+            $body .= "<p>" . _wp('Comment') . ":<br /> <i>" . $comment ."</i></p>";
 
             $mail_message = new waMailMessage($subject, $body);
             $mail_message->setFrom($settings['email_of_sender'], _wp('Callback plugin'));

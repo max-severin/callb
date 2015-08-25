@@ -27,6 +27,7 @@ var callbFrontend = (function () { "use strict";
 		var bg = $('<div/>');
 		var form = $('<form />');
 		var formTop = $(document).scrollTop() + $(window).height()/2 - '{$callb_settings.style_form_height}'/2;
+		var callbCommentStatus = "{if isset($callb_settings.comment_status)}{$callb_settings.comment_status}{/if}";
 
 		$("body").css({ "overflow": "hidden" });
 
@@ -40,6 +41,7 @@ var callbFrontend = (function () { "use strict";
 			'<div class="call-b-header" style="background: #{$callb_settings.style_header_background}; color: #{$callb_settings.style_header_text_color};">{$callb_settings.text_header_title}<span id="call-b-close-x">x</span></div>' +
 			'<div class="call-b-input"><input type="text" name="name" placeholder="{$callb_settings.text_name_placeholder}" value="" /></div>' +
 			'<div class="call-b-input"><input type="text" name="phone" placeholder="{$callb_settings.text_phone_placeholder}" value="" /></div>' +
+            '<div class="call-b-input"><textarea name="comment" placeholder="{$callb_settings.text_comment_placeholder}"></textarea></div>' +
 			'<div class="call-b-input"><input id="call-b-submit" type="submit" value="{$callb_settings.text_submit_button}" style="background: #{$callb_settings.style_submit_background}; color: #{$callb_settings.style_submit_text_color}; height: {$callb_settings.style_submit_height}px; width: {$callb_settings.style_submit_width}px" /></div>'
 		);
 
@@ -50,6 +52,10 @@ var callbFrontend = (function () { "use strict";
 		{if isset($callb_settings.phone_masked_input) && strlen($callb_settings.phone_masked_input) > 0}
 		$('.call-b-form input[name="phone"]').mask('{$callb_settings.phone_masked_input}');
 		{/if}
+
+        if (callbCommentStatus !== 'on') {
+            $('textarea[name="comment"]').parent('.call-b-input').hide();
+        }
 	};
 
 	onFormSubmit = function (event) {
@@ -57,6 +63,7 @@ var callbFrontend = (function () { "use strict";
 
 		var n = $('.call-b-input').find('input[name="name"]').val();
 		var p = $('.call-b-input').find('input[name="phone"]').val();
+		var c = $('.call-b-input').find('textarea[name="comment"]').val();
 		var err = $('<div/>');
 		var currentUrl = window.location.href;
 
@@ -64,7 +71,7 @@ var callbFrontend = (function () { "use strict";
 		$('.call-b-input').find('input[name="name"], input[name="phone"]').removeClass('call-b-inp-err');
 
 		if ( n.length > 0 && p.length > 0 ) {
-			$.post("{$callback_url}", { "name": n, "phone": p, "url": currentUrl }, function (response) {
+			$.post("{$callback_url}", { "name": n, "phone": p, "comment": c, "url": currentUrl }, function (response) {
 				if (response.data.status === true) {
 					$('.call-b-input').remove();
 					$('.call-b-form').append(

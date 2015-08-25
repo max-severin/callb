@@ -42,8 +42,8 @@ var callbBackendSettings = (function () { "use strict";
         var textSubmitButton = htmlTagsEncode( $('#callb_shop_callb_text_submit_button').val() );
         var styleSubmitBackground = 'background: #' + $('#callb_shop_callb_style_submit_background').val() + ';';
         var styleSubmitTextColor = 'color: #' + $('#callb_shop_callb_style_submit_text_color').val() + ';';
-        var styleSubmitHeight = 'height: ' + $('#callb_shop_callb_style_submit_height').val() + 'px';
-        var styleSubmitWidth = 'width: ' + $('#callb_shop_callb_style_submit_width').val() + 'px';
+        var styleSubmitHeight = 'height: ' + $('#callb_shop_callb_style_submit_height').val() + 'px;';
+        var styleSubmitWidth = 'width: ' + $('#callb_shop_callb_style_submit_width').val() + 'px;';
         
         var form = $('<form />');
 
@@ -66,8 +66,11 @@ var callbBackendSettings = (function () { "use strict";
 
     addTipBlock = function ($content) {
         var tipBlock = $('<div />');
+        var styleFormWidth = parseInt($('#callb_shop_callb_style_form_width').val()) + 60;
 
-        tipBlock.addClass('tip-block').prepend(
+        tipBlock.addClass('tip-block').css({
+            'width': styleFormWidth + 'px'
+        }).prepend(
             '<h3 id="tip-show"><span>{_wp("Tip for setting up")}</span></h3>' + 
             '<p>{_wp("1) To use the plugin in the Shop app switch on «Status of frontend_head hook» plugin setting and scripts are automatically loaded in your template.")}</p>' + 
             '<p>{_wp("2) To use the plugin in other apps it is necessary to switch off «Status of frontend_head hook» plugin setting and to insert in the template of your application to the end of the tag &#060;head&#062; the following code:")}</p>' + 
