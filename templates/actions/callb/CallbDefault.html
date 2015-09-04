@@ -55,10 +55,10 @@
                 <td class="short nowrap align-left" title="[`Name`]"><span>{$r.name}</span></td>
                 <td class="short nowrap align-left" title="[`Phone`]"><span>{$r.phone}</span></td>
                 {if $callb_settings.comment_status === 'on'}
-                <td class="short nowrap align-left" title="[`Comment`]"><span style="white-space: pre-wrap;">{$r.comment}</span></td>
+                <td class="short nowrap align-left" title="[`Comment`]"><span style="cursor: pointer; white-space: pre-wrap;" title="{$r.comment}">{$r.comment|truncate:100}</span></td>
                 {/if}
                 <td class="short nowrap align-left" title="[`Request date`]">{$r.create_datetime|wa_datetime:"humandatetime"}</td>
-                <td class="short nowrap align-left" title="[`Request url`]">{$r.url}</td>
+                <td class="short nowrap align-left" title="[`Request url`]">{if $r.url}<a href="{$r.url}" target="_blank">{$r.url|truncate:30}</a>{/if}</td>
                 <td class="short nowrap align-center" title="[`Request status`]">
                     <span class="human-status">{$r.human_status}</span>
                 </td>
