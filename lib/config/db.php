@@ -11,6 +11,8 @@ return array(
         'name' => array('text'),
         'phone' => array('text'),
         'status' => array('text'),
+        'url' => array('text'),
+        'comment' => array('text'),
         ':keys' => array(
             'PRIMARY' => 'id',
         ),
