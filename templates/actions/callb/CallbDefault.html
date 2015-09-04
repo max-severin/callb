@@ -18,11 +18,13 @@
                         [`Phone`]
                     </span>
                 </th>
+                {if $callb_settings.comment_status === 'on'}
                 <th>
                     <span title="[`Comment`]">
                         [`Comment`]
                     </span>
                 </th>
+                {/if}
                 <th>
                     <span title="[`Request date`]">
                         [`Request date`]
@@ -52,7 +54,9 @@
                 </td>
                 <td class="short nowrap align-left" title="[`Name`]"><span>{$r.name}</span></td>
                 <td class="short nowrap align-left" title="[`Phone`]"><span>{$r.phone}</span></td>
-                <td class="short nowrap align-left" title="[`Comment`]" style="width: 200px;"><span>{$r.comment}</span></td>
+                {if $callb_settings.comment_status === 'on'}
+                <td class="short nowrap align-left" title="[`Comment`]"><span style="white-space: pre-wrap;">{$r.comment}</span></td>
+                {/if}
                 <td class="short nowrap align-left" title="[`Request date`]">{$r.create_datetime|wa_datetime:"humandatetime"}</td>
                 <td class="short nowrap align-left" title="[`Request url`]">{$r.url}</td>
                 <td class="short nowrap align-center" title="[`Request status`]">
