@@ -28,7 +28,7 @@ Or you can install plugin from Installer app in backend.
 1) To use the plugin in the Shop app switch on «Status of frontend_head hook» plugin setting and scripts are automatically loaded in your template.
 
 2) To use the plugin in other apps it is necessary to switch off «Status of frontend_head hook» plugin setting and to insert in the template of your application to the end of the tag <head> the following code:  
-{if $wa->shop}{shopCallbPlugin::display()}{/if}
+**{if $wa->shop}{shopCallbPlugin::display()}{/if}**
 
 3) To bind the form to the html-element in the template, you must either create a new or use an existing one.
 For example, you have the template has the following element:  
@@ -38,4 +38,4 @@ Specify in the «Selector of the button of callback form» plugin setting the ne
 You can specify the sender email address (will be listed as the return address of the message) and the recipient email (to which to send messages).
 
 ## Specificity
-For the correct operation of the plugin in the current design theme needs to be connected **frontend_head** hook
+If you switch on «Status of frontend_head hook» setting, for the correct operation of the plugin in the current design theme needs to be connected **frontend_head** hook.
