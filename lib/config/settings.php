@@ -115,13 +115,13 @@ return array(
     ),
     'style_form_height' => array(
         'title'        => _wp('Form height (px)'),
-        'description'  => _wp('Value range 240-400'),
+        'description'  => _wp('Value range 240-440'),
         'placeholder'  => '300',
         'value'        => '300',
         'control_type' => waHtmlControl::CUSTOM.' '.'shopCallbPlugin::settingNumberControl',
         'options'      => array(
             'min'  => '240',
-            'max'  => '400',
+            'max'  => '440',
             'step' => '1',
         ),
     ),
