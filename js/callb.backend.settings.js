@@ -214,7 +214,7 @@ var callbBackendSettings = (function () { "use strict";
         var t = $(this);
 
         if (t.val() === 'on') {
-            addCallbForm( $('#s-plugins-content'), true );
+            addCallbForm( $('#s-plugins-content .form'), true );
         } else {
             $('.call-b-form').remove();
         }
