@@ -214,7 +214,7 @@ var callbBackendSettings = (function () { "use strict";
         var t = $(this);
 
         if (t.val() === 'on') {
-            addCallbForm( $('#s-plugins-content .form'), true );
+            addCallbForm( $('#wa-plugins-content .form'), true );
         } else {
             $('.call-b-form').remove();
         }
@@ -252,9 +252,9 @@ var callbBackendSettings = (function () { "use strict";
 
         $('#callb_shop_callb_comment_status').on('change', onCommentStatusChange);
 
-        addTipBlock( $('#s-plugins-content .form') );
+        addTipBlock( $('#wa-plugins-content .form') );
 
-        addCallbForm( $('#s-plugins-content .form') );
+        addCallbForm( $('#wa-plugins-content .form') );
 
         $(document).on('mouseenter', '.tip-block', tipInfoShow);
 

@@ -5,10 +5,11 @@
  */
 return array(
     'name' => /*_wp*/('Callback'),
-    'version' => '1.2.1',
+    'version' => '1.2.2',
     'img' => 'img/callb.png',
     'vendor' => 1020720,
     'shop_settings' => true,
+    'custom_settings' => true,
     'frontend' => true,
     'handlers' => array(
         'backend_menu'  => 'backendMenu',
