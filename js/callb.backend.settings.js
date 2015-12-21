@@ -10,7 +10,7 @@ var callbBackendSettings = (function () { "use strict";
     var
         farbtastic_url = "{$wa_url}wa-content/js/farbtastic/farbtastic.js?{$wa->version(true)}",
         htmlTagsEncode, htmlTagsDecode,
-        addCallbForm, addTipBlock, initColorPicker, setColorPickerElement, setColorPicker, onFormSubmit, changeColorPickerInputValue,
+        addCallbForm, addTipBlock, checkCommentStatus, initColorPicker, setColorPickerElement, setColorPicker, onFormSubmit, changeColorPickerInputValue,
         textBlockHtmlChange, textPlaceholderChange, textInputValueChange, styleChange, changeHandlers, onStatusChange, onCommentStatusChange, tipInfoShow, tipInfoHide,
         initModule;
     //----------------- END MODULE SCOPE VARIABLES ----------------
@@ -61,6 +61,8 @@ var callbBackendSettings = (function () { "use strict";
             );
 
             $content.after(form);
+
+            checkCommentStatus();
         }
     };
 
@@ -82,6 +84,14 @@ var callbBackendSettings = (function () { "use strict";
         );
 
         $content.after(tipBlock);
+    };
+
+    checkCommentStatus = function () {
+        var callbCommentStatus = "{if isset($callb_settings.comment_status)}{$callb_settings.comment_status}{/if}";
+
+        if (callbCommentStatus !== 'on') {
+            $('textarea[name="comment"]').parent('.call-b-input').hide();
+        }
     };
 
     initColorPicker = function (elements, init) {
@@ -286,10 +296,7 @@ var callbBackendSettings = (function () { "use strict";
 
         changeHandlers();
 
-        var callbCommentStatus = "{if isset($callb_settings.comment_status)}{$callb_settings.comment_status}{/if}";
-        if (callbCommentStatus !== 'on') {
-            $('textarea[name="comment"]').parent('.call-b-input').hide();
-        }
+        checkCommentStatus();
     };
 
     return {
