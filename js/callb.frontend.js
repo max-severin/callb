@@ -39,18 +39,18 @@ var callbFrontend = (function () { "use strict";
 			'top' : formTop+'px'
 		}).prepend(
 			'<div class="call-b-header" style="background: #{$callb_settings.style_header_background}; color: #{$callb_settings.style_header_text_color};">{$callb_settings.text_header_title}<span id="call-b-close-x">x</span></div>' +
-			'<div class="call-b-input"><input type="text" name="name" placeholder="{$callb_settings.text_name_placeholder}" value="" /></div>' +
-			'<div class="call-b-input"><input type="text" name="phone" placeholder="{$callb_settings.text_phone_placeholder}" value="" /></div>' +
+			'<div class="call-b-input"><input type="text" name="callb-name" placeholder="{$callb_settings.text_name_placeholder}" value="" /></div>' +
+			'<div class="call-b-input"><input type="text" name="callb-phone" placeholder="{$callb_settings.text_phone_placeholder}" value="" /></div>' +
             '<div class="call-b-input"><textarea name="comment" placeholder="{$callb_settings.text_comment_placeholder}"></textarea></div>' +
 			'<div class="call-b-input"><input id="call-b-submit" type="submit" value="{$callb_settings.text_submit_button}" style="background: #{$callb_settings.style_submit_background}; color: #{$callb_settings.style_submit_text_color}; height: {$callb_settings.style_submit_height}px; width: {$callb_settings.style_submit_width}px" /></div>'
 		);
 
 		$('body').prepend(form).prepend(bg);
 
-		$('.call-b-form input[name="name"]').focus();
+		$('.call-b-form input[name="callb-name"]').focus();
 
 		{if isset($callb_settings.phone_masked_input) && strlen($callb_settings.phone_masked_input) > 0}
-		$('.call-b-form input[name="phone"]').mask('{$callb_settings.phone_masked_input}');
+		$('.call-b-form input[name="callb-phone"]').mask('{$callb_settings.phone_masked_input}');
 		{/if}
 
         if (callbCommentStatus !== 'on') {
@@ -61,14 +61,14 @@ var callbFrontend = (function () { "use strict";
 	onFormSubmit = function (event) {
 		event.preventDefault();
 
-		var n = $('.call-b-input').find('input[name="name"]').val();
-		var p = $('.call-b-input').find('input[name="phone"]').val();
+		var n = $('.call-b-input').find('input[name="callb-name"]').val();
+		var p = $('.call-b-input').find('input[name="callb-phone"]').val();
 		var c = $('.call-b-input').find('textarea[name="comment"]').val();
 		var err = $('<div/>');
 		var currentUrl = window.location.href;
 
 		$('.call-b-error').remove();
-		$('.call-b-input').find('input[name="name"], input[name="phone"]').removeClass('call-b-inp-err');
+		$('.call-b-input').find('input[name="callb-name"], input[name="callb-phone"]').removeClass('call-b-inp-err');
 
 		if ( n.length > 0 && p.length > 0 ) {
 			$.post("{$callback_url}", { "name": n, "phone": p, "comment": c, "url": currentUrl }, function (response) {
@@ -89,15 +89,15 @@ var callbFrontend = (function () { "use strict";
 			}, "json");
 		} else {
 			if ( !(n.length > 0) ) {
-				$('.call-b-input').find('input[name="name"]').focus();
+				$('.call-b-input').find('input[name="callb-name"]').focus();
 			} else if ( !(p.length > 0) ) {
-				$('.call-b-input').find('input[name="phone"]').focus();
+				$('.call-b-input').find('input[name="callb-phone"]').focus();
 			}
 			if ( !(n.length > 0) ) {
-				$('.call-b-input').find('input[name="name"]').addClass('call-b-inp-err');
+				$('.call-b-input').find('input[name="callb-name"]').addClass('call-b-inp-err');
 			}
 			if ( !(p.length > 0) ) {
-				$('.call-b-input').find('input[name="phone"]').addClass('call-b-inp-err');
+				$('.call-b-input').find('input[name="callb-phone"]').addClass('call-b-inp-err');
 			}
 			err.addClass('call-b-error').text("{_wp('Complete «Name» and «Phone»')}");
 			$('.call-b-form').append( err );

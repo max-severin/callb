@@ -54,8 +54,8 @@ var callbBackendSettings = (function () { "use strict";
                 'width': styleFormWidth
             }).prepend(
                 '<div class="call-b-header" style="' + styleHeaderBackground + styleHeaderTextColor + '">' + textHeaderTitle + '<span id="call-b-close-x">x</span></div>' +
-                '<div class="call-b-input"><input type="text" name="name" placeholder="' + textNamePlaceholder + '" value="" /></div>' +
-                '<div class="call-b-input"><input type="text" name="phone" placeholder="' + textPhonePlaceholder + '" value="" /></div>' +
+                '<div class="call-b-input"><input type="text" name="callb-name" placeholder="' + textNamePlaceholder + '" value="" /></div>' +
+                '<div class="call-b-input"><input type="text" name="callb-phone" placeholder="' + textPhonePlaceholder + '" value="" /></div>' +
                 '<div class="call-b-input"><textarea name="comment" placeholder="' + textCommentPlaceholder + '"></textarea></div>' +
                 '<div class="call-b-input"><input id="call-b-submit" type="submit" value="' + textSubmitButton + '" disabled="disabled" style="' + styleSubmitBackground + styleSubmitTextColor + styleSubmitHeight + styleSubmitWidth + '" /></div>'
             );
@@ -191,8 +191,8 @@ var callbBackendSettings = (function () { "use strict";
 
     changeHandlers = function () {
         textBlockHtmlChange( $('#callb_shop_callb_text_header_title'), '.call-b-header' );
-        textPlaceholderChange( $('#callb_shop_callb_text_name_placeholder'), '.call-b-input input[name="name"]' );
-        textPlaceholderChange( $('#callb_shop_callb_text_phone_placeholder'), '.call-b-input input[name="phone"]' );
+        textPlaceholderChange( $('#callb_shop_callb_text_name_placeholder'), '.call-b-input input[name="callb-name"]' );
+        textPlaceholderChange( $('#callb_shop_callb_text_phone_placeholder'), '.call-b-input input[name="callb-phone"]' );
         textPlaceholderChange( $('#callb_shop_callb_text_comment_placeholder'), '.call-b-input textarea[name="comment"]' );
         textInputValueChange( $('#callb_shop_callb_text_submit_button'), '#call-b-submit' );
 
