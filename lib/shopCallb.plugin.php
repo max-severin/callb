@@ -69,15 +69,20 @@ class shopCallbPlugin extends shopPlugin {
         $settings = $app_settings_model->get(array('shop', 'callb'));
 
         if ( $settings['status'] === 'on' && $settings['frontend_head_status'] === 'off' ) {
+            
+            waLocale::loadByDomain(array('shop', 'callb'));
+            waSystem::pushActivePlugin('callb', 'shop');
 
             foreach ($settings as $id => $setting) {
                 $settings[$id] = addslashes(htmlspecialchars($setting));
-            }
+            }            
 
             $view = wa()->getView();
             $view->assign('callb_settings', $settings);
             $view->assign('callback_url', wa()->getRouteUrl('shop/frontend/callback/'));
             $html = $view->fetch(realpath(dirname(__FILE__)."/../").'/templates/Frontend.html');
+
+            waSystem::popActivePlugin();
 
             return $html;
 
