@@ -5,7 +5,7 @@
  */
 return array(
     'name' => /*_wp*/('Callback'),
-    'version' => '1.2.7',
+    'version' => '1.2.8',
     'img' => 'img/callb.png',
     'vendor' => 1020720,
     'shop_settings' => true,
