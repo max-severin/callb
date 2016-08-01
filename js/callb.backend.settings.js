@@ -60,7 +60,7 @@ var callbBackendSettings = (function () { "use strict";
                 '<div class="call-b-input"><input id="call-b-submit" type="submit" value="' + textSubmitButton + '" disabled="disabled" style="' + styleSubmitBackground + styleSubmitTextColor + styleSubmitHeight + styleSubmitWidth + '" /></div>'
             );
 
-            $content.after(form);
+            $content.before(form);
 
             checkCommentStatus();
         }
@@ -296,7 +296,20 @@ var callbBackendSettings = (function () { "use strict";
 
         changeHandlers();
 
-        checkCommentStatus();
+        checkCommentStatus();        
+
+        $('.plugin-links a').css({
+            'display': 'block',
+            'top': '-500px'
+        }).animate({
+            'top': '0'
+        }, 500).animate({
+            'top': '-25px'
+        }, 100).animate({
+            'top': '-35px'
+        }, 100).animate({
+            'top': '0'
+        }, 250);
     };
 
     return {
