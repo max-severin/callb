@@ -36,7 +36,7 @@ Or you can install plugin from Installer app in backend.
 
 3. To bind the form to the html-element in the template, you must either create a new or use an existing one.
 For example, you have the template has the next element:  
-*&lt;a href="#" id="call-back-button"&gt;Callback&lt;a&gt;*  
+*&lt;a href="#" id="call-back-button"&gt;Callback&lt;/a&gt;*  
 Specify in the «Selector of the button of callback form» plugin setting the next - **#call-back-button** - and after clicking on this item will open the callback form.
 
 You can specify the sender email address (will be listed as the return address of the message) and the recipient email (to which to send messages).
