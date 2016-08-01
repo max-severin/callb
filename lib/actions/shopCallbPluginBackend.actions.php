@@ -6,15 +6,13 @@
  */
 class shopCallbPluginBackendActions extends waViewActions {
 
-    protected $callb_request_limit = 10;
-
     public function defaultAction() {
         $this->setLayout(new shopCallbPluginBackendLayout());
 
     	$app_settings_model = new waAppSettingsModel();
         $settings = $app_settings_model->get(array('shop', 'callb'));
 
-    	$limit = $this->callb_request_limit;
+    	$limit = (int)$settings['callb_request_limit'];
     	$page = waRequest::get('page', 1, 'int');
     	if ($page < 1) {
             $page = 1;

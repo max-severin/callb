@@ -23,6 +23,13 @@ return array(
             'on'  => _wp('On'),
         ),
     ),
+    'callb_request_limit' => array(
+        'title'        => _wp('Requests count'),
+        'description'  => _wp('The count of requests on the plugin page in the admin panel.'),
+        'placeholder'  => '10',
+        'value'        => '10',
+        'control_type' => waHtmlControl::CUSTOM.' '.'shopCallbPlugin::settingNumberControl',
+    ),
     'show_done' => array(
         'title'        => _wp('Display done requests'),
         'description'  => _wp('When you enable this setting,<br />done requests will be displayed in the history of user requests.'),
