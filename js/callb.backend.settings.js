@@ -79,7 +79,7 @@ var callbBackendSettings = (function () { "use strict";
             '<p><b>&#123;if $wa->shop&#125;&#123;shopCallbPlugin::display()&#125;&#123;/if&#125;</b></p>' + 
             '<p>{_wp("3) To bind the form to the html-element in the template, you must either create a new or use an existing one.")}</p>' + 
             '<p>{_wp("For example, you have the template has the following element:")}<br />' + 
-            '<i>&#060;a href="#" id="call-back-button"&#062;{_wp("Callback")}&#060;a&#062;</i></p>' + 
+            '<i>&#060;a href="#" id="call-back-button"&#062;{_wp("Callback")}&#060;/a&#062;</i></p>' + 
             '<p>{_wp("Specify in the «Selector of the button of callback form» plugin setting the next - <b>#call-back-button</b> - and after clicking on this item will open the callback form.")}</p>'
         );
 

@@ -14,7 +14,6 @@ var callbFrontend = (function () { "use strict";
 	//--------------------- BEGIN DOM METHODS ---------------------
 	removeCallbForm = function () {
 		$('.call-b-bg, .call-b-form').remove();
-		$("body").css({ "overflow": "auto" });
 	};
 	//--------------------- END DOM METHODS -----------------------
 
@@ -28,8 +27,6 @@ var callbFrontend = (function () { "use strict";
 		var form = $('<form />');
 		var formTop = $(document).scrollTop() + $(window).height()/2 - '{$callb_settings.style_form_height}'/2;
 		var callbCommentStatus = "{if isset($callb_settings.comment_status)}{$callb_settings.comment_status}{/if}";
-
-		$("body").css({ "overflow": "hidden" });
 
 		bg.addClass('call-b-bg').css('height', ($(document).height())+'px');
 		form.addClass('call-b-form').css({
