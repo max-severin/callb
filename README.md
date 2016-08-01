@@ -5,7 +5,7 @@
 ![callb-settings](https://www.webasyst.com/wa-data/public/updates/img/86/1486/4847/4847.970.png)
 
 ## Description
-Callback plugin for Shop-Script 6
+Callback plugin for Shop-Script
 
 ## Features
 Shop customers can request a callback by entering name and phone number. Also they can enter comment.
