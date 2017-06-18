@@ -27,6 +27,26 @@ var callbFrontend = (function () { "use strict";
 		var form = $('<form />');
 		var formTop = $(document).scrollTop() + $(window).height()/2 - '{$callb_settings.style_form_height}'/2;
 		var callbCommentStatus = "{if isset($callb_settings.comment_status)}{$callb_settings.comment_status}{/if}";
+		var callbPrivacyStatus = "{if isset($callb_settings.privacy_status)}{$callb_settings.privacy_status}{/if}";
+		var callbPrivacyCheckboxStatus = "{if isset($callb_settings.privacy_checkbox_status)}{$callb_settings.privacy_checkbox_status}{/if}";
+		var callbPrivacyCheckboxChecked = "{if isset($callb_settings.privacy_checkbox_checked)}{$callb_settings.privacy_checkbox_checked}{/if}";
+		var callbPrivacyAgreedBlock = '';
+		var callbPrivacyAgreedCheckboxBlock = '';
+		var callbPrivacyAgreedCheckboxChecked = '';
+
+		if (callbPrivacyStatus === 'on') {
+			if (callbPrivacyCheckboxChecked === 'checked') { 
+				callbPrivacyAgreedCheckboxChecked = 'checked="checked"';
+			}
+
+			if (callbPrivacyCheckboxStatus === 'on') { 
+				callbPrivacyAgreedCheckboxBlock = '<input type="hidden" value="0" name="callb-privacy-agreed" /><input type="checkbox" value="1" name="callb-privacy-agreed" id="callb-privacy-agreed" ' + callbPrivacyAgreedCheckboxChecked + ' />';
+			}
+
+            callbPrivacyAgreedBlock = '<div class="call-b-input callb-privacy-agreed-wrapper"><label for="callb-privacy-agreed">' +
+            callbPrivacyAgreedCheckboxBlock + '<span>{$callb_settings.privacy_text}</span> <a href="{$callb_settings.privacy_link_url}" target="_blank">{$callb_settings.privacy_link_text}</a>' +
+            '</label></div>';
+        }
 
 		bg.addClass('call-b-bg').css('height', ($(document).height())+'px');
 		form.addClass('call-b-form').css({
@@ -39,6 +59,7 @@ var callbFrontend = (function () { "use strict";
 			'<div class="call-b-input"><input type="text" name="callb-name" placeholder="{$callb_settings.text_name_placeholder}" value="" /></div>' +
 			'<div class="call-b-input"><input type="text" name="callb-phone" placeholder="{$callb_settings.text_phone_placeholder}" value="" /></div>' +
             '<div class="call-b-input"><textarea name="comment" placeholder="{$callb_settings.text_comment_placeholder}"></textarea></div>' +
+            callbPrivacyAgreedBlock +
 			'<div class="call-b-input"><input id="call-b-submit" type="submit" value="{$callb_settings.text_submit_button}" style="background: #{$callb_settings.style_submit_background}; color: #{$callb_settings.style_submit_text_color}; height: {$callb_settings.style_submit_height}px; width: {$callb_settings.style_submit_width}px" /></div>'
 		);
 
