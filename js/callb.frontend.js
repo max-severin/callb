@@ -8,13 +8,26 @@
 var callbFrontend = (function () { "use strict";
 	//---------------- BEGIN MODULE SCOPE VARIABLES ---------------
 	var
-		onIdinhtmlClick, removeCallbForm, onFormSubmit, initModule;
+		onIdinhtmlClick, removeCallbForm, checkPrivacyCheckbox, onFormSubmit, initModule;
 	//----------------- END MODULE SCOPE VARIABLES ----------------
 
 	//--------------------- BEGIN DOM METHODS ---------------------
 	removeCallbForm = function () {
 		$('.call-b-bg, .call-b-form').remove();
 	};
+
+    checkPrivacyCheckbox = function () {
+		var callbPrivacyStatus = "{if isset($callb_settings.privacy_status)}{$callb_settings.privacy_status}{/if}";
+		var callbPrivacyCheckboxStatus = "{if isset($callb_settings.privacy_checkbox_status)}{$callb_settings.privacy_checkbox_status}{/if}";
+
+        if (callbPrivacyStatus === 'on' && callbPrivacyCheckboxStatus === 'on') {        	
+			if ($('#callb-privacy-agreed').is(':checked')) {
+				$('#call-b-submit').prop('disabled', false);
+			} else {
+				$('#call-b-submit').prop('disabled', true);
+			}
+        }
+    };
 	//--------------------- END DOM METHODS -----------------------
 
 	//------------------- BEGIN EVENT HANDLERS --------------------
@@ -31,8 +44,8 @@ var callbFrontend = (function () { "use strict";
 		var callbPrivacyCheckboxStatus = "{if isset($callb_settings.privacy_checkbox_status)}{$callb_settings.privacy_checkbox_status}{/if}";
 		var callbPrivacyCheckboxChecked = "{if isset($callb_settings.privacy_checkbox_checked)}{$callb_settings.privacy_checkbox_checked}{/if}";
 		var callbPrivacyAgreedBlock = '';
-		var callbPrivacyAgreedCheckboxBlock = '';
 		var callbPrivacyAgreedCheckboxChecked = '';
+		var callbPrivacyAgreedCheckboxBlock = '';
 
 		if (callbPrivacyStatus === 'on') {
 			if (callbPrivacyCheckboxChecked === 'checked') { 
@@ -64,6 +77,8 @@ var callbFrontend = (function () { "use strict";
 		);
 
 		$('body').prepend(form).prepend(bg);
+
+		checkPrivacyCheckbox();
 
 		$('.call-b-form input[name="callb-name"]').focus();
 
@@ -136,6 +151,8 @@ var callbFrontend = (function () { "use strict";
 		});
 
 		$(document).on('submit', '.call-b-form', onFormSubmit);
+
+		$(document).on('change', '#callb-privacy-agreed', checkPrivacyCheckbox);
 	};
 
 	return {
