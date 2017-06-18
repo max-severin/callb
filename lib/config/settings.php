@@ -224,11 +224,9 @@ return array(
         'value'        => '717171',
         'control_type' => waHtmlControl::CUSTOM.' '.'shopCallbPlugin::settingColorControl',
     ),
-
-
     'privacy_status' => array(
-        'title'        => _wp('Согласие на обработку персональных данных'),
-        'description'  => _wp('Включите данную настройку, чтобы добавить в форму чекбокс (галочку) о согласии на обработку персональных данных и ссылку на страницу с Политикой конфиденциальности компании.'),
+        'title'        => _wp('Consent to the personal data processing'),
+        'description'  => _wp('Enable this setting to add to the form a checkbox consent to the processing of personal data and the link to the page with the Privacy Policy of the company.'),
         'value'        => 'off',
         'control_type' => waHtmlControl::SELECT,
         'options'      => array(
@@ -237,27 +235,27 @@ return array(
         ),
     ),
     'privacy_text' => array(
-        'title'        => _wp('Текст'),
-        'placeholder'  => _wp('Нажимая на кнопку «Отправить», я даю'),
-        'value'        => _wp('Нажимая на кнопку «Отправить», я даю'),
+        'title'        => _wp('Text'),
+        'placeholder'  => _wp('Clicking on the «Send» button, I give my'),
+        'value'        => _wp('Clicking on the «Send» button, I give my'),
         'control_type' => waHtmlControl::INPUT,
     ),
     'privacy_link_text' => array(
-        'title'        => _wp('Текст ссылки'),
-        'placeholder'  => _wp('согласие на обработку персональных данных'),
-        'value'        => _wp('согласие на обработку персональных данных'),
+        'title'        => _wp('Link text'),
+        'placeholder'  => _wp('consent to the personal data processing'),
+        'value'        => _wp('consent to the personal data processing'),
         'control_type' => waHtmlControl::INPUT,
     ),
     'privacy_link_url' => array(
-        'title'        => _wp('Url ссылки'),
-        'description'  => _wp('Адрес страницы с Политикой конфиденциальности.'),
+        'title'        => _wp('Link url'),
+        'description'  => _wp('Url of the page with the Privacy Policy.'),
         'placeholder'  => '/site/privacy-policy/',
         'value'        => '/site/privacy-policy/',
         'control_type' => waHtmlControl::INPUT,
     ),
     'privacy_checkbox_status' => array(
-        'title'        => _wp('Показывать чекбокс'),
-        'description'  => _wp('Включите данную настройку, чтобы отображать чекбокс, в противном случае будет показан только текст и ссылка.'),
+        'title'        => _wp('Show checkbox'),
+        'description'  => _wp('Enable this setting to display the checkbox, otherwise it will display only the text and link.'),
         'value'        => 'on',
         'control_type' => waHtmlControl::SELECT,
         'options'      => array(
@@ -266,13 +264,13 @@ return array(
         ),
     ),
     'privacy_checkbox_checked' => array(
-        'title'        => _wp('Чекбокс по умолчанию'),
-        'description'  => _wp('Выберите состояние чекбокса по умолчанию.'),
+        'title'        => _wp('Checkbox by default'),
+        'description'  => _wp('Select the status of the checkbox by default.'),
         'value'        => 'unchecked',
         'control_type' => waHtmlControl::SELECT,
         'options'      => array(
-            'unchecked' => _wp('Не нажат'),
-            'checked'  => _wp('Нажат'),
+            'unchecked' => _wp('Unchecked'),
+            'checked'  => _wp('Checked'),
         ),
     ),
 
