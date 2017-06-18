@@ -224,4 +224,56 @@ return array(
         'value'        => '717171',
         'control_type' => waHtmlControl::CUSTOM.' '.'shopCallbPlugin::settingColorControl',
     ),
+
+
+    'privacy_status' => array(
+        'title'        => _wp('Согласие на обработку персональных данных'),
+        'description'  => _wp('Включите данную настройку, чтобы добавить в форму чекбокс (галочку) о согласии на обработку персональных данных и ссылку на страницу с Политикой конфиденциальности компании.'),
+        'value'        => 'off',
+        'control_type' => waHtmlControl::SELECT,
+        'options'      => array(
+            'off' => _wp('Off'),
+            'on'  => _wp('On'),
+        ),
+    ),
+    'privacy_text' => array(
+        'title'        => _wp('Текст'),
+        'placeholder'  => _wp('Нажимая на кнопку «Отправить», я даю'),
+        'value'        => _wp('Нажимая на кнопку «Отправить», я даю'),
+        'control_type' => waHtmlControl::INPUT,
+    ),
+    'privacy_link_text' => array(
+        'title'        => _wp('Текст ссылки'),
+        'placeholder'  => _wp('согласие на обработку персональных данных'),
+        'value'        => _wp('согласие на обработку персональных данных'),
+        'control_type' => waHtmlControl::INPUT,
+    ),
+    'privacy_link_url' => array(
+        'title'        => _wp('Url ссылки'),
+        'description'  => _wp('Адрес страницы с Политикой конфиденциальности.'),
+        'placeholder'  => '/site/privacy-policy/',
+        'value'        => '/site/privacy-policy/',
+        'control_type' => waHtmlControl::INPUT,
+    ),
+    'privacy_checkbox_status' => array(
+        'title'        => _wp('Показывать чекбокс'),
+        'description'  => _wp('Включите данную настройку, чтобы отображать чекбокс, в противном случае будет показан только текст и ссылка.'),
+        'value'        => 'on',
+        'control_type' => waHtmlControl::SELECT,
+        'options'      => array(
+            'off' => _wp('Off'),
+            'on'  => _wp('On'),
+        ),
+    ),
+    'privacy_checkbox_checked' => array(
+        'title'        => _wp('Чекбокс по умолчанию'),
+        'description'  => _wp('Выберите состояние чекбокса по умолчанию.'),
+        'value'        => 'unchecked',
+        'control_type' => waHtmlControl::SELECT,
+        'options'      => array(
+            'unchecked' => _wp('Не нажат'),
+            'checked'  => _wp('Нажат'),
+        ),
+    ),
+
 );

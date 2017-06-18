@@ -10,8 +10,8 @@ var callbBackendSettings = (function () { "use strict";
     var
         farbtastic_url = "{$wa_url}wa-content/js/farbtastic/farbtastic.js?{$wa->version(true)}",
         htmlTagsEncode, htmlTagsDecode,
-        addCallbForm, addTipBlock, checkCommentStatus, initColorPicker, setColorPickerElement, setColorPicker, onFormSubmit, changeColorPickerInputValue,
-        textBlockHtmlChange, textPlaceholderChange, textInputValueChange, styleChange, changeHandlers, onStatusChange, onCommentStatusChange, tipInfoShow, tipInfoHide,
+        addCallbForm, addTipBlock, checkCommentStatus, checkPrivacyStatus, initColorPicker, setColorPickerElement, setColorPicker, onFormSubmit, changeColorPickerInputValue,
+        textBlockHtmlChange, textAttrChange, textInputValueChange, styleChange, changeHandlers, onStatusChange, onCommentStatusChange, onPrivacyStatusChange, onPrivacyCheckboxStatusChange, tipInfoShow, tipInfoHide,
         initModule;
     //----------------- END MODULE SCOPE VARIABLES ----------------
 
@@ -39,6 +39,11 @@ var callbBackendSettings = (function () { "use strict";
         var textNamePlaceholder = htmlTagsEncode( $('#callb_shop_callb_text_name_placeholder').val() );
         var textPhonePlaceholder = htmlTagsEncode( $('#callb_shop_callb_text_phone_placeholder').val() );
         var textCommentPlaceholder = htmlTagsEncode( $('#callb_shop_callb_text_comment_placeholder').val() );
+
+        var privacyText = htmlTagsEncode( $('#callb_shop_callb_privacy_text').val() );
+        var privacyLinkText = htmlTagsEncode( $('#callb_shop_callb_privacy_link_text').val() );
+        var privacyLinkUrl = htmlTagsEncode( $('#callb_shop_callb_privacy_link_url').val() );
+
         var textSubmitButton = htmlTagsEncode( $('#callb_shop_callb_text_submit_button').val() );
         var styleSubmitBackground = 'background: #' + $('#callb_shop_callb_style_submit_background').val() + ';';
         var styleSubmitTextColor = 'color: #' + $('#callb_shop_callb_style_submit_text_color').val() + ';';
@@ -57,12 +62,17 @@ var callbBackendSettings = (function () { "use strict";
                 '<div class="call-b-input"><input type="text" name="callb-name" placeholder="' + textNamePlaceholder + '" value="" /></div>' +
                 '<div class="call-b-input"><input type="text" name="callb-phone" placeholder="' + textPhonePlaceholder + '" value="" /></div>' +
                 '<div class="call-b-input"><textarea name="comment" placeholder="' + textCommentPlaceholder + '"></textarea></div>' +
+                '<div class="call-b-input callb-privacy-agreed-wrapper"><label for="callb-privacy-agreed">' +
+                '<input type="hidden" value="0" name="callb-privacy-agreed" /><input type="checkbox" value="1" name="callb-privacy-agreed" id="callb-privacy-agreed" /><span>' + privacyText + '</span> <a href="' + privacyLinkUrl + '" target="_blank">' + privacyLinkText + '</a>' +
+                '</label> </div>' +
                 '<div class="call-b-input"><input id="call-b-submit" type="submit" value="' + textSubmitButton + '" disabled="disabled" style="' + styleSubmitBackground + styleSubmitTextColor + styleSubmitHeight + styleSubmitWidth + '" /></div>'
             );
 
             $content.before(form);
 
             checkCommentStatus();
+
+            checkPrivacyStatus();
         }
     };
 
@@ -91,6 +101,24 @@ var callbBackendSettings = (function () { "use strict";
 
         if (callbCommentStatus !== 'on') {
             $('textarea[name="comment"]').parent('.call-b-input').hide();
+        }
+    };
+
+    checkPrivacyStatus = function () {
+        var callbPrivacyStatus = "{if isset($callb_settings.privacy_status)}{$callb_settings.privacy_status}{/if}",
+            callbPrivacyCheckboxStatus = "{if isset($callb_settings.privacy_checkbox_status)}{$callb_settings.privacy_checkbox_status}{/if}",
+            callbPrivacyCheckboxChecked = "{if isset($callb_settings.privacy_checkbox_checked)}{$callb_settings.privacy_checkbox_checked}{/if}";
+
+        if (callbPrivacyStatus !== 'on') {
+            $('.callb-privacy-agreed-wrapper').hide();
+        }
+
+        if (callbPrivacyCheckboxStatus !== 'on') {
+            $('.callb-privacy-agreed-wrapper input[type=checkbox]').hide();
+        }
+
+        if (callbPrivacyCheckboxChecked === 'checked') {
+            $('.callb-privacy-agreed-wrapper input[type=checkbox]').attr('checked', 'checked');
         }
     };
 
@@ -181,9 +209,9 @@ var callbBackendSettings = (function () { "use strict";
         });
     };
 
-    textPlaceholderChange = function (el_changed, el_changing) {
+    textAttrChange = function (el_changed, el_changing, el_attr) {
         el_changed.on('change', function (){
-            $(document).find(el_changing).attr('placeholder', el_changed.val());
+            $(document).find(el_changing).attr(el_attr, el_changed.val());
         });
     };
 
@@ -201,9 +229,9 @@ var callbBackendSettings = (function () { "use strict";
 
     changeHandlers = function () {
         textBlockHtmlChange( $('#callb_shop_callb_text_header_title'), '.call-b-header' );
-        textPlaceholderChange( $('#callb_shop_callb_text_name_placeholder'), '.call-b-input input[name="callb-name"]' );
-        textPlaceholderChange( $('#callb_shop_callb_text_phone_placeholder'), '.call-b-input input[name="callb-phone"]' );
-        textPlaceholderChange( $('#callb_shop_callb_text_comment_placeholder'), '.call-b-input textarea[name="comment"]' );
+        textAttrChange( $('#callb_shop_callb_text_name_placeholder'), '.call-b-input input[name="callb-name"]', 'placeholder' );
+        textAttrChange( $('#callb_shop_callb_text_phone_placeholder'), '.call-b-input input[name="callb-phone"]', 'placeholder' );
+        textAttrChange( $('#callb_shop_callb_text_comment_placeholder'), '.call-b-input textarea[name="comment"]', 'placeholder' );
         textInputValueChange( $('#callb_shop_callb_text_submit_button'), '#call-b-submit' );
 
         styleChange($('#callb_shop_callb_style_form_width'), '.call-b-form', 'width', 'px', '');
@@ -218,6 +246,10 @@ var callbBackendSettings = (function () { "use strict";
 
         styleChange($('#callb_shop_callb_style_submit_background'), '#call-b-submit', 'background', '', '#');
         styleChange($('#callb_shop_callb_style_submit_text_color'), '#call-b-submit', 'color', '', '#');
+
+        textBlockHtmlChange( $('#callb_shop_callb_privacy_text'), '.callb-privacy-agreed-wrapper span' );
+        textBlockHtmlChange( $('#callb_shop_callb_privacy_link_text'), '.callb-privacy-agreed-wrapper a' );
+        textAttrChange( $('#callb_shop_callb_privacy_link_url'), '.callb-privacy-agreed-wrapper a', 'href' );
     };
 
     onStatusChange = function () {
@@ -237,6 +269,26 @@ var callbBackendSettings = (function () { "use strict";
             $('textarea[name="comment"]').parent('.call-b-input').show();
         } else {
             $('textarea[name="comment"]').parent('.call-b-input').hide();
+        }
+    };
+
+    onPrivacyStatusChange = function () {
+        var t = $(this);
+
+        if (t.val() === 'on') {
+            $('.callb-privacy-agreed-wrapper').show();
+        } else {
+            $('.callb-privacy-agreed-wrapper').hide();
+        }
+    };
+
+    onPrivacyCheckboxStatusChange = function () {
+        var t = $(this);
+
+        if (t.val() === 'on') {
+            $('.callb-privacy-agreed-wrapper input[type=checkbox]').show();
+        } else {
+            $('.callb-privacy-agreed-wrapper input[type=checkbox]').hide();
         }
     };
 
@@ -261,6 +313,10 @@ var callbBackendSettings = (function () { "use strict";
         $('#callb_shop_callb_status').on('change', onStatusChange);
 
         $('#callb_shop_callb_comment_status').on('change', onCommentStatusChange);
+
+        $('#callb_shop_callb_privacy_status').on('change', onPrivacyStatusChange);
+
+        $('#callb_shop_callb_privacy_checkbox_status').on('change', onPrivacyCheckboxStatusChange);
 
         addTipBlock( $('#wa-plugins-content .form') );
 
@@ -297,6 +353,8 @@ var callbBackendSettings = (function () { "use strict";
         changeHandlers();
 
         checkCommentStatus();        
+
+        checkPrivacyStatus();      
 
         $('.plugin-links a').css({
             'display': 'block',
