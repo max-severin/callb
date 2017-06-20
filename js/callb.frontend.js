@@ -8,6 +8,7 @@
 var callbFrontend = (function () { "use strict";
 	//---------------- BEGIN MODULE SCOPE VARIABLES ---------------
 	var
+		$callbackUrl, $callbSettings, $localeSettings,
 		onIdinhtmlClick, removeCallbForm, checkPrivacyCheckbox, onFormSubmit, initModule;
 	//----------------- END MODULE SCOPE VARIABLES ----------------
 
@@ -16,18 +17,15 @@ var callbFrontend = (function () { "use strict";
 		$('.call-b-bg, .call-b-form').remove();
 	};
 
-    checkPrivacyCheckbox = function () {
-		var callbPrivacyStatus = "{if isset($callb_settings.privacy_status)}{$callb_settings.privacy_status}{/if}";
-		var callbPrivacyCheckboxStatus = "{if isset($callb_settings.privacy_checkbox_status)}{$callb_settings.privacy_checkbox_status}{/if}";
-
-        if (callbPrivacyStatus === 'on' && callbPrivacyCheckboxStatus === 'on') {        	
+	checkPrivacyCheckbox = function () {
+		if ($callbSettings.privacy_status === 'on' && $callbSettings.privacy_checkbox_status === 'on') {        	
 			if ($('#callb-privacy-agreed').is(':checked')) {
 				$('#call-b-submit').prop('disabled', false);
 			} else {
 				$('#call-b-submit').prop('disabled', true);
 			}
-        }
-    };
+		}
+	};
 	//--------------------- END DOM METHODS -----------------------
 
 	//------------------- BEGIN EVENT HANDLERS --------------------
@@ -38,42 +36,38 @@ var callbFrontend = (function () { "use strict";
 
 		var bg = $('<div/>');
 		var form = $('<form />');
-		var formTop = $(document).scrollTop() + $(window).height()/2 - '{$callb_settings.style_form_height}'/2;
-		var callbCommentStatus = "{if isset($callb_settings.comment_status)}{$callb_settings.comment_status}{/if}";
-		var callbPrivacyStatus = "{if isset($callb_settings.privacy_status)}{$callb_settings.privacy_status}{/if}";
-		var callbPrivacyCheckboxStatus = "{if isset($callb_settings.privacy_checkbox_status)}{$callb_settings.privacy_checkbox_status}{/if}";
-		var callbPrivacyCheckboxChecked = "{if isset($callb_settings.privacy_checkbox_checked)}{$callb_settings.privacy_checkbox_checked}{/if}";
+		var formTop = $(document).scrollTop() + $(window).height()/2 - $callbSettings.style_form_height/2;
 		var callbPrivacyAgreedBlock = '';
 		var callbPrivacyAgreedCheckboxChecked = '';
 		var callbPrivacyAgreedCheckboxBlock = '';
 
-		if (callbPrivacyStatus === 'on') {
-			if (callbPrivacyCheckboxChecked === 'checked') { 
+		if ($callbSettings.privacy_status === 'on') {
+			if ($callbSettings.privacy_checkbox_checked === 'checked') { 
 				callbPrivacyAgreedCheckboxChecked = 'checked="checked"';
 			}
 
-			if (callbPrivacyCheckboxStatus === 'on') { 
+			if ($callbSettings.privacy_checkbox_status === 'on') { 
 				callbPrivacyAgreedCheckboxBlock = '<input type="hidden" value="0" name="callb-privacy-agreed" /><input type="checkbox" value="1" name="callb-privacy-agreed" id="callb-privacy-agreed" ' + callbPrivacyAgreedCheckboxChecked + ' />';
 			}
 
-            callbPrivacyAgreedBlock = '<div class="call-b-input callb-privacy-agreed-wrapper"><label for="callb-privacy-agreed">' +
-            callbPrivacyAgreedCheckboxBlock + '<span>{$callb_settings.privacy_text}</span> <a href="{$callb_settings.privacy_link_url}" target="_blank">{$callb_settings.privacy_link_text}</a>' +
-            '</label></div>';
-        }
+			callbPrivacyAgreedBlock = '<div class="call-b-input callb-privacy-agreed-wrapper"><label for="callb-privacy-agreed">' +
+			callbPrivacyAgreedCheckboxBlock + '<span>' + $callbSettings.privacy_text + '</span> <a href="' + $callbSettings.privacy_link_url + '" target="_blank">' + $callbSettings.privacy_link_text + '</a>' +
+			'</label></div>';
+		}
 
 		bg.addClass('call-b-bg').css('height', ($(document).height())+'px');
 		form.addClass('call-b-form').css({
-			'background': '#{$callb_settings.style_form_background}',
-			'height': '{$callb_settings.style_form_height}px',
-			'width': '{$callb_settings.style_form_width}px',
+			'background': '#' + $callbSettings.style_form_background,
+			'height': $callbSettings.style_form_height + 'px',
+			'width': $callbSettings.style_form_width + 'px',
 			'top' : formTop+'px'
 		}).prepend(
-			'<div class="call-b-header" style="background: #{$callb_settings.style_header_background}; color: #{$callb_settings.style_header_text_color};">{$callb_settings.text_header_title}<span id="call-b-close-x">x</span></div>' +
-			'<div class="call-b-input"><input type="text" name="callb-name" placeholder="{$callb_settings.text_name_placeholder}" value="" /></div>' +
-			'<div class="call-b-input"><input type="text" name="callb-phone" placeholder="{$callb_settings.text_phone_placeholder}" value="" /></div>' +
-            '<div class="call-b-input"><textarea name="comment" placeholder="{$callb_settings.text_comment_placeholder}"></textarea></div>' +
-            callbPrivacyAgreedBlock +
-			'<div class="call-b-input"><input id="call-b-submit" type="submit" value="{$callb_settings.text_submit_button}" style="background: #{$callb_settings.style_submit_background}; color: #{$callb_settings.style_submit_text_color}; height: {$callb_settings.style_submit_height}px; width: {$callb_settings.style_submit_width}px" /></div>'
+			'<div class="call-b-header" style="background: #' + $callbSettings.style_header_background + '; color: #' + $callbSettings.style_header_text_color + ';">' + $callbSettings.text_header_title + '<span id="call-b-close-x">x</span></div>' +
+			'<div class="call-b-input"><input type="text" name="callb-name" placeholder="' + $callbSettings.text_name_placeholder + '" value="" /></div>' +
+			'<div class="call-b-input"><input type="text" name="callb-phone" placeholder="' + $callbSettings.text_phone_placeholder + '" value="" /></div>' +
+			'<div class="call-b-input"><textarea name="comment" placeholder="' + $callbSettings.text_comment_placeholder + '"></textarea></div>' +
+			callbPrivacyAgreedBlock +
+			'<div class="call-b-input"><input id="call-b-submit" type="submit" value="' + $callbSettings.text_submit_button + '" style="background: #' + $callbSettings.style_submit_background + '; color: #' + $callbSettings.style_submit_text_color + '; height: ' + $callbSettings.style_submit_height + 'px; width: ' + $callbSettings.style_submit_width + 'px" /></div>'
 		);
 
 		$('body').prepend(form).prepend(bg);
@@ -82,13 +76,13 @@ var callbFrontend = (function () { "use strict";
 
 		$('.call-b-form input[name="callb-name"]').focus();
 
-		{if isset($callb_settings.phone_masked_input) && strlen($callb_settings.phone_masked_input) > 0}
-		$('.call-b-form input[name="callb-phone"]').mask('{$callb_settings.phone_masked_input}');
-		{/if}
+		if ($callbSettings.phone_masked_input.length > 0 ) {
+			$('.call-b-form input[name="callb-phone"]').mask($callbSettings.phone_masked_input);
+		}
 
-        if (callbCommentStatus !== 'on') {
-            $('textarea[name="comment"]').parent('.call-b-input').hide();
-        }
+		if ($callbSettings.comment_status !== 'on') {
+			$('textarea[name="comment"]').parent('.call-b-input').hide();
+		}
 	};
 
 	onFormSubmit = function (event) {
@@ -104,19 +98,21 @@ var callbFrontend = (function () { "use strict";
 		$('.call-b-input').find('input[name="callb-name"], input[name="callb-phone"]').removeClass('call-b-inp-err');
 
 		if ( n.length > 0 && p.length > 0 ) {
-			$.post("{$callback_url}", { "name": n, "phone": p, "comment": c, "url": currentUrl }, function (response) {
+			$.post($callbackUrl, { "name": n, "phone": p, "comment": c, "url": currentUrl }, function (response) {
+				$('.call-b-form').css('height', '290px');
+				
 				if (response.data.status === true) {
 					$('.call-b-input').remove();
 					$('.call-b-form').append(
-						'<p class="call-b-ok" style="color: #{$callb_settings.style_thanks_text_color};">{$callb_settings.text_thanks_message} ' + response.data.name + ',</p>' +
-						'<p class="call-b-ok" style="color: #{$callb_settings.style_thanks_text_color};">{$callb_settings.text_more_thanks_message}</p>' +
-						'<div class="call-b-input"><input id="call-b-close" type="button" value=\"{_wp("Close")}\" style="background: #{$callb_settings.style_close_ok_background}; height: {$callb_settings.style_submit_height}px; width: {$callb_settings.style_submit_width}px;" /></div>'
+						'<p class="call-b-ok" style="color: #' + $callbSettings.style_thanks_text_color + ';">' + $callbSettings.text_thanks_message + ' ' + response.data.name + ',</p>' +
+						'<p class="call-b-ok" style="color: #' + $callbSettings.style_thanks_text_color + ';">' + $callbSettings.text_more_thanks_message + '</p>' +
+						'<div class="call-b-input"><input id="call-b-close" type="button" value=\"' + $localeSettings.text_close + '\" style="background: #' + $callbSettings.style_close_ok_background + '; height: ' + $callbSettings.style_submit_height + 'px; width: ' + $callbSettings.style_submit_width + 'px;" /></div>'
 					);
 				} else {
 					$('.call-b-input').remove();
 					$('.call-b-form').append(
-						'<p class="call-b-ok margins">{_wp("Error occurred when sending message")}</p>' +
-						'<div class="call-b-input"><input class="call-b-close-error" id="call-b-close" type="button" value=\"{_wp("Close")}\" style="background: #{$callb_settings.style_close_error_background}; height: {$callb_settings.style_submit_height}px; width: {$callb_settings.style_submit_width}px;" /></div>'
+						'<p class="call-b-ok margins">' + $localeSettings.error_sendmail + '</p>' +
+						'<div class="call-b-input"><input class="call-b-close-error" id="call-b-close" type="button" value=\"' + $localeSettings.text_close + '\" style="background: #' + $callbSettings.style_close_error_background + '; height: ' + $callbSettings.style_submit_height + 'px; width: ' + $callbSettings.style_submit_width + 'px;" /></div>'
 					);
 				}
 			}, "json");
@@ -132,15 +128,19 @@ var callbFrontend = (function () { "use strict";
 			if ( !(p.length > 0) ) {
 				$('.call-b-input').find('input[name="callb-phone"]').addClass('call-b-inp-err');
 			}
-			err.addClass('call-b-error').text("{_wp('Complete «Name» and «Phone»')}");
+			err.addClass('call-b-error').text($localeSettings.error_name_phone);
 			$('.call-b-form').append( err );
 		}
 	};
 	//------------------- END EVENT HANDLERS ----------------------
 
 	//------------------- BEGIN PUBLIC METHODS --------------------
-	initModule = function () {		
-		$(document).on('click', '{$callb_settings.id_in_html}', onIdinhtmlClick);
+	initModule = function (callbackUrl, pluginSettings, localeSettings) {		
+		$callbackUrl    = callbackUrl;
+		$callbSettings  = pluginSettings;
+		$localeSettings = localeSettings;
+
+		$(document).on('click', $callbSettings.id_in_html, onIdinhtmlClick);
 
 		$(document).on('click', '.call-b-bg, #call-b-close-x, #call-b-close', removeCallbForm);
 
