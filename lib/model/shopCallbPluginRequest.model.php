@@ -32,8 +32,6 @@ class shopCallbPluginRequestModel extends waModel {
 
 		foreach ($callb_requests as $id => $request) {
 
-			echo '<pre>'; print_r($request); echo '</pre><hr />';
-
 			$callb_requests[$id]['human_status'] = '';
 			$callb_requests[$id]['contact_name'] = '';
 			$callb_requests[$id]['contact_email'] = '';
