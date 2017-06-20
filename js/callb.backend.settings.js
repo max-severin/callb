@@ -63,7 +63,7 @@ var callbBackendSettings = (function () { "use strict";
                 '<div class="call-b-input"><input type="text" name="callb-phone" placeholder="' + textPhonePlaceholder + '" value="" /></div>' +
                 '<div class="call-b-input"><textarea name="comment" placeholder="' + textCommentPlaceholder + '"></textarea></div>' +
                 '<div class="call-b-input callb-privacy-agreed-wrapper"><label for="callb-privacy-agreed">' +
-                '<input type="hidden" value="0" name="callb-privacy-agreed" /><input type="checkbox" value="1" name="callb-privacy-agreed" id="callb-privacy-agreed" /><span>' + privacyText + '</span> <a href="' + privacyLinkUrl + '" target="_blank">' + privacyLinkText + '</a>' +
+                '<input type="hidden" value="0" name="callb-privacy-agreed" /><input type="checkbox" value="1" name="callb-privacy-agreed" id="callb-privacy-agreed" /> <span>' + privacyText + '</span> <a href="' + privacyLinkUrl + '" target="_blank">' + privacyLinkText + '</a>' +
                 '</label> </div>' +
                 '<div class="call-b-input"><input id="call-b-submit" type="submit" value="' + textSubmitButton + '" disabled="disabled" style="' + styleSubmitBackground + styleSubmitTextColor + styleSubmitHeight + styleSubmitWidth + '" /></div>'
             );

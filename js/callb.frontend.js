@@ -47,7 +47,7 @@ var callbFrontend = (function () { "use strict";
 			}
 
 			if ($callbSettings.privacy_checkbox_status === 'on') { 
-				callbPrivacyAgreedCheckboxBlock = '<input type="hidden" value="0" name="callb-privacy-agreed" /><input type="checkbox" value="1" name="callb-privacy-agreed" id="callb-privacy-agreed" ' + callbPrivacyAgreedCheckboxChecked + ' />';
+				callbPrivacyAgreedCheckboxBlock = '<input type="hidden" value="0" name="callb-privacy-agreed" /><input type="checkbox" value="1" name="callb-privacy-agreed" id="callb-privacy-agreed" ' + callbPrivacyAgreedCheckboxChecked + ' /> ';
 			}
 
 			callbPrivacyAgreedBlock = '<div class="call-b-input callb-privacy-agreed-wrapper"><label for="callb-privacy-agreed">' +
@@ -100,7 +100,7 @@ var callbFrontend = (function () { "use strict";
 		if ( n.length > 0 && p.length > 0 ) {
 			$.post($callbackUrl, { "name": n, "phone": p, "comment": c, "url": currentUrl }, function (response) {
 				$('.call-b-form').css('height', '290px');
-				
+
 				if (response.data.status === true) {
 					$('.call-b-input').remove();
 					$('.call-b-form').append(
