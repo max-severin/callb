@@ -26,7 +26,7 @@ var callbBackendRequests = (function () { "use strict";
                     if (response.data === true) {
                         var showDone = '{$callb_settings.show_done}';
                         var newRequestCountEl = $("#wa-app #mainmenu .tabs").find('li a[href="?plugin=callb"] sup');
-                        var newRequestCountVal = parseInt(newRequestCountEl.text()) - 1;
+                        var newRequestCountVal = parseInt(newRequestCountEl.html()) - 1;
 
                         if (showDone === 'on') {
                             $(".callb-request-done[callb-request-id='"+id+"']").closest("tr").addClass('gray').find('.human-status').text("{_wp('done')}");
@@ -46,7 +46,7 @@ var callbBackendRequests = (function () { "use strict";
                         if (newRequestCountVal === 0) {
                             newRequestCountEl.remove();
                         } else {
-                            newRequestCountEl.text(newRequestCountVal);
+                            newRequestCountEl.html(newRequestCountVal);
                         }
                     }
                 }, "json");
@@ -68,7 +68,7 @@ var callbBackendRequests = (function () { "use strict";
                 $.post('?plugin=callb&action=requestdelete', { 'id': id }, function (response) {
                     if (response.data === true) {
                         var newRequestCountEl = $("#wa-app #mainmenu .tabs").find('li a[href="?plugin=callb"] sup');
-                        var newRequestCountVal = parseInt(newRequestCountEl.text()) - 1;
+                        var newRequestCountVal = parseInt(newRequestCountEl.html()) - 1;
                         
                         $(".callb-request-delete[callb-request-id='"+id+"']").closest("tr").hide(600, function () {
                             $(this).show("normal");
@@ -83,7 +83,7 @@ var callbBackendRequests = (function () { "use strict";
                         if (newRequestCountVal === 0) {
                             newRequestCountEl.remove();
                         } else {
-                            newRequestCountEl.text(newRequestCountVal);
+                            newRequestCountEl.html(newRequestCountVal);
                         }
                     }
                 }, "json");
