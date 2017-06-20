@@ -80,10 +80,14 @@ var callbBackendRequests = (function () { "use strict";
                             }
                         });
 
-                        if (newRequestCountVal === 0) {
-                            newRequestCountEl.remove();
-                        } else {
-                            newRequestCountEl.html(newRequestCountVal);
+                        if (!$(".callb-request-delete[callb-request-id='"+id+"']").closest("tr").hasClass('gray')) {
+
+                            if (newRequestCountVal === 0) {
+                                newRequestCountEl.remove();
+                            } else {
+                                newRequestCountEl.html(newRequestCountVal);
+                            }
+
                         }
                     }
                 }, "json");
