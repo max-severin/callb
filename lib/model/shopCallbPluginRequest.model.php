@@ -32,6 +32,8 @@ class shopCallbPluginRequestModel extends waModel {
 
 		foreach ($callb_requests as $id => $request) {
 
+			echo '<pre>'; print_r($request); echo '</pre><hr />';
+
 			$callb_requests[$id]['human_status'] = '';
 			$callb_requests[$id]['contact_name'] = '';
 			$callb_requests[$id]['contact_email'] = '';
@@ -54,8 +56,13 @@ class shopCallbPluginRequestModel extends waModel {
 
 			$contact = new waContact($request['contact_id']);
 
-			$callb_requests[$id]['contact_name'] = htmlspecialchars( $contact->getName() );
-			$callb_requests[$id]['contact_email'] = htmlspecialchars( $contact->get('email', 'default') );
+			if ( $contact->exists() ) {
+				$callb_requests[$id]['contact_name'] = htmlspecialchars( $contact->get('name') );
+				$callb_requests[$id]['contact_email'] = htmlspecialchars( $contact->get('email', 'default') );
+			} else {
+				$callb_requests[$id]['contact_name'] = '';
+				$callb_requests[$id]['contact_email'] = '';
+			}
 
 			$callb_requests[$id]['name'] = addslashes(htmlspecialchars( $request['name'] ));
 			$callb_requests[$id]['phone'] = addslashes(htmlspecialchars( $request['phone'] ));
